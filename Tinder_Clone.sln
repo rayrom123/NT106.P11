@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tinder_Clone", "WindowsFormsApp3\Tinder_Clone.csproj", "{6C8DE22A-7CA5-4924-827E-AD9C4139A639}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User_Entity", "User_Entity\User_Entity.csproj", "{6B28284F-C4EB-482C-8830-2BCCB7D012F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C8DE22A-7CA5-4924-827E-AD9C4139A639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C8DE22A-7CA5-4924-827E-AD9C4139A639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C8DE22A-7CA5-4924-827E-AD9C4139A639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C8DE22A-7CA5-4924-827E-AD9C4139A639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B28284F-C4EB-482C-8830-2BCCB7D012F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B28284F-C4EB-482C-8830-2BCCB7D012F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B28284F-C4EB-482C-8830-2BCCB7D012F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B28284F-C4EB-482C-8830-2BCCB7D012F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65B6F82B-21D2-43B5-B925-AD4335656159}
+	EndGlobalSection
+EndGlobal

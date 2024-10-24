@@ -1,0 +1,6 @@
+C:\Users\acer\source\repos\Tinder_Clone\User_Entity\bin\Debug\User_Entity.dll
+C:\Users\acer\source\repos\Tinder_Clone\User_Entity\bin\Debug\User_Entity.pdb
+C:\Users\acer\source\repos\Tinder_Clone\User_Entity\obj\Debug\User_Entity.csproj.AssemblyReference.cache
+C:\Users\acer\source\repos\Tinder_Clone\User_Entity\obj\Debug\User_Entity.csproj.CoreCompileInputs.cache
+C:\Users\acer\source\repos\Tinder_Clone\User_Entity\obj\Debug\User_Entity.dll
+C:\Users\acer\source\repos\Tinder_Clone\User_Entity\obj\Debug\User_Entity.pdb
