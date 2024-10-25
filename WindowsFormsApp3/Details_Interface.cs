@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Forms;
 using FireSharp.Response;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using User_Entity;
+using System.IO;
 
 namespace WindowsFormsApp3
 {
@@ -32,20 +34,40 @@ namespace WindowsFormsApp3
 
         private async void Done_button_Click(object sender, EventArgs e)
         {
+            MemoryStream ms = new MemoryStream();
+            Image_View.Image.Save(ms, ImageFormat.Jpeg);
+            byte[] data = ms.GetBuffer();
+
+            string output = Convert.ToBase64String(data);
+
             if (location_select.SelectedIndex == -1)
             {
                 MessageBox.Show("Vui lòng chọn địa điểm");
                 return;
             }
+
+            if (Image_View.Image == null)
+            {
+                MessageBox.Show("Vui lòng chọn ảnh ");
+                return;
+            }
+
             var updates = new
             {
                 Location = location_select.SelectedItem.ToString(),
                 Interests = interest_t.Text
+
+            };
+
+            var Up_Image = new Image_Class
+            {
+                Img = output
             };
 
             try
             {
                 FirebaseResponse response = await client.UpdateTaskAsync("Users/" + username_t.Text, updates);
+                FirebaseResponse Response_Image = await client.UpdateTaskAsync("Users/" + username_t.Text, Up_Image);
                 User_Entity.User_Model result = response.ResultAs<User_Entity.User_Model>();
                 MessageBox.Show("Đã thêm thành công");
             }
@@ -77,5 +99,21 @@ namespace WindowsFormsApp3
             Form login_interface = new Login_Interface();
             login_interface.Show();
         }
+
+        private void Select_Image_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select Image";
+            ofd.Filter = "Image Files(*.jpg) | *.jpg;";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                Image img = new Bitmap(ofd.FileName);
+                Image_View.Image = img.GetThumbnailImage(195, 136, null, new IntPtr());
+            }
+
+        }
+
+       
     }
 }

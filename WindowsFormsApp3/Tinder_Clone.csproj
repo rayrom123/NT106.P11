@@ -134,6 +134,7 @@
     <Compile Include="Details_Interface.Designer.cs">
       <DependentUpon>Details_Interface.cs</DependentUpon>
     </Compile>
+    <Compile Include="Image_Class.cs" />
     <Compile Include="Login_Interface.cs">
       <SubType>Form</SubType>
     </Compile>
