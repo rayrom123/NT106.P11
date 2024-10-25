@@ -13,6 +13,10 @@ namespace User_Entity
         public string Password { get; set; }
         public string FullName { get; set; }
         public int Gender { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string Interests { get; set; }
+        public string ImagePath { get; set; }
+        public string Location { get; set; }
         public User_Model() { }
         public User_Model(string username, string password)
         {
@@ -23,6 +27,14 @@ namespace User_Entity
         {
             FullName = fullName;
             Gender = gender;
+        }
+        public User_Model(string userName, string password, string fullName, int gender, DateTime dateOfBirth, string interests, string imagePath, string location)
+        : this(userName, password, fullName, gender)
+        {
+            DateOfBirth = dateOfBirth;
+            Interests = interests;
+            ImagePath = imagePath;
+            Location = location;
         }
         public string encrypt(string pass)
         {

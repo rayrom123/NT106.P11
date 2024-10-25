@@ -22,8 +22,8 @@ namespace WindowsFormsApp3
         
         public Register_Interface()
         {
-            
             InitializeComponent();
+            this.Load += new EventHandler(Register_Interface_Load);
         }
         public static IFirebaseConfig config = new FirebaseConfig
         {
@@ -58,12 +58,12 @@ namespace WindowsFormsApp3
                 }
                 if (password_t.Text != confirmpass_t.Text)
                 {
-                    MessageBox.Show("Vui tong xac thuc mat khau tai");
+                    MessageBox.Show("Vui long xac thuc mat khau tai");
                     return;
                 }
                 if (genderselect.SelectedIndex == -1)
                 {
-                    MessageBox.Show("VUi tong chon gioi tinh");
+                    MessageBox.Show("Vui long chon gioi tinh");
                     return;
                 }
 
@@ -74,6 +74,7 @@ namespace WindowsFormsApp3
                 new_user.FullName = fullname_t.Text;
                 new_user.Password = new_user.encrypt(password_t.Text.ToString());
                 new_user.UserName = username_t.Text;
+                new_user.DateOfBirth = dateTimePicker1.Value;
                 var userResponse = await client.GetTaskAsync("Users/" + username_t.Text);
 
                 if (userResponse.Body != "null")
@@ -84,11 +85,24 @@ namespace WindowsFormsApp3
                 SetResponse response = await client.SetTaskAsync("Users/" + username_t.Text, new_user);
                 User_Entity.User_Model result = response.ResultAs<User_Entity.User_Model>();
                 MessageBox.Show("Đã thêm thành công");
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Register_Interface_Load(object sender, EventArgs e)
+        {
+            dateTimePicker1.MaxDate = DateTime.Today;
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form login_interface = new Login_Interface();
+            login_interface.Show();
         }
     }
 }
