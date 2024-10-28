@@ -15,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B28284F-C4EB-482C-8830-2BCCB7D012F5}|User_Entity\\User_Entity.csproj|c:\\users\\admin\\source\\up3\\user_entity\\user_model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6B28284F-C4EB-482C-8830-2BCCB7D012F5}|User_Entity\\User_Entity.csproj|C:\\Users\\Admin\\source\\up3\\user_entity\\user_model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B28284F-C4EB-482C-8830-2BCCB7D012F5}|User_Entity\\User_Entity.csproj|solutionrelative:user_entity\\user_model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,7 +23,7 @@
       "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|c:\\users\\admin\\source\\up3\\windowsformsapp3\\image_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\up3\\windowsformsapp3\\image_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\image_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -70,8 +70,7 @@
               "RelativeToolTip": "User_Entity\\User_Model.cs",
               "ViewState": "AQIAABMAAAAAAAAAAADwvxEAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T02:49:17.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T02:49:17.913Z"
             },
             {
               "$type": "Document",
@@ -81,7 +80,7 @@
               "RelativeDocumentMoniker": "WindowsFormsApp3\\Login_Interface.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Login_Interface.cs",
               "RelativeToolTip": "WindowsFormsApp3\\Login_Interface.cs",
-              "ViewState": "AQIAAD4AAAAAAAAAAAAgwEoAAAAgAAAA",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAgwEoAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-24T16:37:15.69Z",
               "EditorCaption": ""
@@ -95,8 +94,7 @@
               "ToolTip": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Details_Interface.cs [Design]",
               "RelativeToolTip": "WindowsFormsApp3\\Details_Interface.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T17:03:29.823Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-25T17:03:29.823Z"
             },
             {
               "$type": "Document",
@@ -108,8 +106,7 @@
               "RelativeToolTip": "WindowsFormsApp3\\Details_Interface.cs",
               "ViewState": "AQIAADcAAAAAAAAAAAAcwD0AAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T17:04:15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T17:04:15Z"
             },
             {
               "$type": "Document",
@@ -120,8 +117,7 @@
               "ToolTip": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Login_Interface.cs [Design]",
               "RelativeToolTip": "WindowsFormsApp3\\Login_Interface.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T17:42:10.858Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-24T17:42:10.858Z"
             },
             {
               "$type": "Document",
@@ -133,8 +129,7 @@
               "RelativeToolTip": "WindowsFormsApp3\\Image_Class.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T02:49:38.197Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T02:49:38.197Z"
             }
           ]
         }
