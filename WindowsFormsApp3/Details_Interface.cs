@@ -25,6 +25,9 @@ namespace WindowsFormsApp3
             InitializeComponent();
             username_t.Text = dataToSend;
         }
+
+        public string Username;
+
         public static IFirebaseConfig config = new FirebaseConfig
         {
             AuthSecret = "kggHKAGWQR5afL75qkBb8jxrvkPRe6bfptpe16Ev",
@@ -55,19 +58,19 @@ namespace WindowsFormsApp3
             var updates = new
             {
                 Location = location_select.SelectedItem.ToString(),
-                Interests = interest_t.Text
-
+                Interests = interest_t.Text,
+                ImagePath = output
             };
 
-            var Up_Image = new Image_Class
-            {
-                Img = output
-            };
+            //var Up_Image = new Image_Class
+            //{
+            //    Img = output
+            //};
 
             try
             {
                 FirebaseResponse response = await client.UpdateTaskAsync("Users/" + username_t.Text, updates);
-                FirebaseResponse Response_Image = await client.UpdateTaskAsync("Users/" + username_t.Text, Up_Image);
+                //FirebaseResponse Response_Image = await client.UpdateTaskAsync("Users/" + username_t.Text, Up_Image);
                 User_Entity.User_Model result = response.ResultAs<User_Entity.User_Model>();
                 MessageBox.Show("Đã thêm thành công");
             }
@@ -95,7 +98,7 @@ namespace WindowsFormsApp3
 
         private void Back_button_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             Form login_interface = new Login_Interface();
             login_interface.Show();
         }

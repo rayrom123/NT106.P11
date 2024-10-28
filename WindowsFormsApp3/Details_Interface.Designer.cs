@@ -51,18 +51,20 @@
             // 
             // Image_View
             // 
-            this.Image_View.Location = new System.Drawing.Point(491, 212);
+            this.Image_View.Location = new System.Drawing.Point(552, 254);
+            this.Image_View.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Image_View.Name = "Image_View";
-            this.Image_View.Size = new System.Drawing.Size(195, 136);
-            this.Image_View.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Image_View.Size = new System.Drawing.Size(241, 182);
+            this.Image_View.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Image_View.TabIndex = 56;
             this.Image_View.TabStop = false;
             // 
             // Select_Image
             // 
-            this.Select_Image.Location = new System.Drawing.Point(385, 239);
+            this.Select_Image.Location = new System.Drawing.Point(438, 313);
+            this.Select_Image.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Select_Image.Name = "Select_Image";
-            this.Select_Image.Size = new System.Drawing.Size(75, 23);
+            this.Select_Image.Size = new System.Drawing.Size(84, 29);
             this.Select_Image.TabIndex = 55;
             this.Select_Image.Text = "Select image";
             this.Select_Image.UseVisualStyleBackColor = true;
@@ -71,34 +73,36 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(402, 203);
+            this.label1.Location = new System.Drawing.Point(452, 254);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 16);
+            this.label1.Size = new System.Drawing.Size(54, 20);
             this.label1.TabIndex = 54;
             this.label1.Text = "Image";
             // 
             // dateofbrith_t
             // 
-            this.dateofbrith_t.Location = new System.Drawing.Point(158, 157);
+            this.dateofbrith_t.Location = new System.Drawing.Point(178, 196);
+            this.dateofbrith_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateofbrith_t.Name = "dateofbrith_t";
             this.dateofbrith_t.ReadOnly = true;
-            this.dateofbrith_t.Size = new System.Drawing.Size(206, 22);
+            this.dateofbrith_t.Size = new System.Drawing.Size(231, 26);
             this.dateofbrith_t.TabIndex = 53;
             // 
             // gender_t
             // 
-            this.gender_t.Location = new System.Drawing.Point(481, 73);
+            this.gender_t.Location = new System.Drawing.Point(541, 91);
+            this.gender_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gender_t.Name = "gender_t";
             this.gender_t.ReadOnly = true;
-            this.gender_t.Size = new System.Drawing.Size(206, 22);
+            this.gender_t.Size = new System.Drawing.Size(231, 26);
             this.gender_t.TabIndex = 52;
             // 
             // Back_button
             // 
-            this.Back_button.Location = new System.Drawing.Point(158, 372);
+            this.Back_button.Location = new System.Drawing.Point(178, 465);
             this.Back_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Back_button.Name = "Back_button";
-            this.Back_button.Size = new System.Drawing.Size(195, 34);
+            this.Back_button.Size = new System.Drawing.Size(219, 42);
             this.Back_button.TabIndex = 51;
             this.Back_button.Text = "Back";
             this.Back_button.UseVisualStyleBackColor = true;
@@ -106,10 +110,10 @@
             // 
             // Done_button
             // 
-            this.Done_button.Location = new System.Drawing.Point(491, 372);
+            this.Done_button.Location = new System.Drawing.Point(552, 465);
             this.Done_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Done_button.Name = "Done_button";
-            this.Done_button.Size = new System.Drawing.Size(195, 34);
+            this.Done_button.Size = new System.Drawing.Size(219, 42);
             this.Done_button.TabIndex = 50;
             this.Done_button.Text = "Done";
             this.Done_button.UseVisualStyleBackColor = true;
@@ -119,18 +123,18 @@
             // 
             this.title_I.AutoSize = true;
             this.title_I.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title_I.Location = new System.Drawing.Point(258, 9);
+            this.title_I.Location = new System.Drawing.Point(290, 11);
             this.title_I.Name = "title_I";
-            this.title_I.Size = new System.Drawing.Size(266, 39);
+            this.title_I.Size = new System.Drawing.Size(311, 46);
             this.title_I.TabIndex = 49;
             this.title_I.Text = "Personal Details";
             // 
             // interest_t
             // 
-            this.interest_t.Location = new System.Drawing.Point(158, 203);
+            this.interest_t.Location = new System.Drawing.Point(178, 254);
             this.interest_t.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.interest_t.Name = "interest_t";
-            this.interest_t.Size = new System.Drawing.Size(206, 145);
+            this.interest_t.Size = new System.Drawing.Size(231, 180);
             this.interest_t.TabIndex = 48;
             this.interest_t.Text = "";
             // 
@@ -161,87 +165,90 @@
             "Huyện Củ Chi",
             "Huyện Hóc Môn",
             "Huyện Nhà Bè"});
-            this.location_select.Location = new System.Drawing.Point(481, 157);
+            this.location_select.Location = new System.Drawing.Point(541, 196);
+            this.location_select.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.location_select.Name = "location_select";
-            this.location_select.Size = new System.Drawing.Size(206, 24);
+            this.location_select.Size = new System.Drawing.Size(231, 28);
             this.location_select.TabIndex = 47;
             // 
             // Interests_I
             // 
             this.Interests_I.AutoSize = true;
-            this.Interests_I.Location = new System.Drawing.Point(48, 205);
+            this.Interests_I.Location = new System.Drawing.Point(54, 256);
             this.Interests_I.Name = "Interests_I";
-            this.Interests_I.Size = new System.Drawing.Size(57, 16);
+            this.Interests_I.Size = new System.Drawing.Size(72, 20);
             this.Interests_I.TabIndex = 46;
             this.Interests_I.Text = "Interests";
             // 
             // location_I
             // 
             this.location_I.AutoSize = true;
-            this.location_I.Location = new System.Drawing.Point(402, 160);
+            this.location_I.Location = new System.Drawing.Point(452, 200);
             this.location_I.Name = "location_I";
-            this.location_I.Size = new System.Drawing.Size(58, 16);
+            this.location_I.Size = new System.Drawing.Size(70, 20);
             this.location_I.TabIndex = 45;
             this.location_I.Text = "Location";
             // 
             // dateofbirth_I
             // 
             this.dateofbirth_I.AutoSize = true;
-            this.dateofbirth_I.Location = new System.Drawing.Point(48, 160);
+            this.dateofbirth_I.Location = new System.Drawing.Point(54, 200);
             this.dateofbirth_I.Name = "dateofbirth_I";
-            this.dateofbirth_I.Size = new System.Drawing.Size(79, 16);
+            this.dateofbirth_I.Size = new System.Drawing.Size(99, 20);
             this.dateofbirth_I.TabIndex = 44;
             this.dateofbirth_I.Text = "Date of Birth";
             // 
             // fullname_t
             // 
-            this.fullname_t.Location = new System.Drawing.Point(158, 114);
+            this.fullname_t.Location = new System.Drawing.Point(178, 142);
+            this.fullname_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fullname_t.Name = "fullname_t";
             this.fullname_t.ReadOnly = true;
-            this.fullname_t.Size = new System.Drawing.Size(528, 22);
+            this.fullname_t.Size = new System.Drawing.Size(594, 26);
             this.fullname_t.TabIndex = 43;
             // 
             // username_t
             // 
-            this.username_t.Location = new System.Drawing.Point(158, 73);
+            this.username_t.Location = new System.Drawing.Point(178, 91);
+            this.username_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.username_t.Name = "username_t";
             this.username_t.ReadOnly = true;
-            this.username_t.Size = new System.Drawing.Size(206, 22);
+            this.username_t.Size = new System.Drawing.Size(231, 26);
             this.username_t.TabIndex = 42;
             // 
             // gender_l
             // 
             this.gender_l.AutoSize = true;
-            this.gender_l.Location = new System.Drawing.Point(402, 78);
+            this.gender_l.Location = new System.Drawing.Point(452, 98);
             this.gender_l.Name = "gender_l";
-            this.gender_l.Size = new System.Drawing.Size(52, 16);
+            this.gender_l.Size = new System.Drawing.Size(63, 20);
             this.gender_l.TabIndex = 41;
             this.gender_l.Text = "Gender";
             // 
             // fullname_l
             // 
             this.fullname_l.AutoSize = true;
-            this.fullname_l.Location = new System.Drawing.Point(48, 116);
+            this.fullname_l.Location = new System.Drawing.Point(54, 145);
             this.fullname_l.Name = "fullname_l";
-            this.fullname_l.Size = new System.Drawing.Size(68, 16);
+            this.fullname_l.Size = new System.Drawing.Size(80, 20);
             this.fullname_l.TabIndex = 40;
             this.fullname_l.Text = "Full Name";
             // 
             // username_l
             // 
             this.username_l.AutoSize = true;
-            this.username_l.Location = new System.Drawing.Point(48, 76);
+            this.username_l.Location = new System.Drawing.Point(54, 95);
             this.username_l.Name = "username_l";
-            this.username_l.Size = new System.Drawing.Size(76, 16);
+            this.username_l.Size = new System.Drawing.Size(89, 20);
             this.username_l.TabIndex = 39;
             this.username_l.Text = "User Name";
             // 
             // Details_Interface
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(734, 414);
+            this.ClientSize = new System.Drawing.Size(826, 518);
             this.Controls.Add(this.Image_View);
             this.Controls.Add(this.Select_Image);
             this.Controls.Add(this.label1);

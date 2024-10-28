@@ -45,7 +45,6 @@
             this.user_name.Size = new System.Drawing.Size(89, 20);
             this.user_name.TabIndex = 0;
             this.user_name.Text = "User Name";
-            this.user_name.Click += new System.EventHandler(this.label1_Click);
             // 
             // password
             // 
@@ -96,15 +95,16 @@
             this.username_t.Name = "username_t";
             this.username_t.Size = new System.Drawing.Size(390, 26);
             this.username_t.TabIndex = 5;
-            this.username_t.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // password_t
             // 
             this.password_t.Location = new System.Drawing.Point(267, 130);
             this.password_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.password_t.Name = "password_t";
+            this.password_t.PasswordChar = '*';
             this.password_t.Size = new System.Drawing.Size(390, 26);
             this.password_t.TabIndex = 6;
+            this.password_t.TextChanged += new System.EventHandler(this.password_t_TextChanged);
             // 
             // Login_Interface
             // 

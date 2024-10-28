@@ -26,26 +26,13 @@ namespace WindowsFormsApp3
             BasePath = "https://tinder-e074f-default-rtdb.firebaseio.com/"
         };
         IFirebaseClient client = new FirebaseClient(config);
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Register_button_Click(object sender, EventArgs e)
+        private void Register_button_Click(object sender, EventArgs e) // hiển thị form đăng ký
         {
             var frm = new Register_Interface();
             this.Hide();
             frm.ShowDialog();
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private async void Login_button_Click(object sender, EventArgs e)
+        private async void Login_button_Click(object sender, EventArgs e) // tính năng nút login
         {
             try
             {
@@ -60,13 +47,13 @@ namespace WindowsFormsApp3
                     return;
                 }
 
-                var userResponse = await client.GetTaskAsync("Users/" + username_t.Text);
+                var userResponse = await client.GetTaskAsync("Users/" + username_t.Text); // lấy thông tin người dùng từ textbox rồi so sánh với dữ liệu trên firebase
                 if (userResponse == null || userResponse.Body == "null")
                 {
                     MessageBox.Show("Tài khoản không tồn tại");
                     return;
                 }
-                var user = userResponse.ResultAs<User_Entity.User_Model>();
+                var user = userResponse.ResultAs<User_Entity.User_Model>(); // lấy dữ liệu thông tin người dùng theo class user_model
 
                 if (user == null)
                 {
@@ -78,13 +65,21 @@ namespace WindowsFormsApp3
                 {
                     MessageBox.Show("Mật khẩu không chính xác");
                     return;
-                }
-
-                MessageBox.Show("Đăng nhập thành công");
+                }                
+                    MessageBox.Show("Đăng nhập thành công");                
                 string dataToSend = username_t.Text;
-                var formttcn = new Details_Interface(dataToSend);
-                this.Hide();
-                formttcn.ShowDialog();
+                
+                if(user.Location == null || user.ImagePath == string.Empty)
+                {
+                    var formttcn = new Details_Interface(dataToSend);
+                    this.Hide();
+                    formttcn.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show($"Helo hehe {user.UserName} menu o day");
+                }    
+               
             }
             catch (Exception ex)
             {
@@ -92,9 +87,14 @@ namespace WindowsFormsApp3
             }
         }
 
-        private void Cancel_button_Click(object sender, EventArgs e)
+        private void Cancel_button_Click(object sender, EventArgs e) // tính năng nút cancel
         {
-            this.Close();
+            Application.Exit();
+        }
+
+        private void password_t_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
