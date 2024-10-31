@@ -26,12 +26,18 @@ namespace WindowsFormsApp3
             BasePath = "https://tinder-e074f-default-rtdb.firebaseio.com/"
         };
         IFirebaseClient client = new FirebaseClient(config);
+
+
+
+       
+
         private void Register_button_Click(object sender, EventArgs e) // hiển thị form đăng ký
         {
             var frm = new Register_Interface();
             this.Hide();
             frm.ShowDialog();
         }
+
         private async void Login_button_Click(object sender, EventArgs e) // tính năng nút login
         {
             try
@@ -65,11 +71,11 @@ namespace WindowsFormsApp3
                 {
                     MessageBox.Show("Mật khẩu không chính xác");
                     return;
-                }                
-                    MessageBox.Show("Đăng nhập thành công");                
+                }
+                MessageBox.Show("Đăng nhập thành công");
                 string dataToSend = username_t.Text;
-                
-                if(user.Location == null || user.ImagePath == string.Empty)
+
+                if (user.Location == null || user.ImagePath == string.Empty)
                 {
                     var formttcn = new Details_Interface(dataToSend);
                     this.Hide();
@@ -78,23 +84,19 @@ namespace WindowsFormsApp3
                 else
                 {
                     MessageBox.Show($"Helo hehe {user.UserName} menu o day");
-                }    
-               
+                }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
+
         }
 
-        private void Cancel_button_Click(object sender, EventArgs e) // tính năng nút cancel
-        {
-            Application.Exit();
-        }
-
-        private void password_t_TextChanged(object sender, EventArgs e)
-        {
-
+        private void Cancel_button_Click(object sender, EventArgs e)
+        {            
+                Application.Exit();
         }
     }
 }

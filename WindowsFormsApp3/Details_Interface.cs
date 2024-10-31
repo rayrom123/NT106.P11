@@ -62,11 +62,6 @@ namespace WindowsFormsApp3
                 ImagePath = output
             };
 
-            //var Up_Image = new Image_Class
-            //{
-            //    Img = output
-            //};
-
             try
             {
                 FirebaseResponse response = await client.UpdateTaskAsync("Users/" + username_t.Text, updates);
@@ -87,8 +82,8 @@ namespace WindowsFormsApp3
                 var userResponse = await client.GetTaskAsync("Users/" + username_t.Text);
                 var userData = userResponse.ResultAs<User_Entity.User_Model>();
                 fullname_t.Text = userData.FullName;
-                gender_t.Text = userData.Gender == 1 ? "Male" : "Female";
-                dateofbrith_t.Text = userData.DateOfBirth.ToString("dd/MM/yyyy");
+                gender_t.Text = userData.Gender == 0 ? "Male" : "Female";
+                dateofbirth_t.Text = userData.DateOfBirth.ToString("dd/MM/yyyy");
             }
             catch (Exception ex)
             {

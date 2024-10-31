@@ -23,7 +23,6 @@ namespace WindowsFormsApp3
         public Register_Interface()
         {
             InitializeComponent();
-            this.Load += new EventHandler(Register_Interface_Load);
         }
         public static IFirebaseConfig config = new FirebaseConfig
         {
@@ -74,7 +73,7 @@ namespace WindowsFormsApp3
                 new_user.FullName = fullname_t.Text;
                 new_user.Password = new_user.encrypt(password_t.Text.ToString());
                 new_user.UserName = username_t.Text;
-                new_user.DateOfBirth = dateTimePicker1.Value;
+                new_user.DateOfBirth = dateTimePicker1.Value.AddDays(1);  // guna datetime bi loi lay gia tri hom qua nen + 1 len
                 var userResponse = await client.GetTaskAsync("Users/" + username_t.Text);
 
                 if (userResponse.Body != "null")
@@ -86,6 +85,8 @@ namespace WindowsFormsApp3
                 User_Entity.User_Model result = response.ResultAs<User_Entity.User_Model>();
                 MessageBox.Show("Đã thêm thành công");
                 this.Close();
+                Form login_interface = new Login_Interface();
+                login_interface.Show();
             }
             catch (Exception ex)
             {
@@ -93,10 +94,6 @@ namespace WindowsFormsApp3
             }
         }
 
-        private void Register_Interface_Load(object sender, EventArgs e)
-        {
-            dateTimePicker1.MaxDate = DateTime.Today;
-        }
 
         private void Cancel_Click(object sender, EventArgs e)
         {

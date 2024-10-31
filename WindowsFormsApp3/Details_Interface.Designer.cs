@@ -28,36 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Image_View = new System.Windows.Forms.PictureBox();
+            this.components = new System.ComponentModel.Container();
             this.Select_Image = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateofbrith_t = new System.Windows.Forms.TextBox();
-            this.gender_t = new System.Windows.Forms.TextBox();
             this.Back_button = new System.Windows.Forms.Button();
             this.Done_button = new System.Windows.Forms.Button();
             this.title_I = new System.Windows.Forms.Label();
-            this.interest_t = new System.Windows.Forms.RichTextBox();
             this.location_select = new System.Windows.Forms.ComboBox();
             this.Interests_I = new System.Windows.Forms.Label();
             this.location_I = new System.Windows.Forms.Label();
             this.dateofbirth_I = new System.Windows.Forms.Label();
             this.fullname_t = new System.Windows.Forms.TextBox();
-            this.username_t = new System.Windows.Forms.TextBox();
             this.gender_l = new System.Windows.Forms.Label();
             this.fullname_l = new System.Windows.Forms.Label();
             this.username_l = new System.Windows.Forms.Label();
+            this.interest_t = new System.Windows.Forms.RichTextBox();
+            this.dateofbirth_t = new System.Windows.Forms.TextBox();
+            this.gender_t = new System.Windows.Forms.TextBox();
+            this.username_t = new System.Windows.Forms.TextBox();
+            this.Image_View = new System.Windows.Forms.PictureBox();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Image_View)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Image_View
-            // 
-            this.Image_View.Location = new System.Drawing.Point(552, 254);
-            this.Image_View.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Image_View.Name = "Image_View";
-            this.Image_View.Size = new System.Drawing.Size(241, 182);
-            this.Image_View.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Image_View.TabIndex = 56;
-            this.Image_View.TabStop = false;
             // 
             // Select_Image
             // 
@@ -78,24 +70,6 @@
             this.label1.Size = new System.Drawing.Size(54, 20);
             this.label1.TabIndex = 54;
             this.label1.Text = "Image";
-            // 
-            // dateofbrith_t
-            // 
-            this.dateofbrith_t.Location = new System.Drawing.Point(178, 196);
-            this.dateofbrith_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateofbrith_t.Name = "dateofbrith_t";
-            this.dateofbrith_t.ReadOnly = true;
-            this.dateofbrith_t.Size = new System.Drawing.Size(231, 26);
-            this.dateofbrith_t.TabIndex = 53;
-            // 
-            // gender_t
-            // 
-            this.gender_t.Location = new System.Drawing.Point(541, 91);
-            this.gender_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gender_t.Name = "gender_t";
-            this.gender_t.ReadOnly = true;
-            this.gender_t.Size = new System.Drawing.Size(231, 26);
-            this.gender_t.TabIndex = 52;
             // 
             // Back_button
             // 
@@ -122,21 +96,12 @@
             // title_I
             // 
             this.title_I.AutoSize = true;
-            this.title_I.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title_I.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title_I.Location = new System.Drawing.Point(290, 11);
             this.title_I.Name = "title_I";
-            this.title_I.Size = new System.Drawing.Size(311, 46);
+            this.title_I.Size = new System.Drawing.Size(327, 46);
             this.title_I.TabIndex = 49;
             this.title_I.Text = "Personal Details";
-            // 
-            // interest_t
-            // 
-            this.interest_t.Location = new System.Drawing.Point(178, 254);
-            this.interest_t.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.interest_t.Name = "interest_t";
-            this.interest_t.Size = new System.Drawing.Size(231, 180);
-            this.interest_t.TabIndex = 48;
-            this.interest_t.Text = "";
             // 
             // location_select
             // 
@@ -207,15 +172,6 @@
             this.fullname_t.Size = new System.Drawing.Size(594, 26);
             this.fullname_t.TabIndex = 43;
             // 
-            // username_t
-            // 
-            this.username_t.Location = new System.Drawing.Point(178, 91);
-            this.username_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.username_t.Name = "username_t";
-            this.username_t.ReadOnly = true;
-            this.username_t.Size = new System.Drawing.Size(231, 26);
-            this.username_t.TabIndex = 42;
-            // 
             // gender_l
             // 
             this.gender_l.AutoSize = true;
@@ -243,16 +199,67 @@
             this.username_l.TabIndex = 39;
             this.username_l.Text = "User Name";
             // 
+            // interest_t
+            // 
+            this.interest_t.Location = new System.Drawing.Point(178, 254);
+            this.interest_t.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.interest_t.Name = "interest_t";
+            this.interest_t.Size = new System.Drawing.Size(231, 180);
+            this.interest_t.TabIndex = 48;
+            this.interest_t.Text = "";
+            // 
+            // dateofbirth_t
+            // 
+            this.dateofbirth_t.Location = new System.Drawing.Point(178, 196);
+            this.dateofbirth_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateofbirth_t.Name = "dateofbirth_t";
+            this.dateofbirth_t.ReadOnly = true;
+            this.dateofbirth_t.Size = new System.Drawing.Size(231, 26);
+            this.dateofbirth_t.TabIndex = 53;
+            // 
+            // gender_t
+            // 
+            this.gender_t.Location = new System.Drawing.Point(541, 91);
+            this.gender_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gender_t.Name = "gender_t";
+            this.gender_t.ReadOnly = true;
+            this.gender_t.Size = new System.Drawing.Size(231, 26);
+            this.gender_t.TabIndex = 52;
+            // 
+            // username_t
+            // 
+            this.username_t.Location = new System.Drawing.Point(178, 91);
+            this.username_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.username_t.Name = "username_t";
+            this.username_t.ReadOnly = true;
+            this.username_t.Size = new System.Drawing.Size(231, 26);
+            this.username_t.TabIndex = 42;
+            // 
+            // Image_View
+            // 
+            this.Image_View.Location = new System.Drawing.Point(552, 254);
+            this.Image_View.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Image_View.Name = "Image_View";
+            this.Image_View.Size = new System.Drawing.Size(241, 182);
+            this.Image_View.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Image_View.TabIndex = 56;
+            this.Image_View.TabStop = false;
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.TargetControl = this;
+            // 
             // Details_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.Pink;
             this.ClientSize = new System.Drawing.Size(826, 518);
             this.Controls.Add(this.Image_View);
             this.Controls.Add(this.Select_Image);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateofbrith_t);
+            this.Controls.Add(this.dateofbirth_t);
             this.Controls.Add(this.gender_t);
             this.Controls.Add(this.Back_button);
             this.Controls.Add(this.Done_button);
@@ -267,8 +274,10 @@
             this.Controls.Add(this.gender_l);
             this.Controls.Add(this.fullname_l);
             this.Controls.Add(this.username_l);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Details_Interface";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Details_Interface";
             this.Load += new System.EventHandler(this.Details_Interface_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Image_View)).EndInit();
@@ -278,24 +287,24 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox Image_View;
         private System.Windows.Forms.Button Select_Image;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox dateofbrith_t;
-        private System.Windows.Forms.TextBox gender_t;
         private System.Windows.Forms.Button Back_button;
         private System.Windows.Forms.Button Done_button;
         private System.Windows.Forms.Label title_I;
-        private System.Windows.Forms.RichTextBox interest_t;
         private System.Windows.Forms.ComboBox location_select;
         private System.Windows.Forms.Label Interests_I;
         private System.Windows.Forms.Label location_I;
         private System.Windows.Forms.Label dateofbirth_I;
         private System.Windows.Forms.TextBox fullname_t;
-        private System.Windows.Forms.TextBox username_t;
         private System.Windows.Forms.Label gender_l;
         private System.Windows.Forms.Label fullname_l;
         private System.Windows.Forms.Label username_l;
+        private System.Windows.Forms.RichTextBox interest_t;
+        private System.Windows.Forms.TextBox dateofbirth_t;
+        private System.Windows.Forms.TextBox gender_t;
+        private System.Windows.Forms.TextBox username_t;
+        private System.Windows.Forms.PictureBox Image_View;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }
