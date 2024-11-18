@@ -20,6 +20,7 @@ namespace WindowsFormsApp3
         {
             InitializeComponent();
         }
+        public string username;
         public static IFirebaseConfig config = new FirebaseConfig
         {
             AuthSecret = "kggHKAGWQR5afL75qkBb8jxrvkPRe6bfptpe16Ev",
@@ -73,17 +74,23 @@ namespace WindowsFormsApp3
                     return;
                 }
                 MessageBox.Show("Đăng nhập thành công");
-                string dataToSend = username_t.Text;
+                username = username_t.Text;
 
                 if (user.Location == null || user.ImagePath == string.Empty)
                 {
-                    var formttcn = new Details_Interface(dataToSend);
-                    this.Hide();
+                    var formttcn = new Details_Interface();
+                    formttcn.username = username;
+                    this.Hide();                    
                     formttcn.ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show($"Helo hehe {user.UserName} menu o day");
+                    var frm_menu = new Menu();
+                    frm_menu.username = username;
+                    this.Hide();
+                    frm_menu.ShowDialog();
+
+                    
                 }
 
             }

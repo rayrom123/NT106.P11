@@ -77,6 +77,7 @@
             this.username_t.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.username_t.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.username_t.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.username_t.ForeColor = System.Drawing.Color.Black;
             this.username_t.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.username_t.IconLeft = ((System.Drawing.Image)(resources.GetObject("username_t.IconLeft")));
             this.username_t.Location = new System.Drawing.Point(255, 91);
@@ -100,6 +101,7 @@
             this.password_t.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.password_t.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.password_t.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.password_t.ForeColor = System.Drawing.Color.Black;
             this.password_t.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.password_t.IconLeft = ((System.Drawing.Image)(resources.GetObject("password_t.IconLeft")));
             this.password_t.Location = new System.Drawing.Point(255, 168);

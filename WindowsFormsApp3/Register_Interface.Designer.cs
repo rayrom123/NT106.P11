@@ -142,6 +142,7 @@
             this.username_t.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.username_t.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.username_t.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.username_t.ForeColor = System.Drawing.Color.Black;
             this.username_t.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.username_t.Location = new System.Drawing.Point(219, 71);
             this.username_t.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -164,6 +165,7 @@
             this.fullname_t.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.fullname_t.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.fullname_t.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.fullname_t.ForeColor = System.Drawing.Color.Black;
             this.fullname_t.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.fullname_t.Location = new System.Drawing.Point(219, 132);
             this.fullname_t.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -186,6 +188,7 @@
             this.confirmpass_t.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.confirmpass_t.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.confirmpass_t.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.confirmpass_t.ForeColor = System.Drawing.Color.Black;
             this.confirmpass_t.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.confirmpass_t.Location = new System.Drawing.Point(219, 254);
             this.confirmpass_t.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -208,6 +211,7 @@
             this.password_t.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.password_t.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.password_t.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.password_t.ForeColor = System.Drawing.Color.Black;
             this.password_t.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.password_t.Location = new System.Drawing.Point(219, 193);
             this.password_t.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

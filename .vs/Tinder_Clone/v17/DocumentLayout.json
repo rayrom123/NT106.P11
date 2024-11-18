@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\source\\up3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|c:\\users\\admin\\source\\up3\\windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\up3\\windowsformsapp3\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\up3\\windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\up3\\windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\up3\\windowsformsapp3\\register_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\register_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|c:\\users\\admin\\source\\up3\\windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\up3\\windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|c:\\users\\admin\\source\\up3\\windowsformsapp3\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,45 +54,32 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Menu.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp3\\Menu.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Menu.cs",
+              "RelativeToolTip": "WindowsFormsApp3\\Menu.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAAAEEAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T16:59:40.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Login_Interface.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Login_Interface.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp3\\Login_Interface.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Login_Interface.cs",
-              "RelativeToolTip": "WindowsFormsApp3\\Login_Interface.cs",
-              "ViewState": "AQIAADQAAAAAAAAAAAAmwCoAAAAMAAAA",
+              "Title": "Menu.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Menu.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp3\\Menu.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Menu.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp3\\Menu.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T02:42:28.828Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Details_Interface.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Details_Interface.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp3\\Details_Interface.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Details_Interface.cs",
-              "RelativeToolTip": "WindowsFormsApp3\\Details_Interface.cs",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAcwGYAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T02:38:19.842Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Register_Interface.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Register_Interface.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp3\\Register_Interface.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Register_Interface.cs [Design]",
-              "RelativeToolTip": "WindowsFormsApp3\\Register_Interface.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T17:09:19.054Z",
+              "WhenOpened": "2024-11-07T16:10:13.38Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Login_Interface.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Login_Interface.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp3\\Login_Interface.cs",
@@ -108,15 +91,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Details_Interface.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "Details_Interface.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Details_Interface.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp3\\Details_Interface.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Details_Interface.cs [Design]",
-              "RelativeToolTip": "WindowsFormsApp3\\Details_Interface.cs [Design]",
+              "ToolTip": "C:\\Users\\Admin\\source\\up3\\WindowsFormsApp3\\Details_Interface.cs",
+              "RelativeToolTip": "WindowsFormsApp3\\Details_Interface.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAYwEUAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T17:03:29.823Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-07T16:58:11.906Z",
+              "EditorCaption": ""
             }
           ]
         }

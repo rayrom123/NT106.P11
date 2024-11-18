@@ -146,6 +146,12 @@
     <Compile Include="Login_Interface.Designer.cs">
       <DependentUpon>Login_Interface.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register_Interface.cs">
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Interface.resx">
       <DependentUpon>Login_Interface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
