@@ -17,16 +17,23 @@ namespace User_Entity
         public string Interests { get; set; }
         public string ImagePath { get; set; }
         public string Location { get; set; }
+        public string MatchList { get; set; }
+        public string DislikeList {  get; set; }
+
+        public 
+
         public User_Model() { }
         public User_Model(string username, string password)
         {
             this.UserName = username;
             this.Password = password;
+
         }
         public User_Model(string userName, string password, string fullName, int gender) : this(userName, password)
         {
             FullName = fullName;
             Gender = gender;
+
         }
         public User_Model(string userName, string password, string fullName, int gender, DateTime dateOfBirth, string interests, string imagePath, string location)
         : this(userName, password, fullName, gender)
@@ -35,6 +42,12 @@ namespace User_Entity
             Interests = interests;
             ImagePath = imagePath;
             Location = location;
+            
+        }
+        public User_Model(string userName, string password, string fullName, int gender, DateTime dateOfBirth, string interests, string imagePath, string location, string matchList)
+            : this(userName, password, fullName, gender, dateOfBirth, interests, imagePath, location)
+        {
+            MatchList = matchList;
         }
         public string encrypt(string pass)
         {
@@ -51,4 +64,4 @@ namespace User_Entity
         }
 
     }
-}
+};
