@@ -11,6 +11,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.IO;
+using System.Web.UI.WebControls;
+using System.Net.Sockets;
+using System.Threading;
 
 namespace WindowsFormsApp3
 {
@@ -19,26 +23,46 @@ namespace WindowsFormsApp3
         public Login_Interface()
         {
             InitializeComponent();
+            StartConnection();
         }
         public string username;
-        public static IFirebaseConfig config = new FirebaseConfig
-        {
-            AuthSecret = "kggHKAGWQR5afL75qkBb8jxrvkPRe6bfptpe16Ev",
-            BasePath = "https://tinder-e074f-default-rtdb.firebaseio.com/"
-        };
-        IFirebaseClient client = new FirebaseClient(config);
-
-
-
-       
-
         private void Register_button_Click(object sender, EventArgs e) // hiển thị form đăng ký
         {
             var frm = new Register_Interface();
             this.Hide();
             frm.ShowDialog();
         }
-
+        public bool isSuccess = false;
+        private TcpClient user;
+        private NetworkStream stream;
+        private void StartConnection()
+        {
+            try
+            {
+                user = new TcpClient("127.0.0.1", 8888);
+                stream = user.GetStream();
+                Thread listenThread = new Thread(ListenForMessages);
+                listenThread.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error connecting to server: {ex.Message}");
+            }
+        }
+        private void ListenForMessages()
+        {
+            byte[] buffer = new byte[256];
+            int bytesRead;
+            while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0) 
+            {
+                string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                Invoke((MethodInvoker)delegate
+                {
+                    MessageBox.Show(message);
+                    isSuccess = true;
+                });
+            }
+        }
         private async void Login_button_Click(object sender, EventArgs e) // tính năng nút login
         {
             try
@@ -53,30 +77,13 @@ namespace WindowsFormsApp3
                     MessageBox.Show("Mật khẩu không được bỏ trống");
                     return;
                 }
-
-                var userResponse = await client.GetTaskAsync("Users/" + username_t.Text); // lấy thông tin người dùng từ textbox rồi so sánh với dữ liệu trên firebase
-                if (userResponse == null || userResponse.Body == "null")
+                if (user != null && stream != null)
                 {
-                    MessageBox.Show("Tài khoản không tồn tại");
-                    return;
+                    string message = $"Login:{username_t.Text}:{password_t.Text}\n";
+                    byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
+                    stream.Write(messageBuffer, 0, messageBuffer.Length);
                 }
-                var user = userResponse.ResultAs<User_Entity.User_Model>(); // lấy dữ liệu thông tin người dùng theo class user_model
-
-                if (user == null)
-                {
-                    MessageBox.Show("Không thể lấy thông tin người dùng");
-                    return;
-                }
-
-                if (user.Password != user.encrypt(password_t.Text))
-                {
-                    MessageBox.Show("Mật khẩu không chính xác");
-                    return;
-                }
-                MessageBox.Show("Đăng nhập thành công");
-                username = username_t.Text;
-
-                if (user.Location == null || user.ImagePath == string.Empty)
+                if (isSuccess)
                 {
                     var formttcn = new Details_Interface();
                     formttcn.username = username;
@@ -89,8 +96,6 @@ namespace WindowsFormsApp3
                     frm_menu.username = username;
                     this.Hide();
                     frm_menu.ShowDialog();
-
-                    
                 }
 
             }

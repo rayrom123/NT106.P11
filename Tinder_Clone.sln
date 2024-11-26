@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tinder_Clone", "WindowsForm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User_Entity", "User_Entity\User_Entity.csproj", "{6B28284F-C4EB-482C-8830-2BCCB7D012F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sever", "WindowsFormsApp1\Sever.csproj", "{B5F444AB-0FF4-42FF-986A-62FF535967A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6B28284F-C4EB-482C-8830-2BCCB7D012F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B28284F-C4EB-482C-8830-2BCCB7D012F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B28284F-C4EB-482C-8830-2BCCB7D012F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5F444AB-0FF4-42FF-986A-62FF535967A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F444AB-0FF4-42FF-986A-62FF535967A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F444AB-0FF4-42FF-986A-62FF535967A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F444AB-0FF4-42FF-986A-62FF535967A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

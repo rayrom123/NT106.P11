@@ -139,6 +139,12 @@
     <Compile Include="Details_Interface.Designer.cs">
       <DependentUpon>Details_Interface.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Image_Class.cs" />
     <Compile Include="Login_Interface.cs">
       <SubType>Form</SubType>
@@ -162,6 +168,9 @@
     </Compile>
     <EmbeddedResource Include="Details_Interface.resx">
       <DependentUpon>Details_Interface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Interface.resx">
       <DependentUpon>Login_Interface.cs</DependentUpon>

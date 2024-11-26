@@ -19,10 +19,10 @@ namespace User_Entity
         public string Location { get; set; }
         public string MatchList { get; set; }
         public string DislikeList {  get; set; }
+        public User_Model()
+        {
 
-        public 
-
-        public User_Model() { }
+        }
         public User_Model(string username, string password)
         {
             this.UserName = username;

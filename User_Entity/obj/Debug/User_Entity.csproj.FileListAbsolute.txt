@@ -32,3 +32,14 @@ C:\Users\phana\Source\Repos\Tinder_Clonepak\User_Entity\bin\Debug\Guna.UI2.dll
 C:\Users\phana\Source\Repos\Tinder_Clonepak\User_Entity\bin\Debug\RestSharp.dll
 C:\Users\phana\Source\Repos\Tinder_Clonepak\User_Entity\bin\Debug\RestSharp.xml
 C:\Users\phana\Source\Repos\Tinder_Clonepak\User_Entity\obj\Debug\User_Ent.6593406D.Up2Date
+C:\Users\acer\Source\Repos\Tinder_Clone_UPdate3\User_Entity\obj\Debug\User_Entity.csproj.AssemblyReference.cache
+C:\Users\acer\Source\Repos\Tinder_Clone_UPdate3\User_Entity\obj\Debug\User_Entity.csproj.CoreCompileInputs.cache
+C:\Users\acer\Source\Repos\Tinder_Clone_UPdate3\User_Entity\obj\Debug\User_Entity.dll
+C:\Users\acer\Source\Repos\Tinder_Clone_UPdate3\User_Entity\obj\Debug\User_Entity.pdb
+C:\Users\acer\Source\Repos\Tinder_Clone_UPdate3\User_Entity\bin\Debug\User_Entity.dll
+C:\Users\acer\Source\Repos\Tinder_Clone_UPdate3\User_Entity\bin\Debug\User_Entity.pdb
+C:\Users\acer\Source\Repos\Tinder_Clone_UPdate3\User_Entity\bin\Debug\FireSharp.dll
+C:\Users\acer\Source\Repos\Tinder_Clone_UPdate3\User_Entity\bin\Debug\Guna.UI2.dll
+C:\Users\acer\Source\Repos\Tinder_Clone_UPdate3\User_Entity\bin\Debug\RestSharp.dll
+C:\Users\acer\Source\Repos\Tinder_Clone_UPdate3\User_Entity\bin\Debug\RestSharp.xml
+C:\Users\acer\Source\Repos\Tinder_Clone_UPdate3\User_Entity\obj\Debug\User_Ent.6593406D.Up2Date
