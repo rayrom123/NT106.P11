@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using FireSharp;
 using FireSharp.Config;
 using FireSharp.Interfaces;
-using FireSharp;
 using FireSharp.Response;
 using User_Entity;
+
 namespace WindowsFormsApp1
 {
-    
     public partial class LogSever : Form
     {
         public static IFirebaseConfig config = new FirebaseConfig
@@ -26,10 +23,12 @@ namespace WindowsFormsApp1
             BasePath = "https://tinder-e074f-default-rtdb.firebaseio.com/"
         };
         IFirebaseClient fbdt = new FirebaseClient(config);
+
         public LogSever()
         {
             InitializeComponent();
         }
+
         TcpListener listener;
         private List<TcpClient> clients = new List<TcpClient>();
         private bool isListening = false;
@@ -46,6 +45,7 @@ namespace WindowsFormsApp1
                 listenerThread.Start();
             }
         }
+
         private void ListenForClients()
         {
             while (isListening)
@@ -61,9 +61,10 @@ namespace WindowsFormsApp1
                 clientThread.Start(client);
             }
         }
+
         private async void HandleClient(object obj)
         {
-            TcpClient client = (TcpClient)obj;  // Sử dụng đối tượng client truyền vào, không tạo mới một TcpClient.
+            TcpClient client = (TcpClient)obj;
             NetworkStream stream = client.GetStream();
             byte[] buffer = new byte[256];
             int bytesRead;
@@ -74,50 +75,77 @@ namespace WindowsFormsApp1
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                 string[] parts = message.Split(':');
                 string request = parts[0];
-                parts[2] = parts[2].Replace("\n", "");
+                string username = parts[1];
+                string password = parts[2].Replace("\n", ""); // Xử lý ký tự newline nếu có
+
                 if (request == "Login")
                 {
-                    var userResponse = await fbdt.GetAsync("Users/" + parts[1]);
-                    if (userResponse == null || userResponse.Body == "null")
+                    // Kiểm tra người dùng trong Firebase
+                    var userResponse = await fbdt.GetAsync("Users/" + username);
+                    if (userResponse.Body == "null" || userResponse.ResultAs<User_Model>() == null)
                     {
-                        BroadcastMessage("Error", client);
-                        return;
-                    }
-                    var response = userResponse.ResultAs<User_Entity.User_Model>(); // lấy dữ liệu thông tin người dùng theo class user_model
-
-                    if (response == null)
-                    {
-                        BroadcastMessage("Error username", client);
+                        BroadcastMessage("User not found", client); // Người dùng không tồn tại
                         return;
                     }
 
-                    // Kiểm tra mật khẩu (có thể so sánh với hàm băm hoặc mã hóa nếu có)
-                    if (response.Password != response.encrypt(parts[2]))
+                    var response = userResponse.ResultAs<User_Model>(); // Lấy thông tin người dùng từ Firebase
+
+                    // Kiểm tra mật khẩu
+                    if (response == null || response.Password != response.encrypt(password))
                     {
-                        BroadcastMessage("Wrong Password", client);
+                        BroadcastMessage("Wrong Password", client); // Mật khẩu sai
                         return;
                     }
-                    BroadcastMessage("Success", client);
+
+                    // Đăng nhập thành công
+                    BroadcastMessage(userResponse.ResultAs<User_Model>(), client);
                 }
             }
         }
+
         private void BroadcastMessage(string message, TcpClient sender)
         {
             byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
             richTextBox1.Invoke((MethodInvoker)delegate
             {
-                richTextBox1.AppendText(message);
+                richTextBox1.AppendText(message + "\n");
             });
+
+            // Gửi thông điệp đến tất cả các client
             foreach (var client in clients)
             {
-                NetworkStream stream = client.GetStream();
-                stream.Write(messageBuffer, 0, messageBuffer.Length);
+                if (client == sender) // Tránh gửi lại cho client gửi
+                {
+                    NetworkStream stream = client.GetStream();
+                    stream.Write(messageBuffer, 0, messageBuffer.Length);
+                }
+            }
+        }
+
+        private void BroadcastMessage(User_Model user, TcpClient sender)
+        {
+            // Gửi thông tin người dùng đến tất cả các client
+            string message = $"{user.UserName}:{user.Password}:{user.Gender}:{user.Location}:{user.MatchList}";
+            byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
+
+            richTextBox1.Invoke((MethodInvoker)delegate
+            {
+                richTextBox1.AppendText(message + "\n");
+            });
+
+            foreach (var client in clients)
+            {
+                if (client == sender) // Tránh gửi lại cho client gửi
+                {
+                    NetworkStream stream = client.GetStream();
+                    stream.Write(messageBuffer, 0, messageBuffer.Length);
+                }
             }
         }
 
         private void LogSever_Load(object sender, EventArgs e)
         {
-
+            // Mã khởi tạo khi form load
         }
     }
 }

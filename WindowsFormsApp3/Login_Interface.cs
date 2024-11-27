@@ -10,11 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.IO;
-using System.Web.UI.WebControls;
 using System.Net.Sockets;
 using System.Threading;
+using User_Entity;
 
 namespace WindowsFormsApp3
 {
@@ -25,23 +24,20 @@ namespace WindowsFormsApp3
             InitializeComponent();
             StartConnection();
         }
-        public string username;
-        private void Register_button_Click(object sender, EventArgs e) // hiển thị form đăng ký
-        {
-            var frm = new Register_Interface();
-            this.Hide();
-            frm.ShowDialog();
-        }
-        public bool isSuccess = false;
+
+        public string username;  // Lưu tên người dùng sau khi đăng nhập
         private TcpClient user;
         private NetworkStream stream;
+        public bool isSuccess = false;
+
+        // Khởi tạo kết nối đến server
         private void StartConnection()
         {
             try
             {
-                user = new TcpClient("127.0.0.1", 8888);
+                user = new TcpClient("127.0.0.1", 8888);  // Kết nối đến server
                 stream = user.GetStream();
-                Thread listenThread = new Thread(ListenForMessages);
+                Thread listenThread = new Thread(ListenForMessages);  // Lắng nghe tin nhắn từ server
                 listenThread.Start();
             }
             catch (Exception ex)
@@ -49,21 +45,80 @@ namespace WindowsFormsApp3
                 MessageBox.Show($"Error connecting to server: {ex.Message}");
             }
         }
+
+        // Lắng nghe tin nhắn từ server
         private void ListenForMessages()
         {
             byte[] buffer = new byte[256];
             int bytesRead;
-            while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0) 
+
+            while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
             {
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+
                 Invoke((MethodInvoker)delegate
                 {
-                    MessageBox.Show(message);
-                    isSuccess = true;
+                    // Giả sử "A" là đối tượng User_Model được nhận từ server
+                    User_Model userModel = ParseUserModel(message);
+                    if (userModel != null)
+                    {
+                        username = userModel.UserName;  // Lưu tên người dùng
+                        isSuccess = true;  // Đăng nhập thành công
+                        MessageBox.Show("Succes");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login failed. Invalid credentials.");
+                        return;
+                    }
+                    // Kiểm tra thông tin chi tiết người dùng
+                    if (userModel.Location == null || userModel.ImagePath == null)
+                    {
+                        var formttcn = new Details_Interface();
+                        formttcn.username = username;
+                        formttcn.ShowDialog();  // Mở form chi tiết người dùng
+                    }
+                    else
+                    {
+                        Menu menu = new Menu();
+                        menu.ShowDialog();
+                        menu.username = username;
+                    }
                 });
             }
         }
-        private async void Login_button_Click(object sender, EventArgs e) // tính năng nút login
+
+        // Phương thức để phân tích dữ liệu người dùng từ server
+        private User_Model ParseUserModel(string message)
+        {
+            try
+            {
+                // Giả sử bạn nhận được dữ liệu người dùng dưới dạng JSON hoặc chuỗi văn bản.
+                string[] parts = message.Split(':');
+                if (parts.Length >= 5)
+                {
+                    int gender;
+                    bool isGenderValid = int.TryParse(parts[2], out gender);
+                    string image = parts[4];
+                    return new User_Model
+                    {
+                        UserName = parts[0],
+                        Password = parts[1],
+                        Gender = isGenderValid ? gender : -1,
+                        Location = parts[3],
+                        ImagePath = image
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error parsing user data: {ex.Message}");
+            }
+            return null;
+        }
+
+        // Xử lý sự kiện nhấn nút login
+        private async void Login_button_Click(object sender, EventArgs e)
         {
             try
             {
@@ -77,38 +132,33 @@ namespace WindowsFormsApp3
                     MessageBox.Show("Mật khẩu không được bỏ trống");
                     return;
                 }
+
                 if (user != null && stream != null)
                 {
+                    // Gửi yêu cầu đăng nhập tới server
                     string message = $"Login:{username_t.Text}:{password_t.Text}\n";
                     byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
                     stream.Write(messageBuffer, 0, messageBuffer.Length);
                 }
-                if (isSuccess)
-                {
-                    var formttcn = new Details_Interface();
-                    formttcn.username = username;
-                    this.Hide();                    
-                    formttcn.ShowDialog();
-                }
-                else
-                {
-                    var frm_menu = new Menu();
-                    frm_menu.username = username;
-                    this.Hide();
-                    frm_menu.ShowDialog();
-                }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
-
         }
 
+        // Xử lý sự kiện nhấn nút hủy
         private void Cancel_button_Click(object sender, EventArgs e)
-        {            
-                Application.Exit();
+        {
+            Application.Exit();  // Đóng ứng dụng
+        }
+
+        // Xử lý sự kiện đăng ký
+        private void Register_button_Click(object sender, EventArgs e)
+        {
+            var frm = new Register_Interface();
+            this.Hide();  // Ẩn form đăng nhập
+            frm.ShowDialog();  // Mở form đăng ký
         }
     }
 }
