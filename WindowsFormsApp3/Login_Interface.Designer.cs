@@ -40,6 +40,7 @@
             this.Register_button = new Guna.UI2.WinForms.Guna2Button();
             this.Login_button = new Guna.UI2.WinForms.Guna2Button();
             this.Cancel_button = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -197,6 +198,12 @@
             this.Cancel_button.Text = "Cancel";
             this.Cancel_button.Click += new System.EventHandler(this.Cancel_button_Click);
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
             // Login_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -235,6 +242,7 @@
         private Guna.UI2.WinForms.Guna2Button Register_button;
         private Guna.UI2.WinForms.Guna2Button Cancel_button;
         private Guna.UI2.WinForms.Guna2Button Login_button;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }
 

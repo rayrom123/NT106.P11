@@ -47,6 +47,7 @@
             this.dateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.register_l = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,12 +109,12 @@
             // 
             // Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(407, 2);
+            this.Cancel.Location = new System.Drawing.Point(476, -2);
             this.Cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(109, 46);
+            this.Cancel.Size = new System.Drawing.Size(42, 40);
             this.Cancel.TabIndex = 6;
-            this.Cancel.Text = "Cancel";
+            this.Cancel.Text = "X";
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
@@ -278,6 +279,12 @@
             this.guna2PictureBox1.TabIndex = 22;
             this.guna2PictureBox1.TabStop = false;
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
             // Register_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -330,5 +337,6 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label register_l;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

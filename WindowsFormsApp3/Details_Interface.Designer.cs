@@ -48,6 +48,7 @@
             this.username_t = new System.Windows.Forms.TextBox();
             this.Image_View = new System.Windows.Forms.PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Image_View)).BeginInit();
             this.SuspendLayout();
             // 
@@ -249,6 +250,12 @@
             // 
             this.guna2Elipse1.TargetControl = this;
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
             // Details_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -306,5 +313,6 @@
         private System.Windows.Forms.TextBox username_t;
         private System.Windows.Forms.PictureBox Image_View;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

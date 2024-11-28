@@ -64,7 +64,7 @@ namespace WindowsFormsApp3
                     {
                         username = userModel.UserName;  // Lưu tên người dùng
                         isSuccess = true;  // Đăng nhập thành công
-                        MessageBox.Show("Succes");
+                        MessageBox.Show("Success");
                     }
                     else
                     {
@@ -72,17 +72,19 @@ namespace WindowsFormsApp3
                         return;
                     }
                     // Kiểm tra thông tin chi tiết người dùng
-                    if (userModel.Location == null || userModel.ImagePath == null)
+                    if (userModel.Location == null || userModel.ImagePath == string.Empty)
                     {
                         var formttcn = new Details_Interface();
                         formttcn.username = username;
+                        this.Hide();
                         formttcn.ShowDialog();  // Mở form chi tiết người dùng
                     }
                     else
                     {
-                        Menu menu = new Menu();
-                        menu.ShowDialog();
-                        menu.username = username;
+                        var frm_menu = new Menu();
+                        frm_menu.username = username;
+                        this.Hide();
+                        frm_menu.ShowDialog();
                     }
                 });
             }
@@ -95,17 +97,18 @@ namespace WindowsFormsApp3
             {
                 // Giả sử bạn nhận được dữ liệu người dùng dưới dạng JSON hoặc chuỗi văn bản.
                 string[] parts = message.Split(':');
-                if (parts.Length >= 5)
+                if (parts.Length >= 6)
                 {
                     int gender;
                     bool isGenderValid = int.TryParse(parts[2], out gender);
-                    string image = parts[4];
+                    string image = parts[5];
                     return new User_Model
                     {
                         UserName = parts[0],
                         Password = parts[1],
                         Gender = isGenderValid ? gender : -1,
-                        Location = parts[3],
+                        Location = parts[3],                        
+                        MatchList = parts[4],
                         ImagePath = image
                     };
                 }
@@ -118,7 +121,7 @@ namespace WindowsFormsApp3
         }
 
         // Xử lý sự kiện nhấn nút login
-        private async void Login_button_Click(object sender, EventArgs e)
+        private void Login_button_Click(object sender, EventArgs e)
         {
             try
             {
@@ -150,7 +153,8 @@ namespace WindowsFormsApp3
         // Xử lý sự kiện nhấn nút hủy
         private void Cancel_button_Click(object sender, EventArgs e)
         {
-            Application.Exit();  // Đóng ứng dụng
+            //Application.Exit();  // Đóng ứng dụng
+            this.Close();
         }
 
         // Xử lý sự kiện đăng ký

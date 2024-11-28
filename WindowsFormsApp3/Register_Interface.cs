@@ -65,7 +65,20 @@ namespace WindowsFormsApp3
                     MessageBox.Show("Vui long chon gioi tinh");
                     return;
                 }
+                DateTime selectedDate = dateTimePicker1.Value;
+                DateTime today = DateTime.Today;
+                int age = today.Year - selectedDate.Year;
 
+                if (selectedDate > today.AddYears(-age))
+                {
+                    age--;
+                }
+
+                if (age < 18)
+                {
+                    MessageBox.Show("Bạn phải từ 18 tuổi trở lên.");
+                    return;
+                }
 
                 var new_user = new User_Entity.User_Model();
                 

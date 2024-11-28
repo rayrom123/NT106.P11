@@ -68,7 +68,7 @@ namespace WindowsFormsApp1
             NetworkStream stream = client.GetStream();
             byte[] buffer = new byte[256];
             int bytesRead;
-            string user = null;
+            //string user = null;
 
             while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
             {
@@ -125,7 +125,7 @@ namespace WindowsFormsApp1
         private void BroadcastMessage(User_Model user, TcpClient sender)
         {
             // Gửi thông tin người dùng đến tất cả các client
-            string message = $"{user.UserName}:{user.Password}:{user.Gender}:{user.Location}:{user.MatchList}";
+            string message = $"{user.UserName}:{user.Password}:{user.Gender}:{user.Location}:{user.MatchList}:{user.ImagePath}";
             byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
 
             richTextBox1.Invoke((MethodInvoker)delegate

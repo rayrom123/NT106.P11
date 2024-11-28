@@ -196,10 +196,23 @@ namespace WindowsFormsApp3
                 }
                 else
                 {
-                    name_text.Text = usersList[pos].FullName;
+                    DateTime dateOfBirth = usersList[pos].DateOfBirth;
+                    DateTime today = DateTime.Today;
+                    int age = today.Year - dateOfBirth.Year;
+
+                    if (dateOfBirth > today.AddYears(-age))
+                    {
+                        age--;
+                    }
+                    /*name_text.Text*/
+                    label7.Text = usersList[pos].FullName + ", " + age.ToString();
                     gender_text.Text = usersList[pos].Gender == 0 ? "Male" : "Female";
-                    birth_text.Text = usersList[pos].DateOfBirth.ToString("dd/MM/yyyy");
-                    location_text.SelectedItem = usersList[pos].Location.ToString();
+                    
+
+                    //label5.Text = age.ToString();
+                    /*birth_text.Text*/
+                    //label5.Text = usersList[pos].DateOfBirth.ToString("dd/MM/yyyy");
+                    /*location_text.SelectedItem*/ label4.Text = usersList[pos].Location.ToString();
                     interest_text.Text = usersList[pos].Interests;
                     byte[] imageBytes = Convert.FromBase64String(usersList[pos].ImagePath);
                     MemoryStream ms = new MemoryStream(imageBytes);
@@ -291,6 +304,23 @@ namespace WindowsFormsApp3
             else
             {
                 return i;
+            }
+        }
+
+        private void menu_tabcontrol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (menu_tabcontrol.SelectedIndex)
+            {
+                case 0: // Tab đầu tiên
+                    this.Size = new Size(600, 350); // Kích thước cho tab đầu tiên
+                    break;
+                case 1: // Tab thứ hai
+                    this.Size = new Size(600, 350); // Kích thước cho tab thứ hai
+                    break;
+                case 2: // Tab thứ ba
+                    this.Size = new Size(600, 280); // Kích thước cho tab thứ ba
+                    break;
+                    // Thêm các case nếu có nhiều tab hơn
             }
         }
     }
