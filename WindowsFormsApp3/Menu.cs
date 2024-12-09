@@ -20,17 +20,26 @@ using System.Threading;
 using Newtonsoft.Json;
 using static WindowsFormsApp3.Menu;
 using System.Text.RegularExpressions;
+using System.Net.Sockets;
+using System.Runtime.InteropServices.ComTypes;
+using User_Entity;
 
 namespace WindowsFormsApp3
 {
     public partial class Menu : Form
     {
-        public Menu()
+        private TcpClient userM;
+        private NetworkStream streamM;
+        public Menu(TcpClient user, NetworkStream stream)
         {
             InitializeComponent();
+            this.userM = user;
+            this.streamM = stream;
         }
 
         public string username;
+        
+        public User_Entity.User_Model user;
         public static IFirebaseConfig config = new FirebaseConfig
         {
             AuthSecret = "kggHKAGWQR5afL75qkBb8jxrvkPRe6bfptpe16Ev",
@@ -104,31 +113,28 @@ namespace WindowsFormsApp3
         private async void Menu_Load(object sender, EventArgs e)
         {
             try
-            {
-                var userResponse = await client.GetTaskAsync("Users/" + username);
-                var userData = userResponse.ResultAs<User_Entity.User_Model>();
-                
-                username_t.Text = userData.UserName;
-                fullname_t.Text = userData.FullName;
-                gender_t.Text = userData.Gender == 0 ? "Male" : "Female";
-                dateofbirth_t.Text = userData.DateOfBirth.ToString("dd/MM/yyyy");
-                location_select.SelectedItem = userData.Location.ToString();
-                interest_t.Text = userData.Interests;
-                byte[] imageBytes = Convert.FromBase64String(userData.ImagePath);
+            {   
+                username_t.Text = user.UserName;
+                fullname_t.Text = user.FullName;
+                gender_t.Text = user.Gender == 0 ? "Male" : "Female";
+                dateofbirth_t.Text = user.DateOfBirth.ToString("dd/MM/yyyy");
+                location_select.SelectedItem = user.Location.ToString();
+                interest_t.Text = user.Interests;
+                byte[] imageBytes = Convert.FromBase64String(user.ImagePath);
                 MemoryStream ms = new MemoryStream(imageBytes);
                 Image_View.Image = Image.FromStream(ms);
 
-                if (userData.MatchList != null)
+                if (user.MatchList != null)
                 {
-                    currentmatchlist = userData.MatchList;
+                    currentmatchlist = user.MatchList;
                     string[] tempmatches = currentmatchlist.Split(',');
                     matches = new string[tempmatches.Length - 1];
                     Array.Copy(tempmatches, matches, tempmatches.Length - 1);
                 }
 
-                if (userData.DislikeList != null)
+                if (user.DislikeList != null)
                 {
-                    currentdislikelist = userData.DislikeList;
+                    currentdislikelist = user.DislikeList;
                     string[] tempdislike = currentdislikelist.Split(',');
                     dislike = new string[tempdislike.Length - 1];
                     Array.Copy(tempdislike, dislike, tempdislike.Length - 1);
@@ -148,14 +154,51 @@ namespace WindowsFormsApp3
         private int currentPos = 0;
         private async void start_Click(object sender, EventArgs e)
         {
-            var userResponse = await client.GetTaskAsync("Users");
+            string message = $"startMatch";
+            byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
+            streamM.Write(messageBuffer, 0, messageBuffer.Length);
 
-            var usersData = JsonConvert.DeserializeObject<Dictionary<string, User_Entity.User_Model>>(userResponse.Body);
+            //var userResponse = await client.GetTaskAsync("Users");
 
-            usersList = new List<User_Entity.User_Model>(usersData.Values);
+            //var usersData = JsonConvert.DeserializeObject<Dictionary<string, User_Entity.User_Model>>(userResponse.Body);
+
+            //usersList = new List<User_Entity.User_Model>(usersData.Values);
+
+             usersList = await ReceiveUsersListAsync(streamM);
 
             ShowUser(currentPos);
         }
+
+        public async Task<List<User_Entity.User_Model>> ReceiveUsersListAsync(NetworkStream stream)
+        {
+            try
+            {
+                byte[] buffer = new byte[100000]; // Buffer để lưu trữ dữ liệu
+                int bytesRead = 0;
+                StringBuilder jsonStringBuilder = new StringBuilder();
+
+                // Đọc dữ liệu từ NetworkStream
+                bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                
+                    // Chuyển đổi mảng byte thành chuỗi
+                    string part = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                    jsonStringBuilder.Append(part);
+                
+
+                // Chuyển đổi chuỗi JSON thành danh sách đối tượng
+                string jsonString = jsonStringBuilder.ToString();
+                List<User_Entity.User_Model> usersList = JsonConvert.DeserializeObject<List<User_Entity.User_Model>>(jsonString);
+
+                return usersList;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi nhận dữ liệu: {ex.Message}");
+                return null;
+            }
+        }
+
+       
 
         private int checkMatch(string[] matches, string username)
         {

@@ -49,46 +49,51 @@ namespace WindowsFormsApp3
         // Lắng nghe tin nhắn từ server
         private void ListenForMessages()
         {
-            byte[] buffer = new byte[256];
+            byte[] buffer = new byte[12200];
             int bytesRead;
 
             while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
             {
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
 
-                Invoke((MethodInvoker)delegate
-                {
-                    // Giả sử "A" là đối tượng User_Model được nhận từ server
-                    User_Model userModel = ParseUserModel(message);
-                    if (userModel != null)
+                
+                    Invoke((MethodInvoker)delegate
                     {
-                        username = userModel.UserName;  // Lưu tên người dùng
-                        isSuccess = true;  // Đăng nhập thành công
-                        MessageBox.Show("Success");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Login failed. Invalid credentials.");
-                        return;
-                    }
-                    // Kiểm tra thông tin chi tiết người dùng
-                    if (userModel.Location == null || userModel.ImagePath == string.Empty)
-                    {
-                        var formttcn = new Details_Interface();
-                        formttcn.username = username;
-                        this.Hide();
-                        formttcn.ShowDialog();  // Mở form chi tiết người dùng
-                    }
-                    else
-                    {
-                        var frm_menu = new Menu();
-                        frm_menu.username = username;
-                        this.Hide();
-                        frm_menu.ShowDialog();
-                    }
-                });
+                        // Giả sử "A" là đối tượng User_Model được nhận từ server
+                        User_Model userModel = ParseUserModel(message);
+                        if (userModel != null)
+                        {
+                            username = userModel.UserName;  // Lưu tên người dùng
+                            isSuccess = true;  // Đăng nhập thành công
+                            MessageBox.Show("Success");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Login failed. Invalid credentials.");
+                            return;
+                        }
+                        // Kiểm tra thông tin chi tiết người dùng
+                        if (userModel.Location == null || userModel.ImagePath == string.Empty)
+                        {
+                            var formttcn = new Details_Interface();
+                            formttcn.username = username;
+                            this.Hide();
+                            formttcn.ShowDialog();  // Mở form chi tiết người dùng
+                        }
+                        else
+                        {
+                            var frm_menu = new Menu(user, stream);
+                            frm_menu.user = userModel;
+                            frm_menu.username = username;
+                            this.Hide();
+                            frm_menu.ShowDialog();
+                        }
+                    });
+                
             }
         }
+
+        
 
         // Phương thức để phân tích dữ liệu người dùng từ server
         private User_Model ParseUserModel(string message)
@@ -97,19 +102,25 @@ namespace WindowsFormsApp3
             {
                 // Giả sử bạn nhận được dữ liệu người dùng dưới dạng JSON hoặc chuỗi văn bản.
                 string[] parts = message.Split(':');
-                if (parts.Length >= 6)
+                if (parts.Length >= 7)
                 {
                     int gender;
-                    bool isGenderValid = int.TryParse(parts[2], out gender);
-                    string image = parts[5];
+                    bool isGenderValid = int.TryParse(parts[5], out gender);
+                    
+                   
                     return new User_Model
                     {
                         UserName = parts[0],
                         Password = parts[1],
+                        FullName = parts[2],
+                        DateOfBirth = DateTime.Parse(parts[3]),
+                        Interests = parts[4],
                         Gender = isGenderValid ? gender : -1,
-                        Location = parts[3],                        
-                        MatchList = parts[4],
-                        ImagePath = image
+                        Location = parts[6],
+                        MatchList = parts[7],
+                        ImagePath = parts[8],
+                        DislikeList = parts[9],
+                        
                     };
                 }
             }

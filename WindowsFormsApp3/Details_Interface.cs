@@ -68,10 +68,10 @@ namespace WindowsFormsApp3
                 FirebaseResponse response = await client.UpdateTaskAsync("Users/" + username, updates);
                 User_Entity.User_Model result = response.ResultAs<User_Entity.User_Model>();
                 MessageBox.Show("Đã thêm thành công");
-                var frm_menu = new Menu();
-                frm_menu.username = username;
-                this.Hide();
-                frm_menu.ShowDialog();
+                //var frm_menu = new Menu();
+                //frm_menu.username = username;
+                //this.Hide();
+                //frm_menu.ShowDialog();
             }
             catch (Exception ex)
             {
