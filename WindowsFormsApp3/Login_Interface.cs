@@ -70,6 +70,9 @@ namespace WindowsFormsApp3
                         else
                         {
                             MessageBox.Show("Login failed. Invalid credentials.");
+                            this.Close();
+                            Login_Interface lg = new Login_Interface();
+                            lg.Show();
                             return;
                         }
                         // Kiểm tra thông tin chi tiết người dùng
@@ -153,6 +156,7 @@ namespace WindowsFormsApp3
                     string message = $"Login:{username_t.Text}:{password_t.Text}\n";
                     byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
                     stream.Write(messageBuffer, 0, messageBuffer.Length);
+                    
                 }
             }
             catch (Exception ex)

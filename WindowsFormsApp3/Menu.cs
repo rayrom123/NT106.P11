@@ -35,6 +35,19 @@ namespace WindowsFormsApp3
             InitializeComponent();
             this.userM = user;
             this.streamM = stream;
+            this.Size = new Size(590, 350);
+            hide_btn.Visible = false;
+            label9.Visible = false;
+            g_l.Visible = false;
+            gender_text.Visible = false;
+            usn_l.Visible = false;
+            usn_text.Visible = false;
+            inter_l.Visible = false;
+            interest_text.Visible = false;
+            birth_l.Visible = false;
+            birthday_text.Visible = false;
+            location_text.Visible = false;
+            location_l.Visible = false;
         }
 
         public string username;
@@ -110,7 +123,7 @@ namespace WindowsFormsApp3
         string currentdislikelist = "";
         string[] dislike;
         string[] matches;
-        private async void Menu_Load(object sender, EventArgs e)
+        private void Menu_Load(object sender, EventArgs e)
         {
             try
             {   
@@ -249,13 +262,14 @@ namespace WindowsFormsApp3
                     }
                     /*name_text.Text*/
                     label7.Text = usersList[pos].FullName + ", " + age.ToString();
+                    /*name_text.Text*/
+                    label7.Text = usersList[pos].FullName + "  " + age.ToString();
                     gender_text.Text = usersList[pos].Gender == 0 ? "Male" : "Female";
-                    
 
-                    //label5.Text = age.ToString();
                     /*birth_text.Text*/
-                    //label5.Text = usersList[pos].DateOfBirth.ToString("dd/MM/yyyy");
-                    /*location_text.SelectedItem*/ label4.Text = usersList[pos].Location.ToString();
+                    birthday_text.Text = usersList[pos].DateOfBirth.ToString("dd/MM/yyyy");
+                    /*location_text.SelectedItem*/
+                    location_text.Text = usersList[pos].Location.ToString();
                     interest_text.Text = usersList[pos].Interests;
                     byte[] imageBytes = Convert.FromBase64String(usersList[pos].ImagePath);
                     MemoryStream ms = new MemoryStream(imageBytes);
@@ -352,19 +366,63 @@ namespace WindowsFormsApp3
 
         private void menu_tabcontrol_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (menu_tabcontrol.SelectedIndex)
-            {
-                case 0: // Tab đầu tiên
-                    this.Size = new Size(600, 350); // Kích thước cho tab đầu tiên
-                    break;
-                case 1: // Tab thứ hai
-                    this.Size = new Size(600, 350); // Kích thước cho tab thứ hai
-                    break;
-                case 2: // Tab thứ ba
-                    this.Size = new Size(600, 280); // Kích thước cho tab thứ ba
-                    break;
-                    // Thêm các case nếu có nhiều tab hơn
-            }
+            //switch (menu_tabcontrol.SelectedIndex)
+            //{
+            //    case 0: // Tab đầu tiên
+            //        this.Size = new Size(600, 350); // Kích thước cho tab đầu tiên
+            //        break;
+            //    case 1: // Tab thứ hai
+            //        this.Size = new Size(600, 350); // Kích thước cho tab thứ hai
+            //        break;
+            //    case 2: // Tab thứ ba
+            //        this.Size = new Size(600, 280); // Kích thước cho tab thứ ba
+            //        break;
+            //        // Thêm các case nếu có nhiều tab hơn
+            //}
+        }
+
+        private void show_btn_Click(object sender, EventArgs e)
+        {
+            this.Size = new Size(590, 290);
+            show_btn.Visible = false;
+            hide_btn.Visible = true;
+            guna2Panel1.Visible = false;
+            guna2Panel1.Height = 350;
+            label9.Visible = true;
+            g_l.Visible = true;
+            gender_text.Visible = true;
+            usn_l.Visible = true;
+            usn_text.Visible = true;
+            inter_l.Visible = true;
+            interest_text.Visible = true;
+            birth_l.Visible = true;
+            birthday_text.Visible = true;
+            location_text.Visible = true;
+            location_l.Visible = true;
+            guna2Transition1.ShowSync(guna2Panel1);
+
+
+        }
+
+        private void hide_btn_Click(object sender, EventArgs e)
+        {
+            this.Size = new Size(590, 350);
+            hide_btn.Visible = false;
+            show_btn.Visible = true;
+            guna2Panel1.Visible = false;
+            label9.Visible = false;
+            g_l.Visible = false;
+            gender_text.Visible = false;
+            usn_l.Visible = false;
+            usn_text.Visible = false;
+            inter_l.Visible = false;
+            interest_text.Visible = false;
+            birth_l.Visible = false;
+            birthday_text.Visible = false;
+            location_text.Visible = false;
+            location_l.Visible = false;
+            guna2Panel1.Height = 1;
+            guna2Transition1.ShowSync(guna2Panel1);
         }
     }
 }

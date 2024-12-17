@@ -174,7 +174,7 @@ namespace WindowsFormsApp1
         }
 
         private List<User_Entity.User_Model> usersList;
-        private async void BroadcastMessage(User_Model user, TcpClient sender)
+        private void BroadcastMessage(User_Model user, TcpClient sender)
         {
             // Gửi thông tin người dùng đến tất cả các client
             string dtb = user.DateOfBirth.ToString("dd/MM/yyyy");
