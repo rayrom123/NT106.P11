@@ -162,27 +162,34 @@ namespace WindowsFormsApp3
             }
         }
 
-        private List<User_Entity.User_Model> usersList;
+        private List<string> usersList;
 
         private int currentPos = 0;
+
+        private int startState = 0;
+
+        private int endSig = 0;
         private async void start_Click(object sender, EventArgs e)
         {
-            string message = $"startMatch";
-            byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
-            streamM.Write(messageBuffer, 0, messageBuffer.Length);
+            if (startState == 0)
+            {
+                string message = $"startMatch";
+                byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
+                streamM.Write(messageBuffer, 0, messageBuffer.Length);
 
-            //var userResponse = await client.GetTaskAsync("Users");
+                startState = 1;
 
-            //var usersData = JsonConvert.DeserializeObject<Dictionary<string, User_Entity.User_Model>>(userResponse.Body);
+                usersList = await ReceiveUsersListAsync(streamM);
 
-            //usersList = new List<User_Entity.User_Model>(usersData.Values);
-
-             usersList = await ReceiveUsersListAsync(streamM);
-
-            ShowUser(currentPos);
+                ShowUser(currentPos);
+            }
+            else
+            {
+                MessageBox.Show("Already started.");
+            }
         }
 
-        public async Task<List<User_Entity.User_Model>> ReceiveUsersListAsync(NetworkStream stream)
+        public async Task<List<string>> ReceiveUsersListAsync(NetworkStream stream)
         {
             try
             {
@@ -200,7 +207,7 @@ namespace WindowsFormsApp3
 
                 // Chuyển đổi chuỗi JSON thành danh sách đối tượng
                 string jsonString = jsonStringBuilder.ToString();
-                List<User_Entity.User_Model> usersList = JsonConvert.DeserializeObject<List<User_Entity.User_Model>>(jsonString);
+                List<string> usersList = JsonConvert.DeserializeObject<List<string>>(jsonString);
 
                 return usersList;
             }
@@ -239,20 +246,51 @@ namespace WindowsFormsApp3
             }
         }
 
+        User_Model userMatch;
 
-
-        private void ShowUser(int pos)
+        private async void ShowUser(int pos)
         {
             while (usersList.Count > 0 && pos < usersList.Count)
             {
-                if (usersList[pos].UserName == username || checkMatch(matches, usersList[pos].UserName) == 1 || checkDis(dislike, usersList[pos].UserName) == 1)
+                if (usersList[pos] == username || checkMatch(matches, usersList[pos]) == 1 || checkDis(dislike, usersList[pos]) == 1)
                 {
                     pos++;
                     currentPos++;
                 }
                 else
                 {
-                    DateTime dateOfBirth = usersList[pos].DateOfBirth;
+                    string message = $"checkMatch:{usersList[pos]}";
+                    byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
+                    streamM.Write(messageBuffer, 0, messageBuffer.Length);
+
+
+                    byte[] buffer = new byte[12200];
+                    int bytesRead;
+                    bytesRead = await streamM.ReadAsync(buffer, 0, buffer.Length);
+
+                    string yourmatch = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+
+                    string[] parts = yourmatch.Split(':');
+
+                    int gender;
+                    bool isGenderValid = int.TryParse(parts[5], out gender);
+
+
+                    userMatch = new User_Model
+                    {
+                        UserName = parts[0],
+                        Password = parts[1],
+                        FullName = parts[2],
+                        DateOfBirth = DateTime.Parse(parts[3]),
+                        Interests = parts[4],
+                        Gender = isGenderValid ? gender : -1,
+                        Location = parts[6],
+                        MatchList = parts[7],
+                        ImagePath = parts[8],
+                        DislikeList = parts[9],
+
+                    };
+                    DateTime dateOfBirth = userMatch.DateOfBirth;
                     DateTime today = DateTime.Today;
                     int age = today.Year - dateOfBirth.Year;
 
@@ -261,17 +299,17 @@ namespace WindowsFormsApp3
                         age--;
                     }
                     /*name_text.Text*/
-                    label7.Text = usersList[pos].FullName + ", " + age.ToString();
+                    label7.Text = userMatch.FullName + ", " + age.ToString();
                     /*name_text.Text*/
-                    label7.Text = usersList[pos].FullName + "  " + age.ToString();
-                    gender_text.Text = usersList[pos].Gender == 0 ? "Male" : "Female";
+                    label7.Text = userMatch.FullName + "  " + age.ToString();
+                    gender_text.Text = userMatch.Gender == 0 ? "Male" : "Female";
 
                     /*birth_text.Text*/
-                    birthday_text.Text = usersList[pos].DateOfBirth.ToString("dd/MM/yyyy");
+                    birthday_text.Text = userMatch.DateOfBirth.ToString("dd/MM/yyyy");
                     /*location_text.SelectedItem*/
-                    location_text.Text = usersList[pos].Location.ToString();
-                    interest_text.Text = usersList[pos].Interests;
-                    byte[] imageBytes = Convert.FromBase64String(usersList[pos].ImagePath);
+                    location_text.Text = userMatch.Location.ToString();
+                    interest_text.Text = userMatch.Interests;
+                    byte[] imageBytes = Convert.FromBase64String(userMatch.ImagePath);
                     MemoryStream ms = new MemoryStream(imageBytes);
                     image_t.Image = Image.FromStream(ms);
                     break;
@@ -280,26 +318,40 @@ namespace WindowsFormsApp3
 
             if (pos >= usersList.Count)
             {
-                MessageBox.Show("No users found.");                
+                MessageBox.Show("No users found.");
+                endSig = 1;
             }
         }
 
         private async void Like_Button_Click(object sender, EventArgs e)
         {
-
-            currentmatchlist += $"{usersList[currentPos].UserName},";
-
-            var update = new
+            if (startState == 1 && endSig == 0)
             {
-                MatchList = currentmatchlist
-            };
 
-            FirebaseResponse response = await client.UpdateTaskAsync("Users/" + username, update);
 
-            if (currentPos < usersList.Count - 1)
+                currentmatchlist += $"{userMatch.UserName},";
+
+                var update = new
+                {
+                    MatchList = currentmatchlist
+                };
+
+                FirebaseResponse response = await client.UpdateTaskAsync("Users/" + username, update);
+
+                if (currentPos < usersList.Count - 1)
+                {
+                    currentPos++;
+                    ShowUser(currentPos);
+                }
+                else
+                {
+                    MessageBox.Show("This is the last user.");
+                    endSig = 1;
+                }
+            }
+            else if(endSig == 0)
             {
-                currentPos++;
-                ShowUser(currentPos);
+                MessageBox.Show("please start first.");
             }
             else
             {
@@ -318,19 +370,31 @@ namespace WindowsFormsApp3
   
         private async void Dislike_Button_Click(object sender, EventArgs e)
         {
-            currentdislikelist += $"{usersList[currentPos].UserName},";
-
-            var up = new
+            if (startState == 1 && endSig == 0)
             {
-                DislikeList = currentdislikelist
-            };
+                currentdislikelist += $"{userMatch.UserName},";
 
-            FirebaseResponse res = await client.UpdateTaskAsync("Users/" + username, up);
+                var up = new
+                {
+                    DislikeList = currentdislikelist
+                };
 
-            if (currentPos < usersList.Count - 1)
+                FirebaseResponse res = await client.UpdateTaskAsync("Users/" + username, up);
+
+                if (currentPos < usersList.Count - 1)
+                {
+                    currentPos++;
+                    ShowUser(currentPos);
+                }
+                else
+                {
+                    MessageBox.Show("This is the last user.");
+                    endSig = 1;
+                }
+            }
+            else if (endSig == 0)
             {
-                currentPos++;
-                ShowUser(currentPos);
+                MessageBox.Show("please start first.");
             }
             else
             {

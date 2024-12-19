@@ -1,49 +1,49 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\moi\\",
+  "WorkspaceRootPath": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\moi\\windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\moi\\windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5F444AB-0FF4-42FF-986A-62FF535967A7}|WindowsFormsApp1\\Sever.csproj|c:\\users\\admin\\source\\moi\\windowsformsapp1\\logsever.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5F444AB-0FF4-42FF-986A-62FF535967A7}|WindowsFormsApp1\\Sever.csproj|solutionrelative:windowsformsapp1\\logsever.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\moi\\windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\moi\\windowsformsapp3\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|c:\\users\\phana\\source\\repos\\tinder_clone17\\12\\windowsformsapp3\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\moi\\windowsformsapp3\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B5F444AB-0FF4-42FF-986A-62FF535967A7}|WindowsFormsApp1\\Sever.csproj|C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\windowsformsapp1\\logsever.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5F444AB-0FF4-42FF-986A-62FF535967A7}|WindowsFormsApp1\\Sever.csproj|solutionrelative:windowsformsapp1\\logsever.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\windowsformsapp3\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\moi\\windowsformsapp3\\register_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\login_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\windowsformsapp3\\register_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\register_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\moi\\windowsformsapp3\\register_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\windowsformsapp3\\register_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\register_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5F444AB-0FF4-42FF-986A-62FF535967A7}|WindowsFormsApp1\\Sever.csproj|C:\\Users\\Admin\\source\\moi\\windowsformsapp1\\logsever.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B5F444AB-0FF4-42FF-986A-62FF535967A7}|WindowsFormsApp1\\Sever.csproj|C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\windowsformsapp1\\logsever.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B5F444AB-0FF4-42FF-986A-62FF535967A7}|WindowsFormsApp1\\Sever.csproj|solutionrelative:windowsformsapp1\\logsever.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\moi\\windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\details_interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\Admin\\source\\moi\\windowsformsapp3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\windowsformsapp3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{6C8DE22A-7CA5-4924-827E-AD9C4139A639}|WindowsFormsApp3\\Tinder_Clone.csproj|solutionrelative:windowsformsapp3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -54,15 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
               "$type": "Bookmark",
@@ -82,97 +78,93 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LogSever.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp1\\LogSever.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\LogSever.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp1\\LogSever.cs",
-              "RelativeToolTip": "WindowsFormsApp1\\LogSever.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAcwGEAAAAUAAAA",
+              "DocumentIndex": 0,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Menu.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp3\\Menu.cs",
+              "ToolTip": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Menu.cs",
+              "RelativeToolTip": "WindowsFormsApp3\\Menu.cs",
+              "ViewState": "AgIAAGMBAAAAAAAAAAAcwHABAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T15:10:10.456Z",
+              "WhenOpened": "2024-12-12T11:39:57.32Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Menu.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Menu.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp3\\Menu.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Menu.cs",
-              "RelativeToolTip": "WindowsFormsApp3\\Menu.cs",
-              "ViewState": "AQIAAM4AAAAAAAAAAADwvyYAAAAQAAAA",
+              "DocumentIndex": 3,
+              "Title": "Login_Interface.cs",
+              "DocumentMoniker": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Login_Interface.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp3\\Login_Interface.cs",
+              "ToolTip": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Login_Interface.cs",
+              "RelativeToolTip": "WindowsFormsApp3\\Login_Interface.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAEQAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T11:39:57.32Z"
+              "WhenOpened": "2024-11-19T14:05:24.569Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
+              "Title": "LogSever.cs",
+              "DocumentMoniker": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp1\\LogSever.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\LogSever.cs",
+              "ToolTip": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp1\\LogSever.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\LogSever.cs",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAuwL4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T15:10:10.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Menu.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Menu.cs",
+              "DocumentMoniker": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Menu.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp3\\Menu.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Menu.cs [Design]",
+              "ToolTip": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Menu.cs [Design]",
               "RelativeToolTip": "WindowsFormsApp3\\Menu.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-07T16:10:13.38Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Login_Interface.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Login_Interface.cs",
+              "DocumentMoniker": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Login_Interface.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp3\\Login_Interface.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Login_Interface.cs [Design]",
+              "ToolTip": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Login_Interface.cs [Design]",
               "RelativeToolTip": "WindowsFormsApp3\\Login_Interface.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T17:42:10.858Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-24T17:42:10.858Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login_Interface.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Login_Interface.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp3\\Login_Interface.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Login_Interface.cs",
-              "RelativeToolTip": "WindowsFormsApp3\\Login_Interface.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAuwEQAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T14:05:24.569Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Details_Interface.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Details_Interface.cs",
+              "DocumentMoniker": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Details_Interface.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp3\\Details_Interface.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Details_Interface.cs",
+              "ToolTip": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Details_Interface.cs",
               "RelativeToolTip": "WindowsFormsApp3\\Details_Interface.cs",
               "ViewState": "AQIAAEgAAAAAAAAAAAAYwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T16:58:11.906Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T16:58:11.906Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "Details_Interface.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Details_Interface.cs",
+              "DocumentMoniker": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Details_Interface.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp3\\Details_Interface.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Details_Interface.cs [Design]",
-              "RelativeToolTip": "WindowsFormsApp3\\Details_Interface.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Admin\\source\\moi\\WindowsFormsApp3\\Details_Interface.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T14:07:59.404Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-25T14:07:59.404Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "LogSever.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp1\\LogSever.cs",
+              "DocumentMoniker": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp1\\LogSever.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\LogSever.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp1\\LogSever.cs [Design]",
+              "ToolTip": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp1\\LogSever.cs [Design]",
               "RelativeToolTip": "WindowsFormsApp1\\LogSever.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T14:10:31.764Z"
@@ -181,9 +173,9 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Register_Interface.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Register_Interface.cs",
+              "DocumentMoniker": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Register_Interface.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp3\\Register_Interface.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Register_Interface.cs",
+              "ToolTip": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Register_Interface.cs",
               "RelativeToolTip": "WindowsFormsApp3\\Register_Interface.cs",
               "ViewState": "AQIAADwAAAAAAAAAAAAYwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -193,10 +185,10 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Register_Interface.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Register_Interface.cs",
+              "DocumentMoniker": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Register_Interface.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp3\\Register_Interface.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Register_Interface.cs [Design]",
-              "RelativeToolTip": "WindowsFormsApp3\\Register_Interface.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Admin\\source\\moi\\WindowsFormsApp3\\Register_Interface.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T14:31:45.058Z"
             },
@@ -204,10 +196,10 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\phana\\source\\repos\\Tinder_Clone17\\12\\WindowsFormsApp3\\Form1.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp3\\Form1.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\moi\\WindowsFormsApp3\\Form1.cs [Design]",
-              "RelativeToolTip": "WindowsFormsApp3\\Form1.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Admin\\source\\moi\\WindowsFormsApp3\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-04T06:29:45.562Z"
             }

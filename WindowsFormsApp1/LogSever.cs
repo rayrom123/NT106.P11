@@ -82,48 +82,55 @@ namespace WindowsFormsApp1
                 if (request == "startMatch")
                 {
                     var userResponse = await fbdt.GetAsync("Users");
-
+                    var users = userResponse.Body;
                     var usersData = JsonConvert.DeserializeObject<Dictionary<string, User_Entity.User_Model>>(userResponse.Body);
 
-                    usersList = new List<User_Entity.User_Model>(usersData.Values);
+                    List<string> usersList = new List<string>();
 
+                    foreach (var user in usersData)
+                    {
+                        usersList.Add(user.Value.UserName);
+                    }
                     await SendUsersListAsync(client, usersList);
                 }
+                else if (request == "checkMatch")
+                {
+                    string usernameMatch = parts[1];
+                    var userResponse = await fbdt.GetAsync("Users/" + usernameMatch);
 
-                if (parts.Length > 1)
+                    BroadcastMessage(userResponse.ResultAs<User_Model>(), client);
+                }
+                if (request == "Login")
                 {
                     string username = parts[1];
                     string password = parts[2].Replace("\n", "");
-
-                    if (request == "Login")
+                    // Kiểm tra người dùng trong Firebase
+                    var userResponse = await fbdt.GetAsync("Users/" + username);
+                    if (userResponse.Body == "null" || userResponse.ResultAs<User_Model>() == null)
                     {
-                        // Kiểm tra người dùng trong Firebase
-                        var userResponse = await fbdt.GetAsync("Users/" + username);
-                        if (userResponse.Body == "null" || userResponse.ResultAs<User_Model>() == null)
-                        {
-                            BroadcastMessage("User not found", client); // Người dùng không tồn tại
-                            return;
-                        }
-
-                        var response = userResponse.ResultAs<User_Model>(); // Lấy thông tin người dùng từ Firebase
-
-                        // Kiểm tra mật khẩu
-                        if (response == null || response.Password != response.encrypt(password))
-                        {
-                            BroadcastMessage("Wrong Password", client); // Mật khẩu sai
-                            return;
-                        }
-
-                        // Đăng nhập thành công
-                        BroadcastMessage(userResponse.ResultAs<User_Model>(), client);
+                        BroadcastMessage("User not found", client); // Người dùng không tồn tại
+                        return;
                     }
 
+                    var response = userResponse.ResultAs<User_Model>(); // Lấy thông tin người dùng từ Firebase
+
+                    // Kiểm tra mật khẩu
+                    if (response == null || response.Password != response.encrypt(password))
+                    {
+                        BroadcastMessage("Wrong Password", client); // Mật khẩu sai
+                        return;
+                    }
+
+                    // Đăng nhập thành công
+                    BroadcastMessage(userResponse.ResultAs<User_Model>(), client);
                 }
+
+                
                 
             }
         }
 
-        public async Task SendUsersListAsync(TcpClient sender, List<User_Entity.User_Model> usersList)
+        public async Task SendUsersListAsync(TcpClient sender, List<string> usersList)
         {
             try
             {
@@ -173,7 +180,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private List<User_Entity.User_Model> usersList;
         private void BroadcastMessage(User_Model user, TcpClient sender)
         {
             // Gửi thông tin người dùng đến tất cả các client
