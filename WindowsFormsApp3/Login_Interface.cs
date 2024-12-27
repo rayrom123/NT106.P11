@@ -14,6 +14,7 @@ using System.IO;
 using System.Net.Sockets;
 using System.Threading;
 using User_Entity;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace WindowsFormsApp3
 {
@@ -29,6 +30,7 @@ namespace WindowsFormsApp3
         private TcpClient user;
         private NetworkStream stream;
         public bool isSuccess = false;
+        public bool isLogin = false;
 
         // Khởi tạo kết nối đến server
         private void StartConnection()
@@ -51,12 +53,10 @@ namespace WindowsFormsApp3
         {
             byte[] buffer = new byte[12200];
             int bytesRead;
-
-            while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
+            while (!isLogin && (bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
             {
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-
-                
+                {
                     Invoke((MethodInvoker)delegate
                     {
                         // Giả sử "A" là đối tượng User_Model được nhận từ server
@@ -66,6 +66,7 @@ namespace WindowsFormsApp3
                             username = userModel.UserName;  // Lưu tên người dùng
                             isSuccess = true;  // Đăng nhập thành công
                             MessageBox.Show("Success");
+                            isLogin = true;
                         }
                         else
                         {
@@ -89,14 +90,15 @@ namespace WindowsFormsApp3
                             frm_menu.user = userModel;
                             frm_menu.username = username;
                             this.Hide();
-                            frm_menu.ShowDialog();
+                            frm_menu.Show();
+                            isLogin = true;
                         }
                     });
-                
+                }
             }
         }
 
-        
+
 
         // Phương thức để phân tích dữ liệu người dùng từ server
         private User_Model ParseUserModel(string message)
@@ -124,7 +126,7 @@ namespace WindowsFormsApp3
                         MatchList = parts[7],
                         ImagePath = parts[8],
                         DislikeList = parts[9],
-                        
+
                     };
                 }
             }
@@ -157,7 +159,7 @@ namespace WindowsFormsApp3
                     string message = $"Login:{username_t.Text}:{password_t.Text}\n";
                     byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
                     stream.Write(messageBuffer, 0, messageBuffer.Length);
-                    
+
                 }
             }
             catch (Exception ex)

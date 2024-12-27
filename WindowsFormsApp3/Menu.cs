@@ -48,7 +48,6 @@ namespace WindowsFormsApp3
             birthday_text.Visible = false;
             location_text.Visible = false;
             location_l.Visible = false;
-            StartConnection();
         }
 
         public string username;
@@ -179,7 +178,10 @@ namespace WindowsFormsApp3
                 streamM.Write(messageBuffer, 0, messageBuffer.Length);
 
                 startState = 1;
- 
+
+                usersList = await ReceiveUsersListAsync(streamM);
+
+                ShowUser(currentPos);
             }
             else
             {
@@ -191,7 +193,22 @@ namespace WindowsFormsApp3
         {
             try
             {
-                
+                byte[] buffer = new byte[100000]; // Buffer để lưu trữ dữ liệu
+                int bytesRead = 0;
+                StringBuilder jsonStringBuilder = new StringBuilder();
+
+                // Đọc dữ liệu từ NetworkStream
+                bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+
+                // Chuyển đổi mảng byte thành chuỗi
+                string part = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                jsonStringBuilder.Append(part);
+
+
+                // Chuyển đổi chuỗi JSON thành danh sách đối tượng
+                string jsonString = jsonStringBuilder.ToString();
+                List<string> usersList = JsonConvert.DeserializeObject<List<string>>(jsonString);
+
                 return usersList;
             }
             catch (Exception ex)
@@ -283,8 +300,6 @@ namespace WindowsFormsApp3
                         age--;
                     }
                     /*name_text.Text*/
-                    label7.Text = userMatch.FullName + ", " + age.ToString();
-                    /*name_text.Text*/
                     label7.Text = userMatch.FullName + "  " + age.ToString();
                     gender_text.Text = userMatch.Gender == 0 ? "Male" : "Female";
 
@@ -325,7 +340,7 @@ namespace WindowsFormsApp3
                 if (currentPos < usersList.Count - 1)
                 {
                     currentPos++;
-                    //ShowUser(currentPos);
+                    ShowUser(currentPos);
                 }
                 else
                 {
@@ -333,7 +348,7 @@ namespace WindowsFormsApp3
                     endSig = 1;
                 }
             }
-            else if(endSig == 0)
+            else if (endSig == 0)
             {
                 MessageBox.Show("please start first.");
             }
@@ -368,7 +383,7 @@ namespace WindowsFormsApp3
                 if (currentPos < usersList.Count - 1)
                 {
                     currentPos++;
-                    //ShowUser(currentPos);
+                    ShowUser(currentPos);
                 }
                 else
                 {
@@ -473,21 +488,42 @@ namespace WindowsFormsApp3
             guna2Transition1.ShowSync(guna2Panel1);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e) // search for matchlist button
         {
             try
             {
-                comboBox1.Items.Clear();
                 string message = $"StartChat:{username}";
                 byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
                 streamM.Write(messagebuffer, 0, messagebuffer.Length);
+                byte[] buffer = new byte[256];
+                int bytesRead;
+                bytesRead = await streamM.ReadAsync(buffer, 0, buffer.Length);
+
+                // Chuỗi đầu vào
+                string yourmatch = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                // Tìm vị trí của dấu hai chấm và dấu ngoặc kép
+                int startIndex = yourmatch.IndexOf(':') + 2; // +2 để bỏ qua dấu cách sau dấu hai chấm
+                int endIndex = yourmatch.LastIndexOf('"');
+
+                // Lấy phần chuỗi chứa tên
+                string namesPart = yourmatch.Substring(startIndex, endIndex - startIndex);
+
+                // Cắt chuỗi theo dấu phẩy
+                string[] names = namesPart.Split(',');
+
+                // Loại bỏ các phần tử rỗng (nếu có)
+                names = names.Where(name => !string.IsNullOrWhiteSpace(name)).ToArray();
+
+                // Đưa tên vào ComboBox
+                comboBox1.Items.Clear(); // Xóa các mục cũ (nếu có)
+                comboBox1.Items.AddRange(names); // Thêm các tên vào ComboBox
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        private void ListenForMessages()
+        private void Chat()
         {
             byte[] buffer = new byte[256];
             int bytesRead;
@@ -510,47 +546,6 @@ namespace WindowsFormsApp3
                     }
                     
                 }
-                else if(response=="StartChat_Response")
-                {
-                    Invoke((MethodInvoker)delegate
-                    {
-                        string[] usernames = message.Split(',');
-
-                        foreach (var username in usernames)
-                        {
-                            comboBox1.Items.Add(username);
-                        }
-                    });
-                }
-                else
-                {
-                    string part = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                    string jsonString = part;
-
-                    // Chuyển đổi chuỗi JSON thành danh sách người dùng
-                    List<string> temp = JsonConvert.DeserializeObject<List<string>>(jsonString);
-                    usersList = temp;
-                    ShowUser(currentPos);
-                }
-            }
-        }
-        private void StartConnection()
-        {
-            try
-            {
-                streamM = userM.GetStream();
-
-                // Create a single thread to handle both listening for messages and receiving the user list
-                Thread listenThread = new Thread(() =>
-                {
-                    ListenForMessages();  // Listen for incoming messages
-                });
-
-                listenThread.Start();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error connecting to server: {ex.Message}");
             }
         }
 
@@ -559,10 +554,17 @@ namespace WindowsFormsApp3
             try
             {
                 string text = textBox1.Text;
-                string message = $"Chat:{user}:{userreceive}:{text}";
-                richTextBox1.Text += $"Me:{text}";
-                byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
-                streamM.Write(messagebuffer, 0, messagebuffer.Length);
+                if (string.IsNullOrEmpty(userreceive))
+                {
+                    MessageBox.Show("Please choose someone to chat");
+                }    
+                else
+                {
+                    string message = $"Chat:{username}:{userreceive}:{text}";
+                    richTextBox1.Text += $"{username} to {userreceive}: {text}\n";
+                    byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
+                    streamM.Write(messagebuffer, 0, messagebuffer.Length);
+                }                
             }
             catch (Exception ex)
             {
@@ -573,7 +575,13 @@ namespace WindowsFormsApp3
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             userreceive = comboBox1.SelectedItem.ToString();
-            richTextBox1.Text = userreceive;
+            richTextBox1.Clear();
+            //richTextBox1.Text = userreceive;
+        }
+
+        private void Back_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
