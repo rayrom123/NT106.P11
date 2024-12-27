@@ -179,10 +179,7 @@ namespace WindowsFormsApp3
                 streamM.Write(messageBuffer, 0, messageBuffer.Length);
 
                 startState = 1;
-
-                usersList = await ReceiveUsersListAsync(streamM);
-
-                ShowUser(currentPos);
+ 
             }
             else
             {
@@ -194,22 +191,7 @@ namespace WindowsFormsApp3
         {
             try
             {
-                byte[] buffer = new byte[100000]; // Buffer để lưu trữ dữ liệu
-                int bytesRead = 0;
-                StringBuilder jsonStringBuilder = new StringBuilder();
-
-                // Đọc dữ liệu từ NetworkStream
-                bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
                 
-                    // Chuyển đổi mảng byte thành chuỗi
-                    string part = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                    jsonStringBuilder.Append(part);
-                
-
-                // Chuyển đổi chuỗi JSON thành danh sách đối tượng
-                string jsonString = jsonStringBuilder.ToString();
-                List<string> usersList = JsonConvert.DeserializeObject<List<string>>(jsonString);
-
                 return usersList;
             }
             catch (Exception ex)
@@ -219,7 +201,8 @@ namespace WindowsFormsApp3
             }
         }
 
-       
+
+
 
         private int checkMatch(string[] matches, string username)
         {
@@ -342,7 +325,7 @@ namespace WindowsFormsApp3
                 if (currentPos < usersList.Count - 1)
                 {
                     currentPos++;
-                    ShowUser(currentPos);
+                    //ShowUser(currentPos);
                 }
                 else
                 {
@@ -385,7 +368,7 @@ namespace WindowsFormsApp3
                 if (currentPos < usersList.Count - 1)
                 {
                     currentPos++;
-                    ShowUser(currentPos);
+                    //ShowUser(currentPos);
                 }
                 else
                 {
@@ -527,7 +510,7 @@ namespace WindowsFormsApp3
                     }
                     
                 }
-                else
+                else if(response=="StartChat_Response")
                 {
                     Invoke((MethodInvoker)delegate
                     {
@@ -539,6 +522,16 @@ namespace WindowsFormsApp3
                         }
                     });
                 }
+                else
+                {
+                    string part = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                    string jsonString = part;
+
+                    // Chuyển đổi chuỗi JSON thành danh sách người dùng
+                    List<string> temp = JsonConvert.DeserializeObject<List<string>>(jsonString);
+                    usersList = temp;
+                    ShowUser(currentPos);
+                }
             }
         }
         private void StartConnection()
@@ -546,13 +539,18 @@ namespace WindowsFormsApp3
             try
             {
                 streamM = userM.GetStream();
-                Thread listenThread = new Thread(ListenForMessages);  // Lắng nghe tin nhắn từ server
+
+                // Create a single thread to handle both listening for messages and receiving the user list
+                Thread listenThread = new Thread(() =>
+                {
+                    ListenForMessages();  // Listen for incoming messages
+                });
+
                 listenThread.Start();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error connecting to server: {ex.Message}");
-
             }
         }
 
