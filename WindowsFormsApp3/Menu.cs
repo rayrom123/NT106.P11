@@ -48,10 +48,11 @@ namespace WindowsFormsApp3
             birthday_text.Visible = false;
             location_text.Visible = false;
             location_l.Visible = false;
+            StartConnection();
         }
 
         public string username;
-        
+        public string userreceive;
         public User_Entity.User_Model user;
         public static IFirebaseConfig config = new FirebaseConfig
         {
@@ -487,6 +488,94 @@ namespace WindowsFormsApp3
             location_l.Visible = false;
             guna2Panel1.Height = 1;
             guna2Transition1.ShowSync(guna2Panel1);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                comboBox1.Items.Clear();
+                string message = $"StartChat:{username}";
+                byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
+                streamM.Write(messagebuffer, 0, messagebuffer.Length);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void ListenForMessages()
+        {
+            byte[] buffer = new byte[256];
+            int bytesRead;
+            while ((bytesRead = streamM.Read(buffer, 0, buffer.Length)) > 0)
+            {
+                string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                string[] parts = message.Split(':');
+                string response = parts[0];
+                
+                if (response == "Receive_Message" )
+                {
+                    string receiver = parts[1];
+                    string messagecontent = parts[2];
+                    if(receiver == username)
+                    {
+                        Invoke((MethodInvoker)delegate
+                        {
+                            richTextBox1.Text += $"{receiver}:{messagecontent}\n";
+                        });
+                    }
+                    
+                }
+                else
+                {
+                    Invoke((MethodInvoker)delegate
+                    {
+                        string[] usernames = message.Split(',');
+
+                        foreach (var username in usernames)
+                        {
+                            comboBox1.Items.Add(username);
+                        }
+                    });
+                }
+            }
+        }
+        private void StartConnection()
+        {
+            try
+            {
+                streamM = userM.GetStream();
+                Thread listenThread = new Thread(ListenForMessages);  // Lắng nghe tin nhắn từ server
+                listenThread.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error connecting to server: {ex.Message}");
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string text = textBox1.Text;
+                string message = $"Chat:{user}:{userreceive}:{text}";
+                richTextBox1.Text += $"Me:{text}";
+                byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
+                streamM.Write(messagebuffer, 0, messagebuffer.Length);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            userreceive = comboBox1.SelectedItem.ToString();
+            richTextBox1.Text = userreceive;
         }
     }
 }

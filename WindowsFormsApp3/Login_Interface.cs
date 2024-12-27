@@ -109,14 +109,15 @@ namespace WindowsFormsApp3
                 {
                     int gender;
                     bool isGenderValid = int.TryParse(parts[5], out gender);
-                    
-                   
+                    DateTime dateOfBirth;
+                    bool isDateValid = DateTime.TryParse(parts[3], out dateOfBirth);
+
                     return new User_Model
                     {
                         UserName = parts[0],
                         Password = parts[1],
                         FullName = parts[2],
-                        DateOfBirth = DateTime.Parse(parts[3]),
+                        DateOfBirth = isDateValid ? dateOfBirth : DateTime.MinValue,
                         Interests = parts[4],
                         Gender = isGenderValid ? gender : -1,
                         Location = parts[6],

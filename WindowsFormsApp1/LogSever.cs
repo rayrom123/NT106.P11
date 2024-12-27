@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FirebaseAdmin.Messaging;
 using FireSharp;
 using FireSharp.Config;
 using FireSharp.Interfaces;
@@ -66,6 +68,7 @@ namespace WindowsFormsApp1
 
         private async void HandleClient(object obj)
         {
+
             TcpClient client = (TcpClient)obj;
             NetworkStream stream = client.GetStream();
             byte[] buffer = new byte[256];
@@ -100,7 +103,7 @@ namespace WindowsFormsApp1
 
                     BroadcastMessage(userResponse.ResultAs<User_Model>(), client);
                 }
-                if (request == "Login")
+                else if (request == "Login")
                 {
                     string username = parts[1];
                     string password = parts[2].Replace("\n", "");
@@ -124,12 +127,43 @@ namespace WindowsFormsApp1
                     // Đăng nhập thành công
                     BroadcastMessage(userResponse.ResultAs<User_Model>(), client);
                 }
+                else if (request == "StartChat")
+                {
+                    string username = parts[1];
+                    // Lấy danh sách người dùng từ Firebase
+                    var usersResponse = await fbdt.GetAsync($"Users/{username}/MatchList/");
 
-                
-                
+                    // Lấy danh sách username từ Firebase
+                    string matchListString = usersResponse.Body;
+                    
+                    // Gửi danh sách username đến client
+                    richTextBox1.Invoke((MethodInvoker)delegate
+                        {
+                            richTextBox1.AppendText($"Like List of {username}: \n");
+                            BroadcastMessage(matchListString, client);  // Gửi danh sách username đến client
+                        });
+                }
+                else if (request == "Chat")
+                {
+                     string senderUsername = parts[1];
+                     string receiverUsername = parts[2];
+                     string messageContent = parts[3];
+
+                     await SendMessageAsync(senderUsername,receiverUsername, client, messageContent);
+                }
             }
         }
-
+        public async Task SendMessageAsync(string usersend,string receiverUsername, TcpClient sender, string messageContent)
+        {
+            string message = $"Receive_Message:{receiverUsername}:{messageContent}";
+            byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
+            foreach (var client in clients)
+            {
+                NetworkStream stream = client.GetStream();
+                stream.Write(messageBuffer, 0, messageBuffer.Length);
+            }
+        }
+        
         public async Task SendUsersListAsync(TcpClient sender, List<string> usersList)
         {
             try
@@ -161,8 +195,6 @@ namespace WindowsFormsApp1
 
         private void BroadcastMessage(string message, TcpClient sender)
         {
-
-
             byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
             richTextBox1.Invoke((MethodInvoker)delegate
             {
@@ -183,7 +215,7 @@ namespace WindowsFormsApp1
         private void BroadcastMessage(User_Model user, TcpClient sender)
         {
             // Gửi thông tin người dùng đến tất cả các client
-            string dtb = user.DateOfBirth.ToString("dd/MM/yyyy");
+           string dtb = user.DateOfBirth.ToString("dd/MM/yyyy");
            string message = $"{user.UserName}:{user.Password}:{user.FullName}:{dtb}:{user.Interests}:{user.Gender}:{user.Location}:{user.MatchList}:{user.ImagePath}:{user.DislikeList}";
            byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
 
