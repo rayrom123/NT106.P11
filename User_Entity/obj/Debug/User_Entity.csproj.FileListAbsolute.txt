@@ -120,3 +120,14 @@ C:\Users\Admin\source\2712\User_Entity\obj\Debug\User_Entity.csproj.CoreCompileI
 C:\Users\Admin\source\2712\User_Entity\obj\Debug\User_Ent.6593406D.Up2Date
 C:\Users\Admin\source\2712\User_Entity\obj\Debug\User_Entity.dll
 C:\Users\Admin\source\2712\User_Entity\obj\Debug\User_Entity.pdb
+C:\Users\acer\Source\Repos\Tinder_Clone_2812\User_Entity\bin\Debug\User_Entity.dll
+C:\Users\acer\Source\Repos\Tinder_Clone_2812\User_Entity\bin\Debug\User_Entity.pdb
+C:\Users\acer\Source\Repos\Tinder_Clone_2812\User_Entity\bin\Debug\FireSharp.dll
+C:\Users\acer\Source\Repos\Tinder_Clone_2812\User_Entity\bin\Debug\Guna.UI2.dll
+C:\Users\acer\Source\Repos\Tinder_Clone_2812\User_Entity\bin\Debug\RestSharp.dll
+C:\Users\acer\Source\Repos\Tinder_Clone_2812\User_Entity\bin\Debug\RestSharp.xml
+C:\Users\acer\Source\Repos\Tinder_Clone_2812\User_Entity\obj\Debug\User_Entity.csproj.AssemblyReference.cache
+C:\Users\acer\Source\Repos\Tinder_Clone_2812\User_Entity\obj\Debug\User_Entity.csproj.CoreCompileInputs.cache
+C:\Users\acer\Source\Repos\Tinder_Clone_2812\User_Entity\obj\Debug\User_Ent.6593406D.Up2Date
+C:\Users\acer\Source\Repos\Tinder_Clone_2812\User_Entity\obj\Debug\User_Entity.dll
+C:\Users\acer\Source\Repos\Tinder_Clone_2812\User_Entity\obj\Debug\User_Entity.pdb

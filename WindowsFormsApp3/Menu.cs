@@ -30,6 +30,42 @@ namespace WindowsFormsApp3
     {
         private TcpClient userM;
         private NetworkStream streamM;
+        private TcpClient userChat;
+        private NetworkStream streamChat;
+        private void StartConnection()
+        {
+            try
+            {
+                userChat = new TcpClient("127.0.0.1", 8080);  // Kết nối đến server
+                streamChat = userChat.GetStream();
+                Thread listenThread = new Thread(ListenForMessages);  // Lắng nghe tin nhắn từ server
+                listenThread.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error connecting to server: {ex.Message}");
+            }
+        }
+        private void ListenForMessages()
+        {
+            byte[] buffer = new byte[256];
+            int bytesRead;
+
+            while ((bytesRead = streamChat.Read(buffer, 0, buffer.Length)) > 0)
+            {
+                string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                string[] parts = message.Split(':');
+                string receiver = parts[1];
+                string content = parts[2];
+                Invoke((MethodInvoker)delegate
+                {
+                    
+                    if(username==receiver)
+                        richTextBox1.Text += $"{parts[1]}:{parts[2]}\n";
+                    
+                });
+            }
+        }
         public Menu(TcpClient user, NetworkStream stream)
         {
             InitializeComponent();
@@ -136,7 +172,7 @@ namespace WindowsFormsApp3
                 byte[] imageBytes = Convert.FromBase64String(user.ImagePath);
                 MemoryStream ms = new MemoryStream(imageBytes);
                 Image_View.Image = Image.FromStream(ms);
-
+                StartConnection();
                 if (user.MatchList != null)
                 {
                     currentmatchlist = user.MatchList;
@@ -523,31 +559,7 @@ namespace WindowsFormsApp3
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Chat()
-        {
-            byte[] buffer = new byte[256];
-            int bytesRead;
-            while ((bytesRead = streamM.Read(buffer, 0, buffer.Length)) > 0)
-            {
-                string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                string[] parts = message.Split(':');
-                string response = parts[0];
-                
-                if (response == "Receive_Message" )
-                {
-                    string receiver = parts[1];
-                    string messagecontent = parts[2];
-                    if(receiver == username)
-                    {
-                        Invoke((MethodInvoker)delegate
-                        {
-                            richTextBox1.Text += $"{receiver}:{messagecontent}\n";
-                        });
-                    }
-                    
-                }
-            }
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -561,9 +573,10 @@ namespace WindowsFormsApp3
                 else
                 {
                     string message = $"Chat:{username}:{userreceive}:{text}";
-                    richTextBox1.Text += $"{username} to {userreceive}: {text}\n";
+                    richTextBox1.Text += $"Me: {text}\n";
                     byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
-                    streamM.Write(messagebuffer, 0, messagebuffer.Length);
+                    streamChat.Write(messagebuffer, 0, messagebuffer.Length);
+                    textBox1.Clear();
                 }                
             }
             catch (Exception ex)

@@ -143,17 +143,6 @@ namespace WindowsFormsApp1
                             BroadcastMessage(matchListString, client);  // Gửi danh sách username đến client
                         });
                     }
-                    else if (request == "Chat")
-                    {
-                        string senderUsername = parts[1];
-                        string receiverUsername = parts[2];
-                        string messageContent = parts[3];
-                        richTextBox1.Invoke((MethodInvoker)delegate
-                        {
-                            richTextBox1.AppendText($"ChatLogs: {senderUsername} to {receiverUsername}: {messageContent}\n");
-                        });
-                        await SendMessageAsync(senderUsername, receiverUsername, client, messageContent);
-                    }
                 }
             }
             catch (Exception ex)
@@ -162,16 +151,7 @@ namespace WindowsFormsApp1
             }
 
         }
-        public async Task SendMessageAsync(string usersend, string receiverUsername, TcpClient sender, string messageContent)
-        {
-            string message = $"Receive_Message:{receiverUsername}:{messageContent}";
-            byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
-            foreach (var client in clients)
-            {
-                NetworkStream stream = client.GetStream();
-                stream.Write(messageBuffer, 0, messageBuffer.Length);
-            }
-        }
+        
 
         public async Task SendUsersListAsync(TcpClient sender, List<string> usersList)
         {

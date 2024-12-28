@@ -125,16 +125,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChatSever.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChatSever.Designer.cs">
+      <DependentUpon>ChatSever.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogSever.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LogSever.Designer.cs">
       <DependentUpon>LogSever.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuSever.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuSever.Designer.cs">
+      <DependentUpon>MenuSever.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChatSever.resx">
+      <DependentUpon>ChatSever.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogSever.resx">
       <DependentUpon>LogSever.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuSever.resx">
+      <DependentUpon>MenuSever.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
