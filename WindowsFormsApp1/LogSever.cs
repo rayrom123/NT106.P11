@@ -134,15 +134,19 @@ namespace WindowsFormsApp1
                         var usersResponse = await fbdt.GetAsync($"Users/{username}/MatchList/");
 
                         // Lấy danh sách username từ Firebase
-                        string matchListString = $"StartChat_Response:{usersResponse.Body}";
+                        var matchListString = JsonConvert.DeserializeObject<string>(usersResponse.Body);
 
-                        // Gửi danh sách username đến client
-                        richTextBox1.Invoke((MethodInvoker)delegate
+                        if (matchListString != null)
                         {
-                            richTextBox1.AppendText($"Like List of {username}: \n");
-                            BroadcastMessage(matchListString, client);  // Gửi danh sách username đến client
-                        });
+                            // Gửi danh sách username đến client
+                            richTextBox1.Invoke((MethodInvoker)delegate
+                            {
+                                richTextBox1.AppendText($"Like List of {username}: \n");
+                                BroadcastMessage(matchListString, client);  // Gửi danh sách username đến client
+                            });
+                        }
                     }
+                   
                 }
             }
             catch (Exception ex)

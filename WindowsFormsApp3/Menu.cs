@@ -23,6 +23,7 @@ using System.Text.RegularExpressions;
 using System.Net.Sockets;
 using System.Runtime.InteropServices.ComTypes;
 using User_Entity;
+using static Google.Apis.Requests.BatchRequest;
 
 namespace WindowsFormsApp3
 {
@@ -524,13 +525,15 @@ namespace WindowsFormsApp3
             guna2Transition1.ShowSync(guna2Panel1);
         }
 
-        private async void button2_Click(object sender, EventArgs e) // search for matchlist button
+        private async void checkChat(string[] names, string[] chatnames)
         {
-            try
+            int i = 0;
+            foreach(var name in names)
             {
-                string message = $"StartChat:{username}";
+                string message = $"StartChat:{name}";
                 byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
                 streamM.Write(messagebuffer, 0, messagebuffer.Length);
+
                 byte[] buffer = new byte[256];
                 int bytesRead;
                 bytesRead = await streamM.ReadAsync(buffer, 0, buffer.Length);
@@ -541,18 +544,84 @@ namespace WindowsFormsApp3
                 int startIndex = yourmatch.IndexOf(':') + 2; // +2 để bỏ qua dấu cách sau dấu hai chấm
                 int endIndex = yourmatch.LastIndexOf('"');
 
-                // Lấy phần chuỗi chứa tên
+               
                 string namesPart = yourmatch.Substring(startIndex, endIndex - startIndex);
 
-                // Cắt chuỗi theo dấu phẩy
-                string[] names = namesPart.Split(',');
 
-                // Loại bỏ các phần tử rỗng (nếu có)
-                names = names.Where(name => !string.IsNullOrWhiteSpace(name)).ToArray();
 
-                // Đưa tên vào ComboBox
+
+                string[]  arr = namesPart.Split(',');
+
+                foreach(var a in arr)
+                {
+                    if(a == username)
+                    {
+                        chatnames[i] = a;
+                        i++;
+                        break;
+                    }
+
+                }
+            }
+
+            //string message = $"StartChat:{}";
+            //byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
+            //streamM.Write(messagebuffer, 0, messagebuffer.Length);
+            //byte[] buffer = new byte[256];
+            //int bytesRead;
+            //bytesRead = await streamM.ReadAsync(buffer, 0, buffer.Length);
+
+            //// Chuỗi đầu vào
+            //string yourmatch = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+            //// Tìm vị trí của dấu hai chấm và dấu ngoặc kép
+            //int startIndex = yourmatch.IndexOf(':') + 2; // +2 để bỏ qua dấu cách sau dấu hai chấm
+            //int endIndex = yourmatch.LastIndexOf('"');
+
+            // Lấy phần chuỗi chứa tên
+            //string namesPart = yourmatch.Substring(startIndex, endIndex - startIndex);
+            
+        }
+
+        private async void button2_Click(object sender, EventArgs e) // search for matchlist button
+        {
+            try
+            {
+                string[] names = currentmatchlist.Split(',');
+                string[] chatnames = new string[100];
+
+                int i = 0;
+                foreach (var name in names)
+                {
+                    if (!string.IsNullOrEmpty(name))
+                    {
+                        string message = $"StartChat:{name}";
+                        byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
+                        streamM.Write(messagebuffer, 0, messagebuffer.Length);
+
+                        byte[] buffer = new byte[256];
+                        int bytesRead;
+                        bytesRead = await streamM.ReadAsync(buffer, 0, buffer.Length);
+                        // Chuỗi đầu vào
+                        string yourmatch = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                        // Tìm vị trí của dấu hai chấm và dấu ngoặc kép
+                        
+
+                        string[] arr = yourmatch.Split(',');
+
+                        foreach (var a in arr)
+                        {
+                            if (a == username)
+                            {
+                                chatnames[i] = name;
+                                i++;
+                                break;
+                            }
+                        }
+                    }
+                }
+
                 comboBox1.Items.Clear(); // Xóa các mục cũ (nếu có)
-                comboBox1.Items.AddRange(names); // Thêm các tên vào ComboBox
+                comboBox1.Items.AddRange(chatnames); // Thêm các tên vào ComboBox
             }
             catch (Exception ex)
             {
@@ -588,6 +657,8 @@ namespace WindowsFormsApp3
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             userreceive = comboBox1.SelectedItem.ToString();
+
+            
             richTextBox1.Clear();
             //richTextBox1.Text = userreceive;
         }
