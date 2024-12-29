@@ -171,7 +171,6 @@ namespace WindowsFormsApp3
         // Xử lý sự kiện nhấn nút hủy
         private void Cancel_button_Click(object sender, EventArgs e)
         {
-            //Application.Exit();  // Đóng ứng dụng
             this.Close();
         }
 

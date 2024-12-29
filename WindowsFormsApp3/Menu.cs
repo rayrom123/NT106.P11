@@ -33,14 +33,24 @@ namespace WindowsFormsApp3
         private NetworkStream streamM;
         private TcpClient userChat;
         private NetworkStream streamChat;
+        private List<string> serverAddresses = new List<string> { "127.0.0.1:8080", "127.0.0.1:8081" };
+        private int currentServerIndex = 0;
         private void StartConnection()
         {
             try
             {
-                userChat = new TcpClient("127.0.0.1", 8080);  // Kết nối đến server
+                // Lấy thông tin IP và Port từ danh sách server
+                string[] addressParts = serverAddresses[currentServerIndex].Split(':');
+                string ip = addressParts[0];
+                int port = int.Parse(addressParts[1]);
+
+                userChat = new TcpClient(ip, port); // Kết nối đến server
                 streamChat = userChat.GetStream();
                 Thread listenThread = new Thread(ListenForMessages);  // Lắng nghe tin nhắn từ server
                 listenThread.Start();
+
+                // Cập nhật chỉ số server hiện tại để dùng cho lần kết nối tiếp theo
+                currentServerIndex = (currentServerIndex + 1) % serverAddresses.Count;
             }
             catch (Exception ex)
             {
@@ -56,13 +66,13 @@ namespace WindowsFormsApp3
             {
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                 string[] parts = message.Split(':');
-                string receiver = parts[1];
-                string content = parts[2];
+                string sender = parts[1];
+                string receiver = parts[2];
+                string content = parts[3];
                 Invoke((MethodInvoker)delegate
-                {
-                    
-                    if(username==receiver)
-                        richTextBox1.Text += $"{parts[1]}:{parts[2]}\n";
+                {                    
+                    if(username == receiver)
+                        richTextBox1.Text += $"{parts[1]}: {parts[3]}\n";
                     
                 });
             }
@@ -336,13 +346,9 @@ namespace WindowsFormsApp3
                     {
                         age--;
                     }
-                    /*name_text.Text*/
                     label7.Text = userMatch.FullName + "  " + age.ToString();
                     gender_text.Text = userMatch.Gender == 0 ? "Male" : "Female";
-
-                    /*birth_text.Text*/
                     birthday_text.Text = userMatch.DateOfBirth.ToString("dd/MM/yyyy");
-                    /*location_text.SelectedItem*/
                     location_text.Text = userMatch.Location.ToString();
                     interest_text.Text = userMatch.Interests;
                     byte[] imageBytes = Convert.FromBase64String(userMatch.ImagePath);
@@ -395,13 +401,6 @@ namespace WindowsFormsApp3
             }
         }
 
-
-
-
-        private void location_select_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
 
   
         private async void Dislike_Button_Click(object sender, EventArgs e)
@@ -464,22 +463,6 @@ namespace WindowsFormsApp3
             }
         }
 
-        private void menu_tabcontrol_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //switch (menu_tabcontrol.SelectedIndex)
-            //{
-            //    case 0: // Tab đầu tiên
-            //        this.Size = new Size(600, 350); // Kích thước cho tab đầu tiên
-            //        break;
-            //    case 1: // Tab thứ hai
-            //        this.Size = new Size(600, 350); // Kích thước cho tab thứ hai
-            //        break;
-            //    case 2: // Tab thứ ba
-            //        this.Size = new Size(600, 280); // Kích thước cho tab thứ ba
-            //        break;
-            //        // Thêm các case nếu có nhiều tab hơn
-            //}
-        }
 
         private void show_btn_Click(object sender, EventArgs e)
         {
@@ -563,23 +546,6 @@ namespace WindowsFormsApp3
 
                 }
             }
-
-            //string message = $"StartChat:{}";
-            //byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
-            //streamM.Write(messagebuffer, 0, messagebuffer.Length);
-            //byte[] buffer = new byte[256];
-            //int bytesRead;
-            //bytesRead = await streamM.ReadAsync(buffer, 0, buffer.Length);
-
-            //// Chuỗi đầu vào
-            //string yourmatch = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-            //// Tìm vị trí của dấu hai chấm và dấu ngoặc kép
-            //int startIndex = yourmatch.IndexOf(':') + 2; // +2 để bỏ qua dấu cách sau dấu hai chấm
-            //int endIndex = yourmatch.LastIndexOf('"');
-
-            // Lấy phần chuỗi chứa tên
-            //string namesPart = yourmatch.Substring(startIndex, endIndex - startIndex);
-            
         }
 
         private async void button2_Click(object sender, EventArgs e) // search for matchlist button
@@ -588,7 +554,6 @@ namespace WindowsFormsApp3
             {
                 string[] names = currentmatchlist.Split(',');
                 string[] chatnames = new string[100];
-
                 int i = 0;
                 foreach (var name in names)
                 {
@@ -619,9 +584,16 @@ namespace WindowsFormsApp3
                         }
                     }
                 }
-
                 comboBox1.Items.Clear(); // Xóa các mục cũ (nếu có)
-                comboBox1.Items.AddRange(chatnames); // Thêm các tên vào ComboBox
+                var validChatNames = chatnames.Take(i).Where(name => !string.IsNullOrEmpty(name)).ToArray();
+                if (validChatNames.Length == 0)
+                {
+                    MessageBox.Show("You don't have anyone matching you");
+                }
+                else
+                {
+                    comboBox1.Items.AddRange(validChatNames); // Thêm các tên vào ComboBox
+                }
             }
             catch (Exception ex)
             {
@@ -651,21 +623,25 @@ namespace WindowsFormsApp3
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                StartConnection();
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             userreceive = comboBox1.SelectedItem.ToString();
-
-            
+            var userResponse = await client.GetTaskAsync($"Users/{userreceive}");
+            var userData = userResponse.ResultAs<User_Entity.User_Model>();
+            var img = userData.ImagePath;
+            byte[] imageBytes = Convert.FromBase64String(img);
+            MemoryStream ms = new MemoryStream(imageBytes);
+            chat_image.Image = Image.FromStream(ms);
             richTextBox1.Clear();
-            //richTextBox1.Text = userreceive;
         }
 
         private void Back_button_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }

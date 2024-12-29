@@ -87,7 +87,7 @@ namespace WindowsFormsApp1
         }
         public async Task SendMessageAsync(string usersend, string receiverUsername, TcpClient sender, string messageContent)
         {
-            string message = $"Receive_Message:{receiverUsername}:{messageContent}";
+            string message = $"Receive_Message:{usersend}:{receiverUsername}:{messageContent}";
             byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
             foreach (var client in clients)
             {

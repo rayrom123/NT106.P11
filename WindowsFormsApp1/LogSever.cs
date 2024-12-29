@@ -146,7 +146,42 @@ namespace WindowsFormsApp1
                             });
                         }
                     }
-                   
+                    else if (request == "Register")
+                    {
+                        string username = parts[1];
+                        int gender = int.Parse(parts[2]); // 0 male, 1 female
+                        string fullname = parts[3];
+                        string password = parts[4];
+                        DateTime dateofbirth = DateTime.Parse(parts[5]);
+                        var new_user = new User_Entity.User_Model();
+
+                        new_user.Gender = gender;
+                        new_user.FullName = fullname;
+                        new_user.Password = new_user.encrypt(password);
+                        new_user.UserName = username;
+                        new_user.DateOfBirth = dateofbirth;  // guna datetime bi loi lay gia tri hom qua nen + 1 len
+
+
+                        var userResponse = await fbdt.GetAsync("Users/" + username);
+
+                        if (userResponse.Body != "null")
+                        {
+                            BroadcastMessage("Da ton tai tai khoan", client);
+                            return;
+
+                        }
+                        SetResponse response = await fbdt.SetAsync("Users/" + username, new_user);
+                        User_Entity.User_Model result = response.ResultAs<User_Entity.User_Model>();
+                        if (result != null)
+                        {
+                            BroadcastMessage("Success", client);
+                        }
+                        else
+                        {
+                            BroadcastMessage("Error", client);
+                        }
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -225,11 +260,6 @@ namespace WindowsFormsApp1
                     stream.Write(messageBuffer, 0, messageBuffer.Length);
                 }
             }
-        }
-
-        private void LogSever_Load(object sender, EventArgs e)
-        {
-            // Mã khởi tạo khi form load
         }
     }
 }
