@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation2 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.menu_tabcontrol = new Guna.UI2.WinForms.Guna2TabControl();
@@ -52,12 +52,16 @@
             this.fullname_l = new System.Windows.Forms.Label();
             this.username_l = new System.Windows.Forms.Label();
             this.tab_chat = new System.Windows.Forms.TabPage();
+            this.chat_image = new Guna.UI2.WinForms.Guna2PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tab_matching = new System.Windows.Forms.TabPage();
+            this.start_button = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.like = new Guna.UI2.WinForms.Guna2Button();
             this.label9 = new System.Windows.Forms.Label();
             this.usn_text = new System.Windows.Forms.TextBox();
             this.usn_l = new System.Windows.Forms.Label();
@@ -74,19 +78,15 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.image_t = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.start = new System.Windows.Forms.Button();
-            this.Dislike_Button = new System.Windows.Forms.Button();
-            this.Like_Button = new System.Windows.Forms.Button();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Transition1 = new Guna.UI2.WinForms.Guna2Transition();
-            this.chat_image = new Guna.UI2.WinForms.Guna2PictureBox();
             this.menu_tabcontrol.SuspendLayout();
             this.tab_profile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Image_View)).BeginInit();
             this.tab_chat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chat_image)).BeginInit();
             this.tab_matching.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image_t)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chat_image)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -104,7 +104,7 @@
             this.menu_tabcontrol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menu_tabcontrol.Name = "menu_tabcontrol";
             this.menu_tabcontrol.SelectedIndex = 0;
-            this.menu_tabcontrol.Size = new System.Drawing.Size(896, 564);
+            this.menu_tabcontrol.Size = new System.Drawing.Size(796, 451);
             this.menu_tabcontrol.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.menu_tabcontrol.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.menu_tabcontrol.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -150,17 +150,16 @@
             this.tab_profile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab_profile.Name = "tab_profile";
             this.tab_profile.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tab_profile.Size = new System.Drawing.Size(888, 516);
+            this.tab_profile.Size = new System.Drawing.Size(788, 403);
             this.tab_profile.TabIndex = 0;
             this.tab_profile.Text = "Profile";
             // 
             // Image_View
             // 
             this.guna2Transition1.SetDecoration(this.Image_View, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Image_View.Location = new System.Drawing.Point(558, 180);
-            this.Image_View.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Image_View.Location = new System.Drawing.Point(496, 144);
             this.Image_View.Name = "Image_View";
-            this.Image_View.Size = new System.Drawing.Size(241, 182);
+            this.Image_View.Size = new System.Drawing.Size(214, 146);
             this.Image_View.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Image_View.TabIndex = 73;
             this.Image_View.TabStop = false;
@@ -168,10 +167,9 @@
             // Select_Image
             // 
             this.guna2Transition1.SetDecoration(this.Select_Image, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Select_Image.Location = new System.Drawing.Point(444, 239);
-            this.Select_Image.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Select_Image.Location = new System.Drawing.Point(395, 191);
             this.Select_Image.Name = "Select_Image";
-            this.Select_Image.Size = new System.Drawing.Size(84, 29);
+            this.Select_Image.Size = new System.Drawing.Size(75, 23);
             this.Select_Image.TabIndex = 72;
             this.Select_Image.Text = "Select image";
             this.Select_Image.UseVisualStyleBackColor = true;
@@ -181,39 +179,37 @@
             // 
             this.label1.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.label1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label1.Location = new System.Drawing.Point(458, 180);
+            this.label1.Location = new System.Drawing.Point(407, 144);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 20);
+            this.label1.Size = new System.Drawing.Size(45, 16);
             this.label1.TabIndex = 71;
             this.label1.Text = "Image";
             // 
             // dateofbirth_t
             // 
             this.guna2Transition1.SetDecoration(this.dateofbirth_t, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.dateofbirth_t.Location = new System.Drawing.Point(184, 122);
-            this.dateofbirth_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateofbirth_t.Location = new System.Drawing.Point(164, 98);
             this.dateofbirth_t.Name = "dateofbirth_t";
             this.dateofbirth_t.ReadOnly = true;
-            this.dateofbirth_t.Size = new System.Drawing.Size(231, 26);
+            this.dateofbirth_t.Size = new System.Drawing.Size(206, 22);
             this.dateofbirth_t.TabIndex = 70;
             // 
             // gender_t
             // 
             this.guna2Transition1.SetDecoration(this.gender_t, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.gender_t.Location = new System.Drawing.Point(547, 18);
-            this.gender_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gender_t.Location = new System.Drawing.Point(486, 14);
             this.gender_t.Name = "gender_t";
             this.gender_t.ReadOnly = true;
-            this.gender_t.Size = new System.Drawing.Size(231, 26);
+            this.gender_t.Size = new System.Drawing.Size(206, 22);
             this.gender_t.TabIndex = 69;
             // 
             // Back_button
             // 
             this.guna2Transition1.SetDecoration(this.Back_button, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Back_button.Location = new System.Drawing.Point(184, 391);
+            this.Back_button.Location = new System.Drawing.Point(164, 313);
             this.Back_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Back_button.Name = "Back_button";
-            this.Back_button.Size = new System.Drawing.Size(219, 42);
+            this.Back_button.Size = new System.Drawing.Size(195, 34);
             this.Back_button.TabIndex = 68;
             this.Back_button.Text = "Back";
             this.Back_button.UseVisualStyleBackColor = true;
@@ -222,10 +218,10 @@
             // Done_button
             // 
             this.guna2Transition1.SetDecoration(this.Done_button, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Done_button.Location = new System.Drawing.Point(558, 391);
+            this.Done_button.Location = new System.Drawing.Point(496, 313);
             this.Done_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Done_button.Name = "Done_button";
-            this.Done_button.Size = new System.Drawing.Size(219, 42);
+            this.Done_button.Size = new System.Drawing.Size(195, 34);
             this.Done_button.TabIndex = 67;
             this.Done_button.Text = "Done";
             this.Done_button.UseVisualStyleBackColor = true;
@@ -234,10 +230,10 @@
             // interest_t
             // 
             this.guna2Transition1.SetDecoration(this.interest_t, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.interest_t.Location = new System.Drawing.Point(184, 180);
+            this.interest_t.Location = new System.Drawing.Point(164, 144);
             this.interest_t.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.interest_t.Name = "interest_t";
-            this.interest_t.Size = new System.Drawing.Size(231, 180);
+            this.interest_t.Size = new System.Drawing.Size(206, 145);
             this.interest_t.TabIndex = 66;
             this.interest_t.Text = "";
             // 
@@ -269,19 +265,18 @@
             "Huyện Củ Chi",
             "Huyện Hóc Môn",
             "Huyện Nhà Bè"});
-            this.location_select.Location = new System.Drawing.Point(547, 122);
-            this.location_select.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.location_select.Location = new System.Drawing.Point(486, 98);
             this.location_select.Name = "location_select";
-            this.location_select.Size = new System.Drawing.Size(231, 28);
+            this.location_select.Size = new System.Drawing.Size(206, 24);
             this.location_select.TabIndex = 65;
             // 
             // Interests_I
             // 
             this.Interests_I.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.Interests_I, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Interests_I.Location = new System.Drawing.Point(60, 182);
+            this.Interests_I.Location = new System.Drawing.Point(53, 146);
             this.Interests_I.Name = "Interests_I";
-            this.Interests_I.Size = new System.Drawing.Size(72, 20);
+            this.Interests_I.Size = new System.Drawing.Size(57, 16);
             this.Interests_I.TabIndex = 64;
             this.Interests_I.Text = "Interests";
             // 
@@ -289,9 +284,9 @@
             // 
             this.location_I.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.location_I, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.location_I.Location = new System.Drawing.Point(458, 126);
+            this.location_I.Location = new System.Drawing.Point(407, 101);
             this.location_I.Name = "location_I";
-            this.location_I.Size = new System.Drawing.Size(70, 20);
+            this.location_I.Size = new System.Drawing.Size(58, 16);
             this.location_I.TabIndex = 63;
             this.location_I.Text = "Location";
             // 
@@ -299,39 +294,37 @@
             // 
             this.dateofbirth_I.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.dateofbirth_I, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.dateofbirth_I.Location = new System.Drawing.Point(60, 126);
+            this.dateofbirth_I.Location = new System.Drawing.Point(53, 101);
             this.dateofbirth_I.Name = "dateofbirth_I";
-            this.dateofbirth_I.Size = new System.Drawing.Size(99, 20);
+            this.dateofbirth_I.Size = new System.Drawing.Size(79, 16);
             this.dateofbirth_I.TabIndex = 62;
             this.dateofbirth_I.Text = "Date of Birth";
             // 
             // fullname_t
             // 
             this.guna2Transition1.SetDecoration(this.fullname_t, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.fullname_t.Location = new System.Drawing.Point(184, 68);
-            this.fullname_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.fullname_t.Location = new System.Drawing.Point(164, 54);
             this.fullname_t.Name = "fullname_t";
             this.fullname_t.ReadOnly = true;
-            this.fullname_t.Size = new System.Drawing.Size(594, 26);
+            this.fullname_t.Size = new System.Drawing.Size(528, 22);
             this.fullname_t.TabIndex = 61;
             // 
             // username_t
             // 
             this.guna2Transition1.SetDecoration(this.username_t, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.username_t.Location = new System.Drawing.Point(184, 18);
-            this.username_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.username_t.Location = new System.Drawing.Point(164, 14);
             this.username_t.Name = "username_t";
             this.username_t.ReadOnly = true;
-            this.username_t.Size = new System.Drawing.Size(231, 26);
+            this.username_t.Size = new System.Drawing.Size(206, 22);
             this.username_t.TabIndex = 60;
             // 
             // gender_l
             // 
             this.gender_l.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.gender_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.gender_l.Location = new System.Drawing.Point(458, 24);
+            this.gender_l.Location = new System.Drawing.Point(407, 19);
             this.gender_l.Name = "gender_l";
-            this.gender_l.Size = new System.Drawing.Size(63, 20);
+            this.gender_l.Size = new System.Drawing.Size(52, 16);
             this.gender_l.TabIndex = 59;
             this.gender_l.Text = "Gender";
             // 
@@ -339,9 +332,9 @@
             // 
             this.fullname_l.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.fullname_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.fullname_l.Location = new System.Drawing.Point(60, 71);
+            this.fullname_l.Location = new System.Drawing.Point(53, 57);
             this.fullname_l.Name = "fullname_l";
-            this.fullname_l.Size = new System.Drawing.Size(74, 20);
+            this.fullname_l.Size = new System.Drawing.Size(62, 16);
             this.fullname_l.TabIndex = 58;
             this.fullname_l.Text = "Fullname";
             // 
@@ -349,9 +342,9 @@
             // 
             this.username_l.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.username_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.username_l.Location = new System.Drawing.Point(60, 21);
+            this.username_l.Location = new System.Drawing.Point(53, 17);
             this.username_l.Name = "username_l";
-            this.username_l.Size = new System.Drawing.Size(83, 20);
+            this.username_l.Size = new System.Drawing.Size(70, 16);
             this.username_l.TabIndex = 57;
             this.username_l.Text = "Username";
             // 
@@ -369,17 +362,29 @@
             this.tab_chat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab_chat.Name = "tab_chat";
             this.tab_chat.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tab_chat.Size = new System.Drawing.Size(888, 516);
+            this.tab_chat.Size = new System.Drawing.Size(788, 403);
             this.tab_chat.TabIndex = 2;
             this.tab_chat.Text = "Chat";
+            // 
+            // chat_image
+            // 
+            this.chat_image.BorderRadius = 10;
+            this.guna2Transition1.SetDecoration(this.chat_image, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.chat_image.ImageRotate = 0F;
+            this.chat_image.Location = new System.Drawing.Point(630, 5);
+            this.chat_image.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chat_image.Name = "chat_image";
+            this.chat_image.Size = new System.Drawing.Size(140, 118);
+            this.chat_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.chat_image.TabIndex = 5;
+            this.chat_image.TabStop = false;
             // 
             // button2
             // 
             this.guna2Transition1.SetDecoration(this.button2, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.button2.Location = new System.Drawing.Point(709, 190);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Location = new System.Drawing.Point(630, 152);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 46);
+            this.button2.Size = new System.Drawing.Size(140, 37);
             this.button2.TabIndex = 4;
             this.button2.Text = "Match Friends";
             this.button2.UseVisualStyleBackColor = true;
@@ -389,20 +394,18 @@
             // 
             this.guna2Transition1.SetDecoration(this.comboBox1, Guna.UI2.AnimatorNS.DecorationType.None);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(709, 244);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox1.Location = new System.Drawing.Point(630, 195);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(157, 28);
+            this.comboBox1.Size = new System.Drawing.Size(140, 24);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
             this.guna2Transition1.SetDecoration(this.button1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.button1.Location = new System.Drawing.Point(709, 384);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Location = new System.Drawing.Point(630, 307);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 46);
+            this.button1.Size = new System.Drawing.Size(140, 37);
             this.button1.TabIndex = 2;
             this.button1.Text = "Send";
             this.button1.UseVisualStyleBackColor = true;
@@ -411,25 +414,26 @@
             // textBox1
             // 
             this.guna2Transition1.SetDecoration(this.textBox1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.textBox1.Location = new System.Drawing.Point(8, 394);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Location = new System.Drawing.Point(7, 315);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(679, 26);
+            this.textBox1.Size = new System.Drawing.Size(604, 22);
             this.textBox1.TabIndex = 1;
             // 
             // richTextBox1
             // 
             this.guna2Transition1.SetDecoration(this.richTextBox1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.richTextBox1.Location = new System.Drawing.Point(8, 6);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.richTextBox1.Location = new System.Drawing.Point(7, 5);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(682, 338);
+            this.richTextBox1.Size = new System.Drawing.Size(607, 271);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
             // tab_matching
             // 
             this.tab_matching.BackColor = System.Drawing.Color.Pink;
+            this.tab_matching.Controls.Add(this.start_button);
+            this.tab_matching.Controls.Add(this.guna2Button2);
+            this.tab_matching.Controls.Add(this.like);
             this.tab_matching.Controls.Add(this.label9);
             this.tab_matching.Controls.Add(this.usn_text);
             this.tab_matching.Controls.Add(this.usn_l);
@@ -446,17 +450,72 @@
             this.tab_matching.Controls.Add(this.guna2Panel1);
             this.tab_matching.Controls.Add(this.image_t);
             this.tab_matching.Controls.Add(this.label7);
-            this.tab_matching.Controls.Add(this.start);
-            this.tab_matching.Controls.Add(this.Dislike_Button);
-            this.tab_matching.Controls.Add(this.Like_Button);
             this.guna2Transition1.SetDecoration(this.tab_matching, Guna.UI2.AnimatorNS.DecorationType.None);
             this.tab_matching.Location = new System.Drawing.Point(4, 44);
             this.tab_matching.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab_matching.Name = "tab_matching";
             this.tab_matching.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tab_matching.Size = new System.Drawing.Size(888, 516);
+            this.tab_matching.Size = new System.Drawing.Size(788, 403);
             this.tab_matching.TabIndex = 1;
             this.tab_matching.Text = "Matching";
+            // 
+            // start_button
+            // 
+            this.start_button.BorderRadius = 10;
+            this.guna2Transition1.SetDecoration(this.start_button, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.start_button.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.start_button.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.start_button.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.start_button.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.start_button.FillColor = System.Drawing.Color.White;
+            this.start_button.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.start_button.ForeColor = System.Drawing.Color.Black;
+            this.start_button.Image = ((System.Drawing.Image)(resources.GetObject("start_button.Image")));
+            this.start_button.Location = new System.Drawing.Point(567, 301);
+            this.start_button.Name = "start_button";
+            this.start_button.Size = new System.Drawing.Size(112, 40);
+            this.start_button.TabIndex = 127;
+            this.start_button.Text = "Start";
+            this.start_button.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BorderRadius = 10;
+            this.guna2Transition1.SetDecoration(this.guna2Button2, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.White;
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
+            this.guna2Button2.Location = new System.Drawing.Point(282, 301);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.PressedColor = System.Drawing.Color.Aquamarine;
+            this.guna2Button2.Size = new System.Drawing.Size(112, 40);
+            this.guna2Button2.TabIndex = 126;
+            this.guna2Button2.Text = "Dislike";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
+            // like
+            // 
+            this.like.BorderRadius = 10;
+            this.guna2Transition1.SetDecoration(this.like, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.like.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.like.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.like.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.like.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.like.FillColor = System.Drawing.Color.White;
+            this.like.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.like.ForeColor = System.Drawing.Color.Black;
+            this.like.Image = ((System.Drawing.Image)(resources.GetObject("like.Image")));
+            this.like.Location = new System.Drawing.Point(427, 301);
+            this.like.Name = "like";
+            this.like.Size = new System.Drawing.Size(112, 40);
+            this.like.TabIndex = 125;
+            this.like.Text = "Like";
+            this.like.Click += new System.EventHandler(this.like_Click);
             // 
             // label9
             // 
@@ -464,20 +523,19 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.guna2Transition1.SetDecoration(this.label9, Guna.UI2.AnimatorNS.DecorationType.None);
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(376, 21);
+            this.label9.Location = new System.Drawing.Point(334, 17);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 29);
+            this.label9.Size = new System.Drawing.Size(71, 25);
             this.label9.TabIndex = 124;
             this.label9.Text = "Details";
             // 
             // usn_text
             // 
             this.guna2Transition1.SetDecoration(this.usn_text, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.usn_text.Location = new System.Drawing.Point(168, 116);
-            this.usn_text.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.usn_text.Location = new System.Drawing.Point(141, 92);
             this.usn_text.Name = "usn_text";
             this.usn_text.ReadOnly = true;
-            this.usn_text.Size = new System.Drawing.Size(229, 26);
+            this.usn_text.Size = new System.Drawing.Size(206, 22);
             this.usn_text.TabIndex = 123;
             // 
             // usn_l
@@ -485,20 +543,19 @@
             this.usn_l.AutoSize = true;
             this.usn_l.BackColor = System.Drawing.Color.Transparent;
             this.guna2Transition1.SetDecoration(this.usn_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.usn_l.Location = new System.Drawing.Point(70, 119);
+            this.usn_l.Location = new System.Drawing.Point(62, 95);
             this.usn_l.Name = "usn_l";
-            this.usn_l.Size = new System.Drawing.Size(83, 20);
+            this.usn_l.Size = new System.Drawing.Size(62, 16);
             this.usn_l.TabIndex = 122;
-            this.usn_l.Text = "Username";
+            this.usn_l.Text = "Fullname";
             // 
             // gender_text
             // 
             this.guna2Transition1.SetDecoration(this.gender_text, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.gender_text.Location = new System.Drawing.Point(159, 68);
-            this.gender_text.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gender_text.Location = new System.Drawing.Point(141, 54);
             this.gender_text.Name = "gender_text";
             this.gender_text.ReadOnly = true;
-            this.gender_text.Size = new System.Drawing.Size(231, 26);
+            this.gender_text.Size = new System.Drawing.Size(206, 22);
             this.gender_text.TabIndex = 121;
             // 
             // g_l
@@ -506,20 +563,20 @@
             this.g_l.AutoSize = true;
             this.g_l.BackColor = System.Drawing.Color.Transparent;
             this.guna2Transition1.SetDecoration(this.g_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.g_l.Location = new System.Drawing.Point(90, 71);
+            this.g_l.Location = new System.Drawing.Point(80, 57);
             this.g_l.Name = "g_l";
-            this.g_l.Size = new System.Drawing.Size(63, 20);
+            this.g_l.Size = new System.Drawing.Size(52, 16);
             this.g_l.TabIndex = 120;
             this.g_l.Text = "Gender";
             // 
             // interest_text
             // 
             this.guna2Transition1.SetDecoration(this.interest_text, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.interest_text.Location = new System.Drawing.Point(168, 168);
+            this.interest_text.Location = new System.Drawing.Point(149, 134);
             this.interest_text.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.interest_text.Name = "interest_text";
             this.interest_text.ReadOnly = true;
-            this.interest_text.Size = new System.Drawing.Size(608, 180);
+            this.interest_text.Size = new System.Drawing.Size(541, 145);
             this.interest_text.TabIndex = 119;
             this.interest_text.Text = "";
             // 
@@ -528,30 +585,28 @@
             this.inter_l.AutoSize = true;
             this.inter_l.BackColor = System.Drawing.Color.Transparent;
             this.guna2Transition1.SetDecoration(this.inter_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.inter_l.Location = new System.Drawing.Point(81, 168);
+            this.inter_l.Location = new System.Drawing.Point(72, 134);
             this.inter_l.Name = "inter_l";
-            this.inter_l.Size = new System.Drawing.Size(72, 20);
+            this.inter_l.Size = new System.Drawing.Size(57, 16);
             this.inter_l.TabIndex = 118;
             this.inter_l.Text = "Interests";
             // 
             // location_text
             // 
             this.guna2Transition1.SetDecoration(this.location_text, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.location_text.Location = new System.Drawing.Point(544, 68);
-            this.location_text.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.location_text.Location = new System.Drawing.Point(484, 54);
             this.location_text.Name = "location_text";
             this.location_text.ReadOnly = true;
-            this.location_text.Size = new System.Drawing.Size(231, 26);
+            this.location_text.Size = new System.Drawing.Size(206, 22);
             this.location_text.TabIndex = 117;
             // 
             // birthday_text
             // 
             this.guna2Transition1.SetDecoration(this.birthday_text, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.birthday_text.Location = new System.Drawing.Point(544, 112);
-            this.birthday_text.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.birthday_text.Location = new System.Drawing.Point(484, 90);
             this.birthday_text.Name = "birthday_text";
             this.birthday_text.ReadOnly = true;
-            this.birthday_text.Size = new System.Drawing.Size(231, 26);
+            this.birthday_text.Size = new System.Drawing.Size(206, 22);
             this.birthday_text.TabIndex = 116;
             // 
             // location_l
@@ -559,9 +614,9 @@
             this.location_l.AutoSize = true;
             this.location_l.BackColor = System.Drawing.Color.Transparent;
             this.guna2Transition1.SetDecoration(this.location_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.location_l.Location = new System.Drawing.Point(460, 71);
+            this.location_l.Location = new System.Drawing.Point(409, 57);
             this.location_l.Name = "location_l";
-            this.location_l.Size = new System.Drawing.Size(70, 20);
+            this.location_l.Size = new System.Drawing.Size(58, 16);
             this.location_l.TabIndex = 115;
             this.location_l.Text = "Location";
             // 
@@ -570,9 +625,9 @@
             this.birth_l.AutoSize = true;
             this.birth_l.BackColor = System.Drawing.Color.Transparent;
             this.guna2Transition1.SetDecoration(this.birth_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.birth_l.Location = new System.Drawing.Point(433, 116);
+            this.birth_l.Location = new System.Drawing.Point(385, 93);
             this.birth_l.Name = "birth_l";
-            this.birth_l.Size = new System.Drawing.Size(99, 20);
+            this.birth_l.Size = new System.Drawing.Size(79, 16);
             this.birth_l.TabIndex = 114;
             this.birth_l.Text = "Date of Birth";
             // 
@@ -590,11 +645,11 @@
             this.show_btn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.show_btn.ForeColor = System.Drawing.Color.White;
             this.show_btn.Image = ((System.Drawing.Image)(resources.GetObject("show_btn.Image")));
-            this.show_btn.Location = new System.Drawing.Point(812, 425);
+            this.show_btn.Location = new System.Drawing.Point(722, 340);
             this.show_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.show_btn.Name = "show_btn";
             this.show_btn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.show_btn.Size = new System.Drawing.Size(40, 26);
+            this.show_btn.Size = new System.Drawing.Size(36, 21);
             this.show_btn.TabIndex = 112;
             this.show_btn.UseTransparentBackground = true;
             this.show_btn.Click += new System.EventHandler(this.show_btn_Click);
@@ -613,11 +668,11 @@
             this.hide_btn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.hide_btn.ForeColor = System.Drawing.Color.White;
             this.hide_btn.Image = ((System.Drawing.Image)(resources.GetObject("hide_btn.Image")));
-            this.hide_btn.Location = new System.Drawing.Point(812, 15);
+            this.hide_btn.Location = new System.Drawing.Point(722, 12);
             this.hide_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hide_btn.Name = "hide_btn";
             this.hide_btn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.hide_btn.Size = new System.Drawing.Size(40, 26);
+            this.hide_btn.Size = new System.Drawing.Size(36, 21);
             this.hide_btn.TabIndex = 113;
             this.hide_btn.UseTransparentBackground = true;
             this.hide_btn.Click += new System.EventHandler(this.hide_btn_Click);
@@ -626,10 +681,10 @@
             // 
             this.guna2Transition1.SetDecoration(this.guna2Panel1, Guna.UI2.AnimatorNS.DecorationType.None);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel1.Location = new System.Drawing.Point(3, 492);
+            this.guna2Panel1.Location = new System.Drawing.Point(3, 383);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(882, 22);
+            this.guna2Panel1.Size = new System.Drawing.Size(782, 18);
             this.guna2Panel1.TabIndex = 111;
             // 
             // image_t
@@ -637,10 +692,10 @@
             this.image_t.BorderRadius = 10;
             this.guna2Transition1.SetDecoration(this.image_t, Guna.UI2.AnimatorNS.DecorationType.None);
             this.image_t.ImageRotate = 0F;
-            this.image_t.Location = new System.Drawing.Point(6, 1);
+            this.image_t.Location = new System.Drawing.Point(5, 1);
             this.image_t.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.image_t.Name = "image_t";
-            this.image_t.Size = new System.Drawing.Size(785, 368);
+            this.image_t.Size = new System.Drawing.Size(698, 294);
             this.image_t.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image_t.TabIndex = 110;
             this.image_t.TabStop = false;
@@ -650,47 +705,11 @@
             this.label7.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.label7, Guna.UI2.AnimatorNS.DecorationType.None);
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(17, 382);
+            this.label7.Location = new System.Drawing.Point(15, 306);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(228, 29);
+            this.label7.Size = new System.Drawing.Size(189, 25);
             this.label7.TabIndex = 109;
             this.label7.Text = "Press start to match!";
-            // 
-            // start
-            // 
-            this.guna2Transition1.SetDecoration(this.start, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.start.Location = new System.Drawing.Point(611, 376);
-            this.start.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(101, 48);
-            this.start.TabIndex = 108;
-            this.start.Text = "start";
-            this.start.UseVisualStyleBackColor = true;
-            this.start.Click += new System.EventHandler(this.start_Click);
-            // 
-            // Dislike_Button
-            // 
-            this.guna2Transition1.SetDecoration(this.Dislike_Button, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Dislike_Button.Location = new System.Drawing.Point(380, 376);
-            this.Dislike_Button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Dislike_Button.Name = "Dislike_Button";
-            this.Dislike_Button.Size = new System.Drawing.Size(97, 48);
-            this.Dislike_Button.TabIndex = 107;
-            this.Dislike_Button.Text = "dislike";
-            this.Dislike_Button.UseVisualStyleBackColor = true;
-            this.Dislike_Button.Click += new System.EventHandler(this.Dislike_Button_Click);
-            // 
-            // Like_Button
-            // 
-            this.guna2Transition1.SetDecoration(this.Like_Button, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Like_Button.Location = new System.Drawing.Point(495, 376);
-            this.Like_Button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Like_Button.Name = "Like_Button";
-            this.Like_Button.Size = new System.Drawing.Size(97, 48);
-            this.Like_Button.TabIndex = 106;
-            this.Like_Button.Text = "like";
-            this.Like_Button.UseVisualStyleBackColor = true;
-            this.Like_Button.Click += new System.EventHandler(this.Like_Button_Click);
             // 
             // guna2DragControl1
             // 
@@ -702,41 +721,29 @@
             // 
             this.guna2Transition1.AnimationType = Guna.UI2.AnimatorNS.AnimationType.VertSlide;
             this.guna2Transition1.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.guna2Transition1.DefaultAnimation = animation1;
-            // 
-            // chat_image
-            // 
-            this.chat_image.BorderRadius = 10;
-            this.guna2Transition1.SetDecoration(this.chat_image, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.chat_image.ImageRotate = 0F;
-            this.chat_image.Location = new System.Drawing.Point(709, 6);
-            this.chat_image.Name = "chat_image";
-            this.chat_image.Size = new System.Drawing.Size(157, 148);
-            this.chat_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.chat_image.TabIndex = 5;
-            this.chat_image.TabStop = false;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.guna2Transition1.DefaultAnimation = animation2;
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Pink;
-            this.ClientSize = new System.Drawing.Size(907, 559);
+            this.ClientSize = new System.Drawing.Size(806, 447);
             this.Controls.Add(this.menu_tabcontrol);
             this.guna2Transition1.SetDecoration(this, Guna.UI2.AnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -750,10 +757,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Image_View)).EndInit();
             this.tab_chat.ResumeLayout(false);
             this.tab_chat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chat_image)).EndInit();
             this.tab_matching.ResumeLayout(false);
             this.tab_matching.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image_t)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chat_image)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -799,9 +806,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2PictureBox image_t;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button start;
-        private System.Windows.Forms.Button Dislike_Button;
-        private System.Windows.Forms.Button Like_Button;
         private Guna.UI2.WinForms.Guna2Transition guna2Transition1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
@@ -809,5 +813,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button2;
         private Guna.UI2.WinForms.Guna2PictureBox chat_image;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button like;
+        private Guna.UI2.WinForms.Guna2Button start_button;
     }
 }

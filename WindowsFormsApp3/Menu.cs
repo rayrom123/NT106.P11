@@ -24,6 +24,8 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices.ComTypes;
 using User_Entity;
 using static Google.Apis.Requests.BatchRequest;
+using System.Security.Cryptography;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WindowsFormsApp3
 {
@@ -57,6 +59,28 @@ namespace WindowsFormsApp3
                 MessageBox.Show($"Error connecting to server: {ex.Message}");
             }
         }
+
+        private string Decrypt(string encryptedText, byte[] key, byte[] iv)
+        {
+            using (DESCryptoServiceProvider des = new
+           DESCryptoServiceProvider())
+            {
+                des.Key = key;
+                des.IV = iv;
+                // Chuyển đổi dữ liệu mã hóa từ chuỗi Base64 thành mảng byte
+                byte[] encryptedBytes =
+               Convert.FromBase64String(encryptedText);
+                //Tạo đối tượng giải mã
+                using (ICryptoTransform decryptor = des.CreateDecryptor())
+                {
+                    // Giải mã dữ liệu
+                    byte[] decryptedBytes =
+                   decryptor.TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
+                    // Chuyển đổi kết quả giải mã thành chuỗi
+                    return Encoding.UTF8.GetString(decryptedBytes);
+                }
+            }
+        }
         private void ListenForMessages()
         {
             byte[] buffer = new byte[256];
@@ -69,10 +93,20 @@ namespace WindowsFormsApp3
                 string sender = parts[1];
                 string receiver = parts[2];
                 string content = parts[3];
+
+                
+                string encrypted = content;
+                string keyText = "12345678";
+                string keyIv = "12345678";
+                byte[] key = GetKeyAndIv(keyText);
+                byte[] iv = GetKeyAndIv(keyIv);
+                // Mã hóa dữ liệu đầu vào
+                string decrypted = Decrypt(encrypted, key, iv);
+
                 Invoke((MethodInvoker)delegate
                 {                    
                     if(username == receiver)
-                        richTextBox1.Text += $"{parts[1]}: {parts[3]}\n";
+                        richTextBox1.Text += $"{sender}: {decrypted}\n";
                     
                 });
             }
@@ -146,7 +180,7 @@ namespace WindowsFormsApp3
                 interest_t.Text = userData.Interests;
                 byte[] imageBytes = Convert.FromBase64String(userData.ImagePath);
                 MemoryStream a = new MemoryStream(imageBytes);
-                Image_View.Image = Image.FromStream(a);
+                Image_View.Image = System.Drawing.Image.FromStream(a);
             }
             catch (Exception ex)
             {
@@ -161,7 +195,7 @@ namespace WindowsFormsApp3
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                Image img = new Bitmap(ofd.FileName);
+                System.Drawing.Image img = new Bitmap(ofd.FileName);
                 Image_View.Image = img.GetThumbnailImage(195, 136, null, new IntPtr());
             }
         }
@@ -182,7 +216,7 @@ namespace WindowsFormsApp3
                 interest_t.Text = user.Interests;
                 byte[] imageBytes = Convert.FromBase64String(user.ImagePath);
                 MemoryStream ms = new MemoryStream(imageBytes);
-                Image_View.Image = Image.FromStream(ms);
+                Image_View.Image = System.Drawing.Image.FromStream(ms);
                 StartConnection();
                 if (user.MatchList != null)
                 {
@@ -216,25 +250,6 @@ namespace WindowsFormsApp3
         private int startState = 0;
 
         private int endSig = 0;
-        private async void start_Click(object sender, EventArgs e)
-        {
-            if (startState == 0)
-            {
-                string message = $"startMatch";
-                byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
-                streamM.Write(messageBuffer, 0, messageBuffer.Length);
-
-                startState = 1;
-
-                usersList = await ReceiveUsersListAsync(streamM);
-
-                ShowUser(currentPos);
-            }
-            else
-            {
-                MessageBox.Show("Already started.");
-            }
-        }
 
         public async Task<List<string>> ReceiveUsersListAsync(NetworkStream stream)
         {
@@ -348,12 +363,13 @@ namespace WindowsFormsApp3
                     }
                     label7.Text = userMatch.FullName + "  " + age.ToString();
                     gender_text.Text = userMatch.Gender == 0 ? "Male" : "Female";
+                    usn_text.Text = userMatch.FullName;
                     birthday_text.Text = userMatch.DateOfBirth.ToString("dd/MM/yyyy");
                     location_text.Text = userMatch.Location.ToString();
                     interest_text.Text = userMatch.Interests;
                     byte[] imageBytes = Convert.FromBase64String(userMatch.ImagePath);
                     MemoryStream ms = new MemoryStream(imageBytes);
-                    image_t.Image = Image.FromStream(ms);
+                    image_t.Image = System.Drawing.Image.FromStream(ms);
                     break;
                 }
             }
@@ -365,77 +381,6 @@ namespace WindowsFormsApp3
             }
         }
 
-        private async void Like_Button_Click(object sender, EventArgs e)
-        {
-            if (startState == 1 && endSig == 0)
-            {
-
-
-                currentmatchlist += $"{userMatch.UserName},";
-
-                var update = new
-                {
-                    MatchList = currentmatchlist
-                };
-
-                FirebaseResponse response = await client.UpdateTaskAsync("Users/" + username, update);
-
-                if (currentPos < usersList.Count - 1)
-                {
-                    currentPos++;
-                    ShowUser(currentPos);
-                }
-                else
-                {
-                    MessageBox.Show("This is the last user.");
-                    endSig = 1;
-                }
-            }
-            else if (endSig == 0)
-            {
-                MessageBox.Show("please start first.");
-            }
-            else
-            {
-                MessageBox.Show("This is the last user.");
-            }
-        }
-
-
-  
-        private async void Dislike_Button_Click(object sender, EventArgs e)
-        {
-            if (startState == 1 && endSig == 0)
-            {
-                currentdislikelist += $"{userMatch.UserName},";
-
-                var up = new
-                {
-                    DislikeList = currentdislikelist
-                };
-
-                FirebaseResponse res = await client.UpdateTaskAsync("Users/" + username, up);
-
-                if (currentPos < usersList.Count - 1)
-                {
-                    currentPos++;
-                    ShowUser(currentPos);
-                }
-                else
-                {
-                    MessageBox.Show("This is the last user.");
-                    endSig = 1;
-                }
-            }
-            else if (endSig == 0)
-            {
-                MessageBox.Show("please start first.");
-            }
-            else
-            {
-                MessageBox.Show("This is the last user.");
-            }
-        }
 
         private int checkDis(string[] dis, string username)
         {
@@ -600,20 +545,60 @@ namespace WindowsFormsApp3
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
+        private string Encrypt(string plainText, byte[] key, byte[] iv)
+        {
+            using (DESCryptoServiceProvider des = new
+           DESCryptoServiceProvider())
+            {
+                // Thiết lập khóa cho DES
+                des.Key = key;
+                // Thiết lập IV cho DES
+                des.IV = iv;
+                // Chuyển đổi dữ liệu đầu vào thành mảng byte
+                byte[] inputBytes = Encoding.UTF8.GetBytes(plainText);
+                // Tạo đối tượng mã hpas
+                using (ICryptoTransform encryptor = des.CreateEncryptor())
+                {
+                    // Mã hóa dữ liệu
+                    byte[] encryptedBytes = encryptor.TransformFinalBlock(inputBytes, 0, inputBytes.Length);
+                    // Chuyển đổi kết quả mã hóa thành chuỗi Base64
+                    return Convert.ToBase64String(encryptedBytes);
+                }
+            }
+        }
+
+        private byte[] GetKeyAndIv(string keyText)
+        {
+            if (keyText.Length != 8)
+            {
+                return null; // Đảm bảo khóa có độ dài 8 ký tự
+            }
+            // Chuyển đổi chuỗi thành mảng byte
+            return Encoding.UTF8.GetBytes(keyText);
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
                 string text = textBox1.Text;
+
+                string keyText = "12345678";
+                string keyIv = "12345678";
+                byte[] key = GetKeyAndIv(keyText);
+                byte[] iv = GetKeyAndIv(keyIv);
+
+                string encrypted = Encrypt(text, key, iv);
+                // Hiển thị kết quả mã hóa
+
                 if (string.IsNullOrEmpty(userreceive))
                 {
                     MessageBox.Show("Please choose someone to chat");
                 }    
                 else
                 {
-                    string message = $"Chat:{username}:{userreceive}:{text}";
+                    string message = $"Chat:{username}:{userreceive}:{encrypted}";
                     richTextBox1.Text += $"Me: {text}\n";
                     byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
                     streamChat.Write(messagebuffer, 0, messagebuffer.Length);
@@ -635,13 +620,103 @@ namespace WindowsFormsApp3
             var img = userData.ImagePath;
             byte[] imageBytes = Convert.FromBase64String(img);
             MemoryStream ms = new MemoryStream(imageBytes);
-            chat_image.Image = Image.FromStream(ms);
+            chat_image.Image = System.Drawing.Image.FromStream(ms);
             richTextBox1.Clear();
         }
 
         private void Back_button_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private async void like_Click(object sender, EventArgs e)
+        {
+            if (startState == 1 && endSig == 0)
+            {
+
+
+                currentmatchlist += $"{userMatch.UserName},";
+
+                var update = new
+                {
+                    MatchList = currentmatchlist
+                };
+
+                FirebaseResponse response = await client.UpdateTaskAsync("Users/" + username, update);
+
+                if (currentPos < usersList.Count - 1)
+                {
+                    currentPos++;
+                    ShowUser(currentPos);
+                }
+                else
+                {
+                    MessageBox.Show("This is the last user.");
+                    endSig = 1;
+                }
+            }
+            else if (endSig == 0)
+            {
+                MessageBox.Show("please start first.");
+            }
+            else
+            {
+                MessageBox.Show("This is the last user.");
+            }
+        }
+
+        private async void guna2Button2_Click(object sender, EventArgs e)
+        {
+            if (startState == 1 && endSig == 0)
+            {
+                currentdislikelist += $"{userMatch.UserName},";
+
+                var up = new
+                {
+                    DislikeList = currentdislikelist
+                };
+
+                FirebaseResponse res = await client.UpdateTaskAsync("Users/" + username, up);
+
+                if (currentPos < usersList.Count - 1)
+                {
+                    currentPos++;
+                    ShowUser(currentPos);
+                }
+                else
+                {
+                    MessageBox.Show("This is the last user.");
+                    endSig = 1;
+                }
+            }
+            else if (endSig == 0)
+            {
+                MessageBox.Show("please start first.");
+            }
+            else
+            {
+                MessageBox.Show("This is the last user.");
+            }
+        }
+
+        private async void guna2Button1_Click(object sender, EventArgs e)
+        {
+            if (startState == 0)
+            {
+                string message = $"startMatch";
+                byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
+                streamM.Write(messageBuffer, 0, messageBuffer.Length);
+
+                startState = 1;
+
+                usersList = await ReceiveUsersListAsync(streamM);
+
+                ShowUser(currentPos);
+            }
+            else
+            {
+                MessageBox.Show("Already started.");
+            }
         }
     }
 }

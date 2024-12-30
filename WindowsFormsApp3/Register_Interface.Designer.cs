@@ -54,54 +54,53 @@
             // username_l
             // 
             this.username_l.AutoSize = true;
-            this.username_l.Location = new System.Drawing.Point(39, 81);
+            this.username_l.Location = new System.Drawing.Point(35, 65);
             this.username_l.Name = "username_l";
-            this.username_l.Size = new System.Drawing.Size(89, 20);
+            this.username_l.Size = new System.Drawing.Size(70, 16);
             this.username_l.TabIndex = 0;
-            this.username_l.Text = "User Name";
+            this.username_l.Text = "Username";
             // 
             // password_l
             // 
             this.password_l.AutoSize = true;
-            this.password_l.Location = new System.Drawing.Point(39, 203);
+            this.password_l.Location = new System.Drawing.Point(35, 162);
             this.password_l.Name = "password_l";
-            this.password_l.Size = new System.Drawing.Size(82, 20);
+            this.password_l.Size = new System.Drawing.Size(67, 16);
             this.password_l.TabIndex = 1;
-            this.password_l.Text = "PassWord";
+            this.password_l.Text = "Password";
             // 
             // fullname_l
             // 
             this.fullname_l.AutoSize = true;
-            this.fullname_l.Location = new System.Drawing.Point(39, 142);
+            this.fullname_l.Location = new System.Drawing.Point(35, 114);
             this.fullname_l.Name = "fullname_l";
-            this.fullname_l.Size = new System.Drawing.Size(80, 20);
+            this.fullname_l.Size = new System.Drawing.Size(62, 16);
             this.fullname_l.TabIndex = 2;
-            this.fullname_l.Text = "Full Name";
+            this.fullname_l.Text = "Fullname";
             // 
             // confirmpass_l
             // 
             this.confirmpass_l.AutoSize = true;
-            this.confirmpass_l.Location = new System.Drawing.Point(39, 264);
+            this.confirmpass_l.Location = new System.Drawing.Point(35, 211);
             this.confirmpass_l.Name = "confirmpass_l";
-            this.confirmpass_l.Size = new System.Drawing.Size(141, 20);
+            this.confirmpass_l.Size = new System.Drawing.Size(115, 16);
             this.confirmpass_l.TabIndex = 3;
-            this.confirmpass_l.Text = "Confirm PassWord";
+            this.confirmpass_l.Text = "Confirm Password";
             // 
             // gender_l
             // 
             this.gender_l.AutoSize = true;
-            this.gender_l.Location = new System.Drawing.Point(39, 325);
+            this.gender_l.Location = new System.Drawing.Point(35, 260);
             this.gender_l.Name = "gender_l";
-            this.gender_l.Size = new System.Drawing.Size(63, 20);
+            this.gender_l.Size = new System.Drawing.Size(52, 16);
             this.gender_l.TabIndex = 4;
             this.gender_l.Text = "Gender";
             // 
             // Confirm_Register
             // 
-            this.Confirm_Register.Location = new System.Drawing.Point(202, 437);
-            this.Confirm_Register.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Confirm_Register.Location = new System.Drawing.Point(180, 350);
             this.Confirm_Register.Name = "Confirm_Register";
-            this.Confirm_Register.Size = new System.Drawing.Size(109, 46);
+            this.Confirm_Register.Size = new System.Drawing.Size(97, 37);
             this.Confirm_Register.TabIndex = 5;
             this.Confirm_Register.Text = "Register";
             this.Confirm_Register.UseVisualStyleBackColor = true;
@@ -109,10 +108,9 @@
             // 
             // Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(476, -2);
-            this.Cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Cancel.Location = new System.Drawing.Point(423, -2);
             this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(42, 40);
+            this.Cancel.Size = new System.Drawing.Size(37, 32);
             this.Cancel.TabIndex = 6;
             this.Cancel.Text = "X";
             this.Cancel.UseVisualStyleBackColor = true;
@@ -121,9 +119,9 @@
             // dateofbirth_t
             // 
             this.dateofbirth_t.AutoSize = true;
-            this.dateofbirth_t.Location = new System.Drawing.Point(39, 386);
+            this.dateofbirth_t.Location = new System.Drawing.Point(35, 309);
             this.dateofbirth_t.Name = "dateofbirth_t";
-            this.dateofbirth_t.Size = new System.Drawing.Size(99, 20);
+            this.dateofbirth_t.Size = new System.Drawing.Size(79, 16);
             this.dateofbirth_t.TabIndex = 12;
             this.dateofbirth_t.Text = "Date of Birth";
             // 
@@ -145,13 +143,13 @@
             this.username_t.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.username_t.ForeColor = System.Drawing.Color.Black;
             this.username_t.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.username_t.Location = new System.Drawing.Point(219, 71);
-            this.username_t.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.username_t.Location = new System.Drawing.Point(195, 57);
+            this.username_t.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.username_t.Name = "username_t";
             this.username_t.PasswordChar = '\0';
             this.username_t.PlaceholderText = "username";
             this.username_t.SelectedText = "";
-            this.username_t.Size = new System.Drawing.Size(194, 38);
+            this.username_t.Size = new System.Drawing.Size(172, 30);
             this.username_t.TabIndex = 14;
             // 
             // fullname_t
@@ -168,13 +166,13 @@
             this.fullname_t.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.fullname_t.ForeColor = System.Drawing.Color.Black;
             this.fullname_t.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.fullname_t.Location = new System.Drawing.Point(219, 132);
-            this.fullname_t.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fullname_t.Location = new System.Drawing.Point(195, 106);
+            this.fullname_t.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fullname_t.Name = "fullname_t";
             this.fullname_t.PasswordChar = '\0';
             this.fullname_t.PlaceholderText = "fullname";
             this.fullname_t.SelectedText = "";
-            this.fullname_t.Size = new System.Drawing.Size(194, 38);
+            this.fullname_t.Size = new System.Drawing.Size(172, 30);
             this.fullname_t.TabIndex = 15;
             // 
             // confirmpass_t
@@ -191,13 +189,13 @@
             this.confirmpass_t.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.confirmpass_t.ForeColor = System.Drawing.Color.Black;
             this.confirmpass_t.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.confirmpass_t.Location = new System.Drawing.Point(219, 254);
-            this.confirmpass_t.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.confirmpass_t.Location = new System.Drawing.Point(195, 203);
+            this.confirmpass_t.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.confirmpass_t.Name = "confirmpass_t";
             this.confirmpass_t.PasswordChar = '\0';
             this.confirmpass_t.PlaceholderText = "confirm password";
             this.confirmpass_t.SelectedText = "";
-            this.confirmpass_t.Size = new System.Drawing.Size(194, 38);
+            this.confirmpass_t.Size = new System.Drawing.Size(172, 30);
             this.confirmpass_t.TabIndex = 17;
             // 
             // password_t
@@ -214,13 +212,13 @@
             this.password_t.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.password_t.ForeColor = System.Drawing.Color.Black;
             this.password_t.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.password_t.Location = new System.Drawing.Point(219, 193);
-            this.password_t.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.password_t.Location = new System.Drawing.Point(195, 154);
+            this.password_t.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.password_t.Name = "password_t";
             this.password_t.PasswordChar = '\0';
             this.password_t.PlaceholderText = "password";
             this.password_t.SelectedText = "";
-            this.password_t.Size = new System.Drawing.Size(194, 38);
+            this.password_t.Size = new System.Drawing.Size(172, 30);
             this.password_t.TabIndex = 18;
             // 
             // genderselect
@@ -237,9 +235,10 @@
             this.genderselect.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.genderselect.Location = new System.Drawing.Point(219, 315);
+            this.genderselect.Location = new System.Drawing.Point(195, 252);
+            this.genderselect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.genderselect.Name = "genderselect";
-            this.genderselect.Size = new System.Drawing.Size(194, 36);
+            this.genderselect.Size = new System.Drawing.Size(173, 36);
             this.genderselect.TabIndex = 19;
             // 
             // dateTimePicker1
@@ -250,11 +249,12 @@
             this.dateTimePicker1.FillColor = System.Drawing.SystemColors.Window;
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(219, 376);
+            this.dateTimePicker1.Location = new System.Drawing.Point(195, 301);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.MaxDate = new System.DateTime(2024, 10, 30, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(194, 36);
+            this.dateTimePicker1.Size = new System.Drawing.Size(172, 29);
             this.dateTimePicker1.TabIndex = 20;
             this.dateTimePicker1.Value = new System.DateTime(2024, 10, 30, 0, 0, 0, 0);
             // 
@@ -262,9 +262,9 @@
             // 
             this.register_l.AutoSize = true;
             this.register_l.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.register_l.Location = new System.Drawing.Point(176, 9);
+            this.register_l.Location = new System.Drawing.Point(156, 7);
             this.register_l.Name = "register_l";
-            this.register_l.Size = new System.Drawing.Size(176, 46);
+            this.register_l.Size = new System.Drawing.Size(152, 39);
             this.register_l.TabIndex = 21;
             this.register_l.Text = "Register";
             // 
@@ -272,9 +272,10 @@
             // 
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 5);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 4);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(59, 53);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(52, 42);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 22;
             this.guna2PictureBox1.TabStop = false;
@@ -287,10 +288,10 @@
             // 
             // Register_Interface
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Pink;
-            this.ClientSize = new System.Drawing.Size(518, 508);
+            this.ClientSize = new System.Drawing.Size(460, 406);
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.register_l);
             this.Controls.Add(this.dateTimePicker1);
@@ -308,7 +309,6 @@
             this.Controls.Add(this.password_l);
             this.Controls.Add(this.username_l);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Register_Interface";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register_Interface";
