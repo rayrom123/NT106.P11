@@ -164,3 +164,14 @@ C:\Users\acer\Source\Repos\Tinder_Clone_UPDatefinal\User_Entity\obj\Debug\User_E
 C:\Users\acer\Source\Repos\Tinder_Clone_UPDatefinal\User_Entity\obj\Debug\User_Ent.6593406D.Up2Date
 C:\Users\acer\Source\Repos\Tinder_Clone_UPDatefinal\User_Entity\obj\Debug\User_Entity.dll
 C:\Users\acer\Source\Repos\Tinder_Clone_UPDatefinal\User_Entity\obj\Debug\User_Entity.pdb
+C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\bin\Debug\User_Entity.dll
+C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\bin\Debug\User_Entity.pdb
+C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\bin\Debug\FireSharp.dll
+C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\bin\Debug\Guna.UI2.dll
+C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\bin\Debug\RestSharp.dll
+C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\bin\Debug\RestSharp.xml
+C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\obj\Debug\User_Entity.csproj.AssemblyReference.cache
+C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\obj\Debug\User_Entity.csproj.CoreCompileInputs.cache
+C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\obj\Debug\User_Ent.6593406D.Up2Date
+C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\obj\Debug\User_Entity.dll
+C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\obj\Debug\User_Entity.pdb

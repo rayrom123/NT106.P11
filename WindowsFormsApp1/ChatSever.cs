@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -24,6 +25,8 @@ namespace WindowsFormsApp1
         TcpListener listener;
         private List<TcpClient> clients = new List<TcpClient>();
         private bool isListening = false;
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (!isListening)
@@ -35,6 +38,8 @@ namespace WindowsFormsApp1
                 Thread listenerThread = new Thread(ListenForClients);
                 listenerThread.Start();
             }
+
+
         }
         private void ListenForClients()
         {
@@ -56,7 +61,7 @@ namespace WindowsFormsApp1
 
             TcpClient client = (TcpClient)obj;
             NetworkStream stream = client.GetStream();
-            byte[] buffer = new byte[256];
+            byte[] buffer = new byte[40970];
             int bytesRead;
             try
             {
@@ -64,13 +69,38 @@ namespace WindowsFormsApp1
                 {
                     string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                     string[] parts = message.Split(':');
-
                     string request = parts[0];
+                    string senderUsername = parts[1];
+                    string receiverUsername = parts[2];
+                    string messageContent = parts[3];
+
+                    if (request == "image") // Giả sử 2 là hình ảnh
+                    {      
+                        using (var ms = new MemoryStream())
+                        {
+                            int i = 1;
+                            // Đọc tiếp cho đến khi không còn dữ liệu
+                            while (i == 1)
+                            {
+                                bytesRead = stream.Read(buffer, 0, buffer.Length);
+                                i++; // Nếu không còn dữ liệu, thoát khỏi vòng lặp
+                                ms.Write(buffer, 0, bytesRead);
+                            }
+                           
+                            Image image = Image.FromStream(ms);
+
+                            
+
+                            richTextBox1.Invoke((MethodInvoker)delegate
+                            {
+                                richTextBox1.AppendText($"ChatLogs: {senderUsername} to {receiverUsername}:{messageContent}\n");
+                            });
+                            await SendPicAsync(senderUsername, receiverUsername, client, ms, messageContent);
+                        }
+                    }
+                                        
                     if (request == "Chat")
                      {
-                        string senderUsername = parts[1];
-                        string receiverUsername = parts[2];
-                        string messageContent = parts[3];
                         richTextBox1.Invoke((MethodInvoker)delegate
                         {
                             richTextBox1.AppendText($"ChatLogs: {senderUsername} to {receiverUsername}: {messageContent}\n");
@@ -87,13 +117,31 @@ namespace WindowsFormsApp1
         }
         public async Task SendMessageAsync(string usersend, string receiverUsername, TcpClient sender, string messageContent)
         {
-            string message = $"Receive_Message:{usersend}:{receiverUsername}:{messageContent}";
+            string message = $"chat:{usersend}:{receiverUsername}:{messageContent}";
             byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
             foreach (var client in clients)
             {
                 NetworkStream stream = client.GetStream();
                 stream.Write(messageBuffer, 0, messageBuffer.Length);
             }
+        }
+
+        public async Task SendPicAsync(string usersend, string receiverUsername, TcpClient sender, MemoryStream ms, string messageContent)
+        {
+            string message = $"image:{usersend}:{receiverUsername}:{messageContent}";
+            byte[] messageBuffer = Encoding.UTF8.GetBytes(message);
+            byte[] imageBytes = ms.ToArray();
+            foreach (var client in clients)
+            {
+                NetworkStream stream = client.GetStream();
+                stream.Write(messageBuffer, 0, messageBuffer.Length);
+                stream.Write(imageBytes, 0, imageBytes.Length);
+            }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

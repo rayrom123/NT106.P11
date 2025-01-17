@@ -26,6 +26,9 @@ using User_Entity;
 using static Google.Apis.Requests.BatchRequest;
 using System.Security.Cryptography;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Net.WebRequestMethods;
+using FirebaseAdmin.Messaging;
+using Guna.UI2.WinForms;
 
 namespace WindowsFormsApp3
 {
@@ -37,6 +40,8 @@ namespace WindowsFormsApp3
         private NetworkStream streamChat;
         private List<string> serverAddresses = new List<string> { "127.0.0.1:8080", "127.0.0.1:8081" };
         private int currentServerIndex = 0;
+
+        
         private void StartConnection()
         {
             try
@@ -83,53 +88,81 @@ namespace WindowsFormsApp3
         }
         private void ListenForMessages()
         {
-            byte[] buffer = new byte[256];
+            byte[] buffer = new byte[40000];
             int bytesRead;
 
             while ((bytesRead = streamChat.Read(buffer, 0, buffer.Length)) > 0)
             {
                 string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                 string[] parts = message.Split(':');
+                string request = parts[0];
                 string sender = parts[1];
                 string receiver = parts[2];
                 string content = parts[3];
 
-                
-                string encrypted = content;
-                string keyText = "12345678";
-                string keyIv = "12345678";
-                byte[] key = GetKeyAndIv(keyText);
-                byte[] iv = GetKeyAndIv(keyIv);
-                // Mã hóa dữ liệu đầu vào
-                string decrypted = Decrypt(encrypted, key, iv);
+                if (request == "image")
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        int i = 1;
+                        // Đọc tiếp cho đến khi không còn dữ liệu
+                        while (i == 1)
+                        {
+                            bytesRead = streamChat.Read(buffer, 0, buffer.Length);
+                            i++; // Nếu không còn dữ liệu, thoát khỏi vòng lặp
+                            ms.Write(buffer, 0, bytesRead);
+                        }
 
-                Invoke((MethodInvoker)delegate
-                {                    
-                    if(username == receiver)
-                        richTextBox1.Text += $"{sender}: {decrypted}\n";
-                    
-                });
+                        System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
+
+                        Invoke(new System.Action(() =>
+                        {
+                            pictureBox1.Image?.Dispose(); // Giải phóng hình ảnh cũ
+                            pictureBox1.Image = new Bitmap(image); // Hiển thị hình ảnh mới
+                            if (username == receiver)
+                                richTextBox1.Text += $"{sender}: {content}\n";
+                        }));
+                    }
+                }
+
+                    if (request == "chat")
+                    {
+                        string encrypted = content;
+                        string keyText = "12345678";
+                        string keyIv = "12345678";
+                        byte[] key = GetKeyAndIv(keyText);
+                        byte[] iv = GetKeyAndIv(keyIv);
+                        // Mã hóa dữ liệu đầu vào
+                        string decrypted = Decrypt(encrypted, key, iv);
+
+                        Invoke((MethodInvoker)delegate
+                        {
+                            if (username == receiver)
+                                richTextBox1.Text += $"{sender}: {decrypted}\n";
+
+                        });
+                    }
+                }
             }
-        }
-        public Menu(TcpClient user, NetworkStream stream)
-        {
-            InitializeComponent();
-            this.userM = user;
-            this.streamM = stream;
-            this.Size = new Size(590, 350);
-            hide_btn.Visible = false;
-            label9.Visible = false;
-            g_l.Visible = false;
-            gender_text.Visible = false;
-            usn_l.Visible = false;
-            usn_text.Visible = false;
-            inter_l.Visible = false;
-            interest_text.Visible = false;
-            birth_l.Visible = false;
-            birthday_text.Visible = false;
-            location_text.Visible = false;
-            location_l.Visible = false;
-        }
+            public Menu(TcpClient user, NetworkStream stream)
+            {
+                InitializeComponent();
+                this.userM = user;
+                this.streamM = stream;
+                this.Size = new Size(590, 350);
+                hide_btn.Visible = false;
+                label9.Visible = false;
+                g_l.Visible = false;
+                gender_text.Visible = false;
+                usn_l.Visible = false;
+                usn_text.Visible = false;
+                inter_l.Visible = false;
+                interest_text.Visible = false;
+                birth_l.Visible = false;
+                birthday_text.Visible = false;
+                location_text.Visible = false;
+                location_l.Visible = false;
+            } 
 
         public string username;
         public string userreceive;
@@ -169,7 +202,7 @@ namespace WindowsFormsApp3
             try
             {
                 FirebaseResponse response = await client.UpdateTaskAsync("Users/" + username, updates);
- 
+
                 User_Entity.User_Model result = response.ResultAs<User_Entity.User_Model>();
                 MessageBox.Show("Đã thêm thành công");
                 location_select.SelectedIndex = -1;
@@ -207,7 +240,7 @@ namespace WindowsFormsApp3
         private void Menu_Load(object sender, EventArgs e)
         {
             try
-            {   
+            {
                 username_t.Text = user.UserName;
                 fullname_t.Text = user.FullName;
                 gender_t.Text = user.Gender == 0 ? "Male" : "Female";
@@ -296,7 +329,7 @@ namespace WindowsFormsApp3
                         break;
                     }
 
-                }           
+                }
             }
 
             if (i == 0)
@@ -456,7 +489,7 @@ namespace WindowsFormsApp3
         private async void checkChat(string[] names, string[] chatnames)
         {
             int i = 0;
-            foreach(var name in names)
+            foreach (var name in names)
             {
                 string message = $"StartChat:{name}";
                 byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
@@ -472,17 +505,17 @@ namespace WindowsFormsApp3
                 int startIndex = yourmatch.IndexOf(':') + 2; // +2 để bỏ qua dấu cách sau dấu hai chấm
                 int endIndex = yourmatch.LastIndexOf('"');
 
-               
+
                 string namesPart = yourmatch.Substring(startIndex, endIndex - startIndex);
 
 
 
 
-                string[]  arr = namesPart.Split(',');
+                string[] arr = namesPart.Split(',');
 
-                foreach(var a in arr)
+                foreach (var a in arr)
                 {
-                    if(a == username)
+                    if (a == username)
                     {
                         chatnames[i] = a;
                         i++;
@@ -514,7 +547,7 @@ namespace WindowsFormsApp3
                         // Chuỗi đầu vào
                         string yourmatch = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                         // Tìm vị trí của dấu hai chấm và dấu ngoặc kép
-                        
+
 
                         string[] arr = yourmatch.Split(',');
 
@@ -578,6 +611,7 @@ namespace WindowsFormsApp3
             return Encoding.UTF8.GetBytes(keyText);
         }
 
+        string heartEmoji = "\u2764";
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -595,7 +629,7 @@ namespace WindowsFormsApp3
                 if (string.IsNullOrEmpty(userreceive))
                 {
                     MessageBox.Show("Please choose someone to chat");
-                }    
+                }
                 else
                 {
                     string message = $"Chat:{username}:{userreceive}:{encrypted}";
@@ -603,7 +637,7 @@ namespace WindowsFormsApp3
                     byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
                     streamChat.Write(messagebuffer, 0, messagebuffer.Length);
                     textBox1.Clear();
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -718,5 +752,43 @@ namespace WindowsFormsApp3
                 MessageBox.Show("Already started.");
             }
         }
+
+        private string imagePath;
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    imagePath = openFileDialog.FileName;
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+            using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+            {
+                string message = $"image:{username}:{userreceive}:{imagePath}";
+                richTextBox1.Text += $"Me: {imagePath}\n";
+                byte[] messagebuffer = Encoding.UTF8.GetBytes(message);
+                streamChat.Write(messagebuffer, 0, messagebuffer.Length);
+
+                // Gửi hình ảnh
+                byte[] imageBuffer = new byte[40960];
+                int bytesRead;
+                while ((bytesRead = fs.Read(imageBuffer, 0, imageBuffer.Length)) > 0)
+                {
+                    streamChat.Write(imageBuffer, 0, bytesRead);
+                }
+            }
+        }
+
+
+
+       
     }
 }
