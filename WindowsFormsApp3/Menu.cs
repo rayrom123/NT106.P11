@@ -787,8 +787,29 @@ namespace WindowsFormsApp3
             }
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Show(button5, 0, button5.Height);
+        }
 
+        private void Smileys_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            textBox1.Text += e.ClickedItem.Text;
+        }
 
-       
+        private void Animals_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            textBox1.Text += e.ClickedItem.Text;
+        }
+
+        private void Food_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            textBox1.Text += e.ClickedItem.Text;
+        }
+
+        private void Symbols_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            textBox1.Text += e.ClickedItem.Text;
+        }
     }
 }

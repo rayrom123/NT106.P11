@@ -175,3 +175,14 @@ C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\obj\Debug\User_Enti
 C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\obj\Debug\User_Ent.6593406D.Up2Date
 C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\obj\Debug\User_Entity.dll
 C:\Users\phana\Source\Repos\NT106.P11-Projectpic\User_Entity\obj\Debug\User_Entity.pdb
+C:\Users\Admin\source\123\User_Entity\bin\Debug\User_Entity.dll
+C:\Users\Admin\source\123\User_Entity\bin\Debug\User_Entity.pdb
+C:\Users\Admin\source\123\User_Entity\bin\Debug\FireSharp.dll
+C:\Users\Admin\source\123\User_Entity\bin\Debug\Guna.UI2.dll
+C:\Users\Admin\source\123\User_Entity\bin\Debug\RestSharp.dll
+C:\Users\Admin\source\123\User_Entity\bin\Debug\RestSharp.xml
+C:\Users\Admin\source\123\User_Entity\obj\Debug\User_Entity.csproj.AssemblyReference.cache
+C:\Users\Admin\source\123\User_Entity\obj\Debug\User_Entity.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\123\User_Entity\obj\Debug\User_Ent.6593406D.Up2Date
+C:\Users\Admin\source\123\User_Entity\obj\Debug\User_Entity.dll
+C:\Users\Admin\source\123\User_Entity\obj\Debug\User_Entity.pdb

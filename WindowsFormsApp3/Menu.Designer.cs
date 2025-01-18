@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI2.AnimatorNS.Animation animation9 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation4 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.menu_tabcontrol = new Guna.UI2.WinForms.Guna2TabControl();
@@ -52,6 +52,10 @@
             this.fullname_l = new System.Windows.Forms.Label();
             this.username_l = new System.Windows.Forms.Label();
             this.tab_chat = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.chat_image = new Guna.UI2.WinForms.Guna2PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -80,17 +84,64 @@
             this.label7 = new System.Windows.Forms.Label();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Transition1 = new Guna.UI2.WinForms.Guna2Transition();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Smileys = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem30 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem31 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Animals = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem32 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem33 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem34 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem35 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem36 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem37 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem38 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem39 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem40 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem41 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem42 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Food = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Symbols = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem23 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem24 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem25 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem26 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem27 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem28 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem29 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem43 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem44 = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_tabcontrol.SuspendLayout();
             this.tab_profile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Image_View)).BeginInit();
             this.tab_chat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chat_image)).BeginInit();
             this.tab_matching.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image_t)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -108,7 +159,7 @@
             this.menu_tabcontrol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menu_tabcontrol.Name = "menu_tabcontrol";
             this.menu_tabcontrol.SelectedIndex = 0;
-            this.menu_tabcontrol.Size = new System.Drawing.Size(796, 451);
+            this.menu_tabcontrol.Size = new System.Drawing.Size(896, 564);
             this.menu_tabcontrol.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.menu_tabcontrol.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.menu_tabcontrol.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -154,16 +205,17 @@
             this.tab_profile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab_profile.Name = "tab_profile";
             this.tab_profile.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tab_profile.Size = new System.Drawing.Size(788, 403);
+            this.tab_profile.Size = new System.Drawing.Size(888, 516);
             this.tab_profile.TabIndex = 0;
             this.tab_profile.Text = "Profile";
             // 
             // Image_View
             // 
             this.guna2Transition1.SetDecoration(this.Image_View, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Image_View.Location = new System.Drawing.Point(496, 144);
+            this.Image_View.Location = new System.Drawing.Point(558, 180);
+            this.Image_View.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Image_View.Name = "Image_View";
-            this.Image_View.Size = new System.Drawing.Size(214, 146);
+            this.Image_View.Size = new System.Drawing.Size(241, 182);
             this.Image_View.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Image_View.TabIndex = 73;
             this.Image_View.TabStop = false;
@@ -171,9 +223,10 @@
             // Select_Image
             // 
             this.guna2Transition1.SetDecoration(this.Select_Image, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Select_Image.Location = new System.Drawing.Point(395, 191);
+            this.Select_Image.Location = new System.Drawing.Point(444, 239);
+            this.Select_Image.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Select_Image.Name = "Select_Image";
-            this.Select_Image.Size = new System.Drawing.Size(75, 23);
+            this.Select_Image.Size = new System.Drawing.Size(84, 29);
             this.Select_Image.TabIndex = 72;
             this.Select_Image.Text = "Select image";
             this.Select_Image.UseVisualStyleBackColor = true;
@@ -183,37 +236,39 @@
             // 
             this.label1.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.label1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.label1.Location = new System.Drawing.Point(407, 144);
+            this.label1.Location = new System.Drawing.Point(458, 180);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 16);
+            this.label1.Size = new System.Drawing.Size(54, 20);
             this.label1.TabIndex = 71;
             this.label1.Text = "Image";
             // 
             // dateofbirth_t
             // 
             this.guna2Transition1.SetDecoration(this.dateofbirth_t, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.dateofbirth_t.Location = new System.Drawing.Point(164, 98);
+            this.dateofbirth_t.Location = new System.Drawing.Point(184, 122);
+            this.dateofbirth_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateofbirth_t.Name = "dateofbirth_t";
             this.dateofbirth_t.ReadOnly = true;
-            this.dateofbirth_t.Size = new System.Drawing.Size(206, 22);
+            this.dateofbirth_t.Size = new System.Drawing.Size(231, 26);
             this.dateofbirth_t.TabIndex = 70;
             // 
             // gender_t
             // 
             this.guna2Transition1.SetDecoration(this.gender_t, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.gender_t.Location = new System.Drawing.Point(486, 14);
+            this.gender_t.Location = new System.Drawing.Point(547, 18);
+            this.gender_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gender_t.Name = "gender_t";
             this.gender_t.ReadOnly = true;
-            this.gender_t.Size = new System.Drawing.Size(206, 22);
+            this.gender_t.Size = new System.Drawing.Size(231, 26);
             this.gender_t.TabIndex = 69;
             // 
             // Back_button
             // 
             this.guna2Transition1.SetDecoration(this.Back_button, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Back_button.Location = new System.Drawing.Point(164, 313);
+            this.Back_button.Location = new System.Drawing.Point(184, 391);
             this.Back_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Back_button.Name = "Back_button";
-            this.Back_button.Size = new System.Drawing.Size(195, 34);
+            this.Back_button.Size = new System.Drawing.Size(219, 42);
             this.Back_button.TabIndex = 68;
             this.Back_button.Text = "Back";
             this.Back_button.UseVisualStyleBackColor = true;
@@ -222,10 +277,10 @@
             // Done_button
             // 
             this.guna2Transition1.SetDecoration(this.Done_button, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Done_button.Location = new System.Drawing.Point(496, 313);
+            this.Done_button.Location = new System.Drawing.Point(558, 391);
             this.Done_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Done_button.Name = "Done_button";
-            this.Done_button.Size = new System.Drawing.Size(195, 34);
+            this.Done_button.Size = new System.Drawing.Size(219, 42);
             this.Done_button.TabIndex = 67;
             this.Done_button.Text = "Done";
             this.Done_button.UseVisualStyleBackColor = true;
@@ -234,10 +289,10 @@
             // interest_t
             // 
             this.guna2Transition1.SetDecoration(this.interest_t, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.interest_t.Location = new System.Drawing.Point(164, 144);
+            this.interest_t.Location = new System.Drawing.Point(184, 180);
             this.interest_t.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.interest_t.Name = "interest_t";
-            this.interest_t.Size = new System.Drawing.Size(206, 145);
+            this.interest_t.Size = new System.Drawing.Size(231, 180);
             this.interest_t.TabIndex = 66;
             this.interest_t.Text = "";
             // 
@@ -269,18 +324,19 @@
             "Huyện Củ Chi",
             "Huyện Hóc Môn",
             "Huyện Nhà Bè"});
-            this.location_select.Location = new System.Drawing.Point(486, 98);
+            this.location_select.Location = new System.Drawing.Point(547, 122);
+            this.location_select.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.location_select.Name = "location_select";
-            this.location_select.Size = new System.Drawing.Size(206, 24);
+            this.location_select.Size = new System.Drawing.Size(231, 28);
             this.location_select.TabIndex = 65;
             // 
             // Interests_I
             // 
             this.Interests_I.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.Interests_I, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.Interests_I.Location = new System.Drawing.Point(53, 146);
+            this.Interests_I.Location = new System.Drawing.Point(60, 182);
             this.Interests_I.Name = "Interests_I";
-            this.Interests_I.Size = new System.Drawing.Size(57, 16);
+            this.Interests_I.Size = new System.Drawing.Size(72, 20);
             this.Interests_I.TabIndex = 64;
             this.Interests_I.Text = "Interests";
             // 
@@ -288,9 +344,9 @@
             // 
             this.location_I.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.location_I, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.location_I.Location = new System.Drawing.Point(407, 101);
+            this.location_I.Location = new System.Drawing.Point(458, 126);
             this.location_I.Name = "location_I";
-            this.location_I.Size = new System.Drawing.Size(58, 16);
+            this.location_I.Size = new System.Drawing.Size(70, 20);
             this.location_I.TabIndex = 63;
             this.location_I.Text = "Location";
             // 
@@ -298,37 +354,39 @@
             // 
             this.dateofbirth_I.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.dateofbirth_I, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.dateofbirth_I.Location = new System.Drawing.Point(53, 101);
+            this.dateofbirth_I.Location = new System.Drawing.Point(60, 126);
             this.dateofbirth_I.Name = "dateofbirth_I";
-            this.dateofbirth_I.Size = new System.Drawing.Size(79, 16);
+            this.dateofbirth_I.Size = new System.Drawing.Size(99, 20);
             this.dateofbirth_I.TabIndex = 62;
             this.dateofbirth_I.Text = "Date of Birth";
             // 
             // fullname_t
             // 
             this.guna2Transition1.SetDecoration(this.fullname_t, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.fullname_t.Location = new System.Drawing.Point(164, 54);
+            this.fullname_t.Location = new System.Drawing.Point(184, 68);
+            this.fullname_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fullname_t.Name = "fullname_t";
             this.fullname_t.ReadOnly = true;
-            this.fullname_t.Size = new System.Drawing.Size(528, 22);
+            this.fullname_t.Size = new System.Drawing.Size(594, 26);
             this.fullname_t.TabIndex = 61;
             // 
             // username_t
             // 
             this.guna2Transition1.SetDecoration(this.username_t, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.username_t.Location = new System.Drawing.Point(164, 14);
+            this.username_t.Location = new System.Drawing.Point(184, 18);
+            this.username_t.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.username_t.Name = "username_t";
             this.username_t.ReadOnly = true;
-            this.username_t.Size = new System.Drawing.Size(206, 22);
+            this.username_t.Size = new System.Drawing.Size(231, 26);
             this.username_t.TabIndex = 60;
             // 
             // gender_l
             // 
             this.gender_l.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.gender_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.gender_l.Location = new System.Drawing.Point(407, 19);
+            this.gender_l.Location = new System.Drawing.Point(458, 24);
             this.gender_l.Name = "gender_l";
-            this.gender_l.Size = new System.Drawing.Size(52, 16);
+            this.gender_l.Size = new System.Drawing.Size(63, 20);
             this.gender_l.TabIndex = 59;
             this.gender_l.Text = "Gender";
             // 
@@ -336,9 +394,9 @@
             // 
             this.fullname_l.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.fullname_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.fullname_l.Location = new System.Drawing.Point(53, 57);
+            this.fullname_l.Location = new System.Drawing.Point(60, 71);
             this.fullname_l.Name = "fullname_l";
-            this.fullname_l.Size = new System.Drawing.Size(62, 16);
+            this.fullname_l.Size = new System.Drawing.Size(74, 20);
             this.fullname_l.TabIndex = 58;
             this.fullname_l.Text = "Fullname";
             // 
@@ -346,15 +404,16 @@
             // 
             this.username_l.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.username_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.username_l.Location = new System.Drawing.Point(53, 17);
+            this.username_l.Location = new System.Drawing.Point(60, 21);
             this.username_l.Name = "username_l";
-            this.username_l.Size = new System.Drawing.Size(70, 16);
+            this.username_l.Size = new System.Drawing.Size(83, 20);
             this.username_l.TabIndex = 57;
             this.username_l.Text = "Username";
             // 
             // tab_chat
             // 
             this.tab_chat.BackColor = System.Drawing.Color.Pink;
+            this.tab_chat.Controls.Add(this.button5);
             this.tab_chat.Controls.Add(this.button4);
             this.tab_chat.Controls.Add(this.button3);
             this.tab_chat.Controls.Add(this.pictureBox1);
@@ -369,19 +428,66 @@
             this.tab_chat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab_chat.Name = "tab_chat";
             this.tab_chat.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tab_chat.Size = new System.Drawing.Size(788, 403);
+            this.tab_chat.Size = new System.Drawing.Size(888, 516);
             this.tab_chat.TabIndex = 2;
             this.tab_chat.Text = "Chat";
+            // 
+            // button5
+            // 
+            this.guna2Transition1.SetDecoration(this.button5, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button5.Location = new System.Drawing.Point(589, 379);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(114, 46);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "Emojis";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.guna2Transition1.SetDecoration(this.button4, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button4.Location = new System.Drawing.Point(709, 318);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(158, 29);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "send picture";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.guna2Transition1.SetDecoration(this.button3, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button3.Location = new System.Drawing.Point(709, 281);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(158, 29);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "select picture";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.guna2Transition1.SetDecoration(this.pictureBox1, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.pictureBox1.Location = new System.Drawing.Point(436, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(251, 339);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // chat_image
             // 
             this.chat_image.BorderRadius = 10;
             this.guna2Transition1.SetDecoration(this.chat_image, Guna.UI2.AnimatorNS.DecorationType.None);
             this.chat_image.ImageRotate = 0F;
-            this.chat_image.Location = new System.Drawing.Point(630, 5);
+            this.chat_image.Location = new System.Drawing.Point(709, 6);
             this.chat_image.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chat_image.Name = "chat_image";
-            this.chat_image.Size = new System.Drawing.Size(140, 118);
+            this.chat_image.Size = new System.Drawing.Size(158, 148);
             this.chat_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.chat_image.TabIndex = 5;
             this.chat_image.TabStop = false;
@@ -389,9 +495,10 @@
             // button2
             // 
             this.guna2Transition1.SetDecoration(this.button2, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.button2.Location = new System.Drawing.Point(630, 152);
+            this.button2.Location = new System.Drawing.Point(709, 190);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 37);
+            this.button2.Size = new System.Drawing.Size(158, 46);
             this.button2.TabIndex = 4;
             this.button2.Text = "Match Friends";
             this.button2.UseVisualStyleBackColor = true;
@@ -401,18 +508,20 @@
             // 
             this.guna2Transition1.SetDecoration(this.comboBox1, Guna.UI2.AnimatorNS.DecorationType.None);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(630, 195);
+            this.comboBox1.Location = new System.Drawing.Point(709, 244);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 24);
+            this.comboBox1.Size = new System.Drawing.Size(157, 28);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
             this.guna2Transition1.SetDecoration(this.button1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.button1.Location = new System.Drawing.Point(630, 303);
+            this.button1.Location = new System.Drawing.Point(709, 379);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 37);
+            this.button1.Size = new System.Drawing.Size(158, 46);
             this.button1.TabIndex = 2;
             this.button1.Text = "Send";
             this.button1.UseVisualStyleBackColor = true;
@@ -422,18 +531,20 @@
             // 
             this.guna2Transition1.SetDecoration(this.textBox1, Guna.UI2.AnimatorNS.DecorationType.None);
             this.textBox1.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(7, 315);
+            this.textBox1.Location = new System.Drawing.Point(8, 394);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(604, 25);
+            this.textBox1.Size = new System.Drawing.Size(568, 28);
             this.textBox1.TabIndex = 1;
             // 
             // richTextBox1
             // 
             this.guna2Transition1.SetDecoration(this.richTextBox1, Guna.UI2.AnimatorNS.DecorationType.None);
             this.richTextBox1.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(7, 5);
+            this.richTextBox1.Location = new System.Drawing.Point(8, 6);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(350, 271);
+            this.richTextBox1.Size = new System.Drawing.Size(393, 338);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -464,7 +575,7 @@
             this.tab_matching.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab_matching.Name = "tab_matching";
             this.tab_matching.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tab_matching.Size = new System.Drawing.Size(788, 403);
+            this.tab_matching.Size = new System.Drawing.Size(888, 516);
             this.tab_matching.TabIndex = 1;
             this.tab_matching.Text = "Matching";
             // 
@@ -480,9 +591,10 @@
             this.start_button.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.start_button.ForeColor = System.Drawing.Color.Black;
             this.start_button.Image = ((System.Drawing.Image)(resources.GetObject("start_button.Image")));
-            this.start_button.Location = new System.Drawing.Point(567, 301);
+            this.start_button.Location = new System.Drawing.Point(638, 376);
+            this.start_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.start_button.Name = "start_button";
-            this.start_button.Size = new System.Drawing.Size(112, 40);
+            this.start_button.Size = new System.Drawing.Size(126, 50);
             this.start_button.TabIndex = 127;
             this.start_button.Text = "Start";
             this.start_button.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -499,10 +611,11 @@
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.Black;
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
-            this.guna2Button2.Location = new System.Drawing.Point(282, 301);
+            this.guna2Button2.Location = new System.Drawing.Point(317, 376);
+            this.guna2Button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.PressedColor = System.Drawing.Color.Aquamarine;
-            this.guna2Button2.Size = new System.Drawing.Size(112, 40);
+            this.guna2Button2.Size = new System.Drawing.Size(126, 50);
             this.guna2Button2.TabIndex = 126;
             this.guna2Button2.Text = "Dislike";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
@@ -519,9 +632,10 @@
             this.like.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.like.ForeColor = System.Drawing.Color.Black;
             this.like.Image = ((System.Drawing.Image)(resources.GetObject("like.Image")));
-            this.like.Location = new System.Drawing.Point(427, 301);
+            this.like.Location = new System.Drawing.Point(480, 376);
+            this.like.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.like.Name = "like";
-            this.like.Size = new System.Drawing.Size(112, 40);
+            this.like.Size = new System.Drawing.Size(126, 50);
             this.like.TabIndex = 125;
             this.like.Text = "Like";
             this.like.Click += new System.EventHandler(this.like_Click);
@@ -532,19 +646,20 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.guna2Transition1.SetDecoration(this.label9, Guna.UI2.AnimatorNS.DecorationType.None);
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(334, 17);
+            this.label9.Location = new System.Drawing.Point(376, 21);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 25);
+            this.label9.Size = new System.Drawing.Size(87, 29);
             this.label9.TabIndex = 124;
             this.label9.Text = "Details";
             // 
             // usn_text
             // 
             this.guna2Transition1.SetDecoration(this.usn_text, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.usn_text.Location = new System.Drawing.Point(141, 92);
+            this.usn_text.Location = new System.Drawing.Point(159, 115);
+            this.usn_text.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.usn_text.Name = "usn_text";
             this.usn_text.ReadOnly = true;
-            this.usn_text.Size = new System.Drawing.Size(206, 22);
+            this.usn_text.Size = new System.Drawing.Size(231, 26);
             this.usn_text.TabIndex = 123;
             // 
             // usn_l
@@ -552,19 +667,20 @@
             this.usn_l.AutoSize = true;
             this.usn_l.BackColor = System.Drawing.Color.Transparent;
             this.guna2Transition1.SetDecoration(this.usn_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.usn_l.Location = new System.Drawing.Point(62, 95);
+            this.usn_l.Location = new System.Drawing.Point(70, 119);
             this.usn_l.Name = "usn_l";
-            this.usn_l.Size = new System.Drawing.Size(62, 16);
+            this.usn_l.Size = new System.Drawing.Size(74, 20);
             this.usn_l.TabIndex = 122;
             this.usn_l.Text = "Fullname";
             // 
             // gender_text
             // 
             this.guna2Transition1.SetDecoration(this.gender_text, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.gender_text.Location = new System.Drawing.Point(141, 54);
+            this.gender_text.Location = new System.Drawing.Point(159, 68);
+            this.gender_text.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gender_text.Name = "gender_text";
             this.gender_text.ReadOnly = true;
-            this.gender_text.Size = new System.Drawing.Size(206, 22);
+            this.gender_text.Size = new System.Drawing.Size(231, 26);
             this.gender_text.TabIndex = 121;
             // 
             // g_l
@@ -572,20 +688,20 @@
             this.g_l.AutoSize = true;
             this.g_l.BackColor = System.Drawing.Color.Transparent;
             this.guna2Transition1.SetDecoration(this.g_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.g_l.Location = new System.Drawing.Point(80, 57);
+            this.g_l.Location = new System.Drawing.Point(90, 71);
             this.g_l.Name = "g_l";
-            this.g_l.Size = new System.Drawing.Size(52, 16);
+            this.g_l.Size = new System.Drawing.Size(63, 20);
             this.g_l.TabIndex = 120;
             this.g_l.Text = "Gender";
             // 
             // interest_text
             // 
             this.guna2Transition1.SetDecoration(this.interest_text, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.interest_text.Location = new System.Drawing.Point(149, 134);
+            this.interest_text.Location = new System.Drawing.Point(168, 168);
             this.interest_text.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.interest_text.Name = "interest_text";
             this.interest_text.ReadOnly = true;
-            this.interest_text.Size = new System.Drawing.Size(541, 145);
+            this.interest_text.Size = new System.Drawing.Size(608, 180);
             this.interest_text.TabIndex = 119;
             this.interest_text.Text = "";
             // 
@@ -594,28 +710,30 @@
             this.inter_l.AutoSize = true;
             this.inter_l.BackColor = System.Drawing.Color.Transparent;
             this.guna2Transition1.SetDecoration(this.inter_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.inter_l.Location = new System.Drawing.Point(72, 134);
+            this.inter_l.Location = new System.Drawing.Point(81, 168);
             this.inter_l.Name = "inter_l";
-            this.inter_l.Size = new System.Drawing.Size(57, 16);
+            this.inter_l.Size = new System.Drawing.Size(72, 20);
             this.inter_l.TabIndex = 118;
             this.inter_l.Text = "Interests";
             // 
             // location_text
             // 
             this.guna2Transition1.SetDecoration(this.location_text, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.location_text.Location = new System.Drawing.Point(484, 54);
+            this.location_text.Location = new System.Drawing.Point(544, 68);
+            this.location_text.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.location_text.Name = "location_text";
             this.location_text.ReadOnly = true;
-            this.location_text.Size = new System.Drawing.Size(206, 22);
+            this.location_text.Size = new System.Drawing.Size(231, 26);
             this.location_text.TabIndex = 117;
             // 
             // birthday_text
             // 
             this.guna2Transition1.SetDecoration(this.birthday_text, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.birthday_text.Location = new System.Drawing.Point(484, 90);
+            this.birthday_text.Location = new System.Drawing.Point(544, 112);
+            this.birthday_text.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.birthday_text.Name = "birthday_text";
             this.birthday_text.ReadOnly = true;
-            this.birthday_text.Size = new System.Drawing.Size(206, 22);
+            this.birthday_text.Size = new System.Drawing.Size(231, 26);
             this.birthday_text.TabIndex = 116;
             // 
             // location_l
@@ -623,9 +741,9 @@
             this.location_l.AutoSize = true;
             this.location_l.BackColor = System.Drawing.Color.Transparent;
             this.guna2Transition1.SetDecoration(this.location_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.location_l.Location = new System.Drawing.Point(409, 57);
+            this.location_l.Location = new System.Drawing.Point(460, 71);
             this.location_l.Name = "location_l";
-            this.location_l.Size = new System.Drawing.Size(58, 16);
+            this.location_l.Size = new System.Drawing.Size(70, 20);
             this.location_l.TabIndex = 115;
             this.location_l.Text = "Location";
             // 
@@ -634,9 +752,9 @@
             this.birth_l.AutoSize = true;
             this.birth_l.BackColor = System.Drawing.Color.Transparent;
             this.guna2Transition1.SetDecoration(this.birth_l, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.birth_l.Location = new System.Drawing.Point(385, 93);
+            this.birth_l.Location = new System.Drawing.Point(433, 116);
             this.birth_l.Name = "birth_l";
-            this.birth_l.Size = new System.Drawing.Size(79, 16);
+            this.birth_l.Size = new System.Drawing.Size(99, 20);
             this.birth_l.TabIndex = 114;
             this.birth_l.Text = "Date of Birth";
             // 
@@ -654,11 +772,11 @@
             this.show_btn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.show_btn.ForeColor = System.Drawing.Color.White;
             this.show_btn.Image = ((System.Drawing.Image)(resources.GetObject("show_btn.Image")));
-            this.show_btn.Location = new System.Drawing.Point(722, 340);
+            this.show_btn.Location = new System.Drawing.Point(812, 425);
             this.show_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.show_btn.Name = "show_btn";
             this.show_btn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.show_btn.Size = new System.Drawing.Size(36, 21);
+            this.show_btn.Size = new System.Drawing.Size(40, 26);
             this.show_btn.TabIndex = 112;
             this.show_btn.UseTransparentBackground = true;
             this.show_btn.Click += new System.EventHandler(this.show_btn_Click);
@@ -677,11 +795,11 @@
             this.hide_btn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.hide_btn.ForeColor = System.Drawing.Color.White;
             this.hide_btn.Image = ((System.Drawing.Image)(resources.GetObject("hide_btn.Image")));
-            this.hide_btn.Location = new System.Drawing.Point(722, 12);
+            this.hide_btn.Location = new System.Drawing.Point(812, 15);
             this.hide_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hide_btn.Name = "hide_btn";
             this.hide_btn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.hide_btn.Size = new System.Drawing.Size(36, 21);
+            this.hide_btn.Size = new System.Drawing.Size(40, 26);
             this.hide_btn.TabIndex = 113;
             this.hide_btn.UseTransparentBackground = true;
             this.hide_btn.Click += new System.EventHandler(this.hide_btn_Click);
@@ -690,10 +808,10 @@
             // 
             this.guna2Transition1.SetDecoration(this.guna2Panel1, Guna.UI2.AnimatorNS.DecorationType.None);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel1.Location = new System.Drawing.Point(3, 383);
+            this.guna2Panel1.Location = new System.Drawing.Point(3, 492);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(782, 18);
+            this.guna2Panel1.Size = new System.Drawing.Size(882, 22);
             this.guna2Panel1.TabIndex = 111;
             // 
             // image_t
@@ -701,10 +819,10 @@
             this.image_t.BorderRadius = 10;
             this.guna2Transition1.SetDecoration(this.image_t, Guna.UI2.AnimatorNS.DecorationType.None);
             this.image_t.ImageRotate = 0F;
-            this.image_t.Location = new System.Drawing.Point(5, 1);
+            this.image_t.Location = new System.Drawing.Point(6, 1);
             this.image_t.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.image_t.Name = "image_t";
-            this.image_t.Size = new System.Drawing.Size(698, 294);
+            this.image_t.Size = new System.Drawing.Size(785, 368);
             this.image_t.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image_t.TabIndex = 110;
             this.image_t.TabStop = false;
@@ -714,9 +832,9 @@
             this.label7.AutoSize = true;
             this.guna2Transition1.SetDecoration(this.label7, Guna.UI2.AnimatorNS.DecorationType.None);
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 306);
+            this.label7.Location = new System.Drawing.Point(17, 382);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(189, 25);
+            this.label7.Size = new System.Drawing.Size(228, 29);
             this.label7.TabIndex = 109;
             this.label7.Text = "Press start to match!";
             // 
@@ -730,61 +848,381 @@
             // 
             this.guna2Transition1.AnimationType = Guna.UI2.AnimatorNS.AnimationType.VertSlide;
             this.guna2Transition1.Cursor = null;
-            animation9.AnimateOnlyDifferences = true;
-            animation9.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.BlindCoeff")));
-            animation9.LeafCoeff = 0F;
-            animation9.MaxTime = 1F;
-            animation9.MinTime = 0F;
-            animation9.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.MosaicCoeff")));
-            animation9.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation9.MosaicShift")));
-            animation9.MosaicSize = 0;
-            animation9.Padding = new System.Windows.Forms.Padding(0);
-            animation9.RotateCoeff = 0F;
-            animation9.RotateLimit = 0F;
-            animation9.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.ScaleCoeff")));
-            animation9.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.SlideCoeff")));
-            animation9.TimeCoeff = 0F;
-            animation9.TransparencyCoeff = 0F;
-            this.guna2Transition1.DefaultAnimation = animation9;
+            animation4.AnimateOnlyDifferences = true;
+            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
+            animation4.LeafCoeff = 0F;
+            animation4.MaxTime = 1F;
+            animation4.MinTime = 0F;
+            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
+            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
+            animation4.MosaicSize = 0;
+            animation4.Padding = new System.Windows.Forms.Padding(0);
+            animation4.RotateCoeff = 0F;
+            animation4.RotateLimit = 0F;
+            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
+            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
+            animation4.TimeCoeff = 0F;
+            animation4.TransparencyCoeff = 0F;
+            this.guna2Transition1.DefaultAnimation = animation4;
             // 
-            // pictureBox1
+            // contextMenuStrip1
             // 
-            this.guna2Transition1.SetDecoration(this.pictureBox1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.pictureBox1.Location = new System.Drawing.Point(388, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(223, 271);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.guna2Transition1.SetDecoration(this.contextMenuStrip1, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Smileys,
+            this.Animals,
+            this.Food,
+            this.Symbols});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(241, 165);
             // 
-            // button3
+            // Smileys
             // 
-            this.guna2Transition1.SetDecoration(this.button3, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.button3.Location = new System.Drawing.Point(630, 225);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "select picture";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Smileys.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem6,
+            this.toolStripMenuItem7,
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem9,
+            this.toolStripMenuItem14,
+            this.toolStripMenuItem17,
+            this.toolStripMenuItem20,
+            this.toolStripMenuItem30,
+            this.toolStripMenuItem31});
+            this.Smileys.Name = "Smileys";
+            this.Smileys.Size = new System.Drawing.Size(240, 32);
+            this.Smileys.Text = "Smileys";
+            this.Smileys.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Smileys_DropDownItemClicked);
             // 
-            // button4
+            // toolStripMenuItem2
             // 
-            this.guna2Transition1.SetDecoration(this.button4, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.button4.Location = new System.Drawing.Point(630, 254);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(140, 23);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "send picture";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem2.Text = "😁";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem4.Text = "🤣 ";
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem6.Text = "😄 ";
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem7.Text = "😅 ";
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem8.Text = "😆 ";
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem9.Text = "😇 ";
+            // 
+            // toolStripMenuItem14
+            // 
+            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem14.Text = "😍 ";
+            // 
+            // toolStripMenuItem17
+            // 
+            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
+            this.toolStripMenuItem17.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem17.Text = "😙 ";
+            // 
+            // toolStripMenuItem20
+            // 
+            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
+            this.toolStripMenuItem20.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem20.Text = "🤩 ";
+            // 
+            // toolStripMenuItem30
+            // 
+            this.toolStripMenuItem30.Name = "toolStripMenuItem30";
+            this.toolStripMenuItem30.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem30.Text = "💩 ";
+            // 
+            // toolStripMenuItem31
+            // 
+            this.toolStripMenuItem31.Name = "toolStripMenuItem31";
+            this.toolStripMenuItem31.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem31.Text = "👻";
+            // 
+            // Animals
+            // 
+            this.Animals.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem32,
+            this.toolStripMenuItem33,
+            this.toolStripMenuItem34,
+            this.toolStripMenuItem35,
+            this.toolStripMenuItem36,
+            this.toolStripMenuItem37,
+            this.toolStripMenuItem38,
+            this.toolStripMenuItem39,
+            this.toolStripMenuItem40,
+            this.toolStripMenuItem41,
+            this.toolStripMenuItem42});
+            this.Animals.Name = "Animals";
+            this.Animals.Size = new System.Drawing.Size(240, 32);
+            this.Animals.Text = "Animals";
+            this.Animals.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Animals_DropDownItemClicked);
+            // 
+            // toolStripMenuItem32
+            // 
+            this.toolStripMenuItem32.Name = "toolStripMenuItem32";
+            this.toolStripMenuItem32.Size = new System.Drawing.Size(270, 34);
+            this.toolStripMenuItem32.Text = "🐭 ";
+            // 
+            // toolStripMenuItem33
+            // 
+            this.toolStripMenuItem33.Name = "toolStripMenuItem33";
+            this.toolStripMenuItem33.Size = new System.Drawing.Size(270, 34);
+            this.toolStripMenuItem33.Text = "🐶";
+            // 
+            // toolStripMenuItem34
+            // 
+            this.toolStripMenuItem34.Name = "toolStripMenuItem34";
+            this.toolStripMenuItem34.Size = new System.Drawing.Size(270, 34);
+            this.toolStripMenuItem34.Text = "🐱 ";
+            // 
+            // toolStripMenuItem35
+            // 
+            this.toolStripMenuItem35.Name = "toolStripMenuItem35";
+            this.toolStripMenuItem35.Size = new System.Drawing.Size(270, 34);
+            this.toolStripMenuItem35.Text = "🐹 ";
+            // 
+            // toolStripMenuItem36
+            // 
+            this.toolStripMenuItem36.Name = "toolStripMenuItem36";
+            this.toolStripMenuItem36.Size = new System.Drawing.Size(270, 34);
+            this.toolStripMenuItem36.Text = "🦝 ";
+            // 
+            // toolStripMenuItem37
+            // 
+            this.toolStripMenuItem37.Name = "toolStripMenuItem37";
+            this.toolStripMenuItem37.Size = new System.Drawing.Size(270, 34);
+            this.toolStripMenuItem37.Text = "🦄 ";
+            // 
+            // toolStripMenuItem38
+            // 
+            this.toolStripMenuItem38.Name = "toolStripMenuItem38";
+            this.toolStripMenuItem38.Size = new System.Drawing.Size(270, 34);
+            this.toolStripMenuItem38.Text = "🐮 ";
+            // 
+            // toolStripMenuItem39
+            // 
+            this.toolStripMenuItem39.Name = "toolStripMenuItem39";
+            this.toolStripMenuItem39.Size = new System.Drawing.Size(270, 34);
+            this.toolStripMenuItem39.Text = "🦔 ";
+            // 
+            // toolStripMenuItem40
+            // 
+            this.toolStripMenuItem40.Name = "toolStripMenuItem40";
+            this.toolStripMenuItem40.Size = new System.Drawing.Size(270, 34);
+            this.toolStripMenuItem40.Text = "🐇 ";
+            // 
+            // toolStripMenuItem41
+            // 
+            this.toolStripMenuItem41.Name = "toolStripMenuItem41";
+            this.toolStripMenuItem41.Size = new System.Drawing.Size(270, 34);
+            this.toolStripMenuItem41.Text = "🦘 ";
+            // 
+            // toolStripMenuItem42
+            // 
+            this.toolStripMenuItem42.Name = "toolStripMenuItem42";
+            this.toolStripMenuItem42.Size = new System.Drawing.Size(270, 34);
+            this.toolStripMenuItem42.Text = "🦚 ";
+            // 
+            // Food
+            // 
+            this.Food.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem10,
+            this.toolStripMenuItem11,
+            this.toolStripMenuItem12,
+            this.toolStripMenuItem13,
+            this.toolStripMenuItem15,
+            this.toolStripMenuItem16,
+            this.toolStripMenuItem18,
+            this.toolStripMenuItem19});
+            this.Food.Name = "Food";
+            this.Food.Size = new System.Drawing.Size(240, 32);
+            this.Food.Text = "Food and Drink";
+            this.Food.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Food_DropDownItemClicked);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem1.Text = "🍎 ";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem3.Text = "🍐 ";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem5.Text = "🍊 ";
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem10.Text = "🍋 ";
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem11.Text = "🍌 ";
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem12.Text = "🍍 ";
+            // 
+            // toolStripMenuItem13
+            // 
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem13.Text = "🍒 ";
+            // 
+            // toolStripMenuItem15
+            // 
+            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem15.Text = "🍓 ";
+            // 
+            // toolStripMenuItem16
+            // 
+            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
+            this.toolStripMenuItem16.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem16.Text = "🍇 ";
+            // 
+            // toolStripMenuItem18
+            // 
+            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
+            this.toolStripMenuItem18.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem18.Text = "🍉 ";
+            // 
+            // toolStripMenuItem19
+            // 
+            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
+            this.toolStripMenuItem19.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem19.Text = "🍊 ";
+            // 
+            // Symbols
+            // 
+            this.Symbols.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem21,
+            this.toolStripMenuItem22,
+            this.toolStripMenuItem23,
+            this.toolStripMenuItem24,
+            this.toolStripMenuItem25,
+            this.toolStripMenuItem26,
+            this.toolStripMenuItem27,
+            this.toolStripMenuItem28,
+            this.toolStripMenuItem29,
+            this.toolStripMenuItem43,
+            this.toolStripMenuItem44});
+            this.Symbols.Name = "Symbols";
+            this.Symbols.Size = new System.Drawing.Size(240, 32);
+            this.Symbols.Text = "Symbols";
+            this.Symbols.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Symbols_DropDownItemClicked);
+            // 
+            // toolStripMenuItem21
+            // 
+            this.toolStripMenuItem21.Name = "toolStripMenuItem21";
+            this.toolStripMenuItem21.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem21.Text = "💖 ";
+            // 
+            // toolStripMenuItem22
+            // 
+            this.toolStripMenuItem22.Name = "toolStripMenuItem22";
+            this.toolStripMenuItem22.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem22.Text = "💗 ";
+            // 
+            // toolStripMenuItem23
+            // 
+            this.toolStripMenuItem23.Name = "toolStripMenuItem23";
+            this.toolStripMenuItem23.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem23.Text = "💘 ";
+            // 
+            // toolStripMenuItem24
+            // 
+            this.toolStripMenuItem24.Name = "toolStripMenuItem24";
+            this.toolStripMenuItem24.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem24.Text = "💝 ";
+            // 
+            // toolStripMenuItem25
+            // 
+            this.toolStripMenuItem25.Name = "toolStripMenuItem25";
+            this.toolStripMenuItem25.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem25.Text = "💟 ";
+            // 
+            // toolStripMenuItem26
+            // 
+            this.toolStripMenuItem26.Name = "toolStripMenuItem26";
+            this.toolStripMenuItem26.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem26.Text = "❣️ ";
+            // 
+            // toolStripMenuItem27
+            // 
+            this.toolStripMenuItem27.Name = "toolStripMenuItem27";
+            this.toolStripMenuItem27.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem27.Text = "💯 ";
+            // 
+            // toolStripMenuItem28
+            // 
+            this.toolStripMenuItem28.Name = "toolStripMenuItem28";
+            this.toolStripMenuItem28.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem28.Text = "🔥 ";
+            // 
+            // toolStripMenuItem29
+            // 
+            this.toolStripMenuItem29.Name = "toolStripMenuItem29";
+            this.toolStripMenuItem29.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem29.Text = "💢 ";
+            // 
+            // toolStripMenuItem43
+            // 
+            this.toolStripMenuItem43.Name = "toolStripMenuItem43";
+            this.toolStripMenuItem43.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem43.Text = "💥 ";
+            // 
+            // toolStripMenuItem44
+            // 
+            this.toolStripMenuItem44.Name = "toolStripMenuItem44";
+            this.toolStripMenuItem44.Size = new System.Drawing.Size(144, 34);
+            this.toolStripMenuItem44.Text = "💨 ";
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Pink;
-            this.ClientSize = new System.Drawing.Size(806, 447);
+            this.ClientSize = new System.Drawing.Size(907, 559);
             this.Controls.Add(this.menu_tabcontrol);
             this.guna2Transition1.SetDecoration(this, Guna.UI2.AnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -798,11 +1236,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.Image_View)).EndInit();
             this.tab_chat.ResumeLayout(false);
             this.tab_chat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chat_image)).EndInit();
             this.tab_matching.ResumeLayout(false);
             this.tab_matching.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image_t)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -861,5 +1300,55 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem Smileys;
+        private System.Windows.Forms.ToolStripMenuItem Animals;
+        private System.Windows.Forms.ToolStripMenuItem Food;
+        private System.Windows.Forms.ToolStripMenuItem Symbols;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem20;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem30;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem31;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem32;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem33;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem34;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem35;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem36;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem37;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem38;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem39;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem40;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem41;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem42;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem16;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem19;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem21;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem22;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem23;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem24;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem25;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem26;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem27;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem28;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem29;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem43;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem44;
     }
 }
